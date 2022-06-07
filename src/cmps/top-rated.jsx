@@ -16,10 +16,10 @@ export function TopRated({ onSetFilter }) {
   const [stay4, setStay4] = useState('')
 
   useEffect(() => {
-    stayService.getById('6299a8e1df6203c96eadeb06').then(res => setStay1(res))
-    stayService.getById('6299b3c0f8b25d203c69e0bb').then(res => setStay2(res))
-    stayService.getById('6299a8e1df6203c96eadeb23').then(res => setStay3(res))
-    stayService.getById('6299a8e1df6203c96eadeae4').then(res => setStay4(res))
+    // stayService.getById('6299a8e1df6203c96eadeb06').then(res => setStay1(res))
+    // stayService.getById('6299b3c0f8b25d203c69e0bb').then(res => setStay2(res))
+    // stayService.getById('6299a8e1df6203c96eadeb23').then(res => setStay3(res))
+    // stayService.getById('6299a8e1df6203c96eadeae4').then(res => setStay4(res))
   }
     , [])
 
