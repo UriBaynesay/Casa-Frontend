@@ -1,0 +1,41 @@
+
+.pop-cities{
+    display: grid;
+    grid-template-columns :repeat(auto-fit,minmax(250px,1fr));
+    gap: 30px;
+    .card{
+        aspect-ratio: 1/1;
+
+    }
+      height: 280px;
+  margin-top: 25px;
+  cursor: pointer;
+      img{
+        border-radius: 13px;
+        width: 100%;
+        height: 100%;
+      object-fit: cover;
+
+      }
+      .city-details{
+          text-align: left;
+          padding-left: 5px;
+          span{
+              color: #717171 ;
+              font-size: 12px;
+          }
+}
+    
+}
+
+.header-popular,.header-top-rated{
+    font-weight: 1000;
+    font-size:35px;
+    color: $main-black;
+}
+
+
+
+.color-city{
+    color: $main-black;
+}

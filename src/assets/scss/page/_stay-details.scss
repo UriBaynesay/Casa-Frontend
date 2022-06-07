@@ -1,0 +1,108 @@
+.stay-details-container {
+  margin-top: 80px;
+  .stay-title-info-container {
+    height: 86px;
+    .stay-name {
+      line-height: 30px;
+      color: $main-black;
+      font-size: 26px;
+      padding-top: 24px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    .short-desc {
+      margin-top: 12px;
+      display: flex;
+      font-size: 15px;
+      justify-content: space-between;
+      .quick-actions {
+        display: flex;
+        font-weight: 600;
+        line-height: 18px;
+        text-align: center;
+        text-decoration: underline;
+        img {
+          margin-right: 8px;
+          object-fit: cover;
+          height: 69%;
+        }
+        > *:hover {
+          background-color: rgba(211, 211, 211, 0.164);
+          border-radius: 8px;
+        }
+        .share-btn {
+          display: flex;
+          margin-right: 18px;
+        }
+        .save-btn {
+          display: flex;
+        }
+      }
+      .stats {
+        color: $main-black;
+        font-weight: 600;
+        .reviews {
+          text-decoration: underline;
+        }
+        .seperate-dott {
+          margin-inline: 8px;
+        }
+        .super-host {
+          font-weight: 400;
+        }
+        .address {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+  .img-layout {
+    height: 454px;
+    padding-top: 30px;
+    max-width: 1320px;
+    margin-bottom: 20px;
+    .stay-imgs-container {
+      display: grid;
+      grid-template-columns: 2.4fr 1.2fr 1.2fr;
+      grid-template-rows: 205px 214px;
+      grid-gap: 8px;
+      border-radius: 12px;
+      
+      img {
+        aspect-ratio: 1;
+        object-fit: cover;
+        height: 100%;
+        width: 100%;
+      }
+      .main-img-container {
+        grid-column: 1/2;
+        grid-row: 1/-1;
+        border-radius: 12px 0px 0px 12px;
+      }
+    
+    }
+  }
+
+  .info-reserve {
+    display: flex;
+    justify-content: stretch;
+  }
+
+  .host-info {
+    border-top: 1px solid rgb(221, 221, 221);
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+  .short-info-container{
+   color: $main-black;
+   font-size: 1em;
+   h4{
+font-size: 18px;
+   }
+  }
+
+  .map-container{
+    margin-bottom: 5rem;
+  }
+
+}
