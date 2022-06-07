@@ -3,7 +3,6 @@ import React from "react";
 export function AppFooter() {
     return (
         <footer className="main-footer">
-
             <section className="footer-nav-container">
                 <div className="first-block" >
                     <span>© 2022 Casa,</span>Inc.

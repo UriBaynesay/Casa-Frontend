@@ -9,7 +9,6 @@ import { useState } from "react"
 import { stayService } from '../services/stay.service'
 export function TopRated({ onSetFilter }) {
 
-
   const [stay1, setStay1] = useState('')
   const [stay2, setStay2] = useState('')
   const [stay3, setStay3] = useState('')
@@ -24,7 +23,7 @@ export function TopRated({ onSetFilter }) {
     , [])
 
   return (
-    <section className="top-rated">
+    <section className="top-rated-container">
       <h1 className="header-top-rated">Top Rated</h1>
 
       <section className="pop-cities">

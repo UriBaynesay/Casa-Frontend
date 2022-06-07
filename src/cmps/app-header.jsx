@@ -15,23 +15,22 @@ import {
 import { showUserMsg } from "../services/event-bus.service"
 
 export function AppHeader() {
-  const [user,setUser] = useState(userService.getLoggedinUser())
-  console.log(user)
+  const [user, setUser] = useState(userService.getLoggedinUser())
   const [headerClass, setHeaderClass] = useState("")
   const [img, setImg] = useState(logoImg2)
   let location = useLocation()
   const dispatch = useDispatch()
 
-  const changeColors = (ev) => {
-    if (ev.path[1].scrollY === 0) {
-      setHeaderClass("home-page home-page-layout")
-      setImg(logoImg2)
-    }
-    if (ev.path[1].scrollY > 1) {
-      setHeaderClass("home-page-layout")
-      setImg(logoImg)
-    }
-  }
+  // const changeColors = (ev) => {
+  //   if (ev.path[1].scrollY === 0) {
+  //     setHeaderClass("home-page home-page-layout")
+  //     setImg(logoImg2)
+  //   }
+  //   if (ev.path[1].scrollY > 1) {
+  //     setHeaderClass("home-page-layout")
+  //     setImg(logoImg)
+  //   }
+  // }
 
   const emitNewOrder = () => {
     showUserMsg("New order in your dashboard!")
@@ -46,71 +45,70 @@ export function AppHeader() {
     socketService.on(SOCKET_EVENT_NEW_ORDER, emitNewOrder)
 
     if (location.pathname === "/") {
-      window.addEventListener("scroll", changeColors)
-      setHeaderClass("home-page home-page-layout")
+      // window.addEventListener("scroll", changeColors)
+      setHeaderClass("homepage")
       setImg(logoImg2)
-    } else 
-    if (location.pathname.includes("/stay/details")) {
-      setHeaderClass("details-page-layout")
-      setImg(logoImg)
-    } else if(location.pathname === "/dashboard"&&user.notification){
-      debugger
-      setUser(userService.setNotification(false))
-    }else {
-      setHeaderClass("general-layout")
+    }
+    // else
+    // if (location.pathname.includes("/stay/details")) {
+    //   setHeaderClass("details-page")
+    //   setImg(logoImg)
+    // } else if(location.pathname === "/dashboard"&&user.notification){
+    //   debugger
+    //   setUser(userService.setNotification(false))
+    // }
+    else {
       setImg(logoImg)
     }
-    return () => {
-      window.removeEventListener("scroll", changeColors)
-      setHeaderClass("")
-      setImg(logoImg)
-    }
-  }, [location.pathname,user])
+    // return () => {
+    //   window.removeEventListener("scroll", changeColors)
+    //   setHeaderClass("")
+    //   setImg(logoImg)
+    // }
+  }, [location.pathname, user])
 
   return (
     <header className={`app-header ${headerClass}`}>
-      <div className="search-bar ">
-        {" "}
-        <StaySearch />
-      </div>
-
-      <Link
-        className="explore"
-        to="/stays"
-        onClick={() => {
-          dispatch(setFilterBy(null))
-        }}
-      >
-        Explore
-      </Link>
-      {user ? (
-        <Link className="host" to="/dashboard">
-          Host Dashboard
-        </Link>
-      ) : (
-        <Link className="host" to="/host">
-          Become a host
-        </Link>
-      )}
-
-      {!user ? (
-        <Link className="user" to="/login">
-          <AccountCircleIcon />{" "}
-        </Link>
-      ) : (
-        <Link className="user" to="/userdashboard">
-          {user?.notification && <div className="notification"></div>}
-          <img className="user-pic" src={user.imgUrl}></img>{" "}
-        </Link>
-      )}
-
-      <div className="logo">
-        <img className="img-logo" src={img}></img>
+      <div className="logo-container">
+        <img className="img-logo" src={img} alt="" />
         <Link to="/">
-          {" "}
-          <h1 className="text">casa </h1>
+          <h1 className="text-logo">casa</h1>
         </Link>
       </div>
+
+      <StaySearch />
+
+      <nav>
+        <Link
+          className="explore"
+          to="/stays"
+          onClick={() => {
+            dispatch(setFilterBy(null))
+          }}
+        >
+          Explore
+        </Link>
+        {user ? (
+          <Link className="host" to="/dashboard">
+            Host Dashboard
+          </Link>
+        ) : (
+          <Link className="host" to="/host">
+            Become a host
+          </Link>
+        )}
+
+        {!user ? (
+          <Link className="user" to="/login">
+            <AccountCircleIcon />{" "}
+          </Link>
+        ) : (
+          <Link className="user" to="/userdashboard">
+            {user?.notification && <div className="notification"></div>}
+            <img className="user-pic" src={user.imgUrl}></img>{" "}
+          </Link>
+        )}
+      </nav>
     </header>
   )
 }

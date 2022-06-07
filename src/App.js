@@ -1,19 +1,27 @@
-import { Link, Routes, Route } from "react-router-dom";
-import React from 'react'
-import "../src/assets/scss/main.scss";
-import routes from "./routes";
-import { AppHeader } from './cmps/app-header'
-import { UserMsg } from "./cmps/user-msg";
-import { AppFooter } from './cmps/app-footer.jsx'
-import { StaySearch } from './cmps/stay-search.jsx'
-
+import { Routes, Route, useLocation } from "react-router-dom"
+import "../src/assets/scss/main.scss"
+import routes from "./routes"
+import { AppHeader } from "./cmps/app-header"
+import { UserMsg } from "./cmps/user-msg"
+import { AppFooter } from "./cmps/app-footer.jsx"
+import { useEffect, useState } from "react"
 
 function App() {
-  return (
-    <div className="App">
-      <main className="main-content">
-        <AppHeader />
+  const [layoutClass, setLayoutClass] = useState("")
+  const location = useLocation()
 
+  useEffect(() => {
+    switch (location.pathname) {
+      case "/":
+        setLayoutClass("homepage")
+        break
+      default:
+    }
+  }, [location.pathname])
+
+  return (
+    <div className={`App ${layoutClass}`}>
+      <AppHeader />
         <Routes>
           {routes.map((route) => {
             return (
@@ -23,16 +31,13 @@ function App() {
                 exact={true}
                 element={route.component}
               />
-            );
+            )
           })}
         </Routes>
-        <UserMsg/>
-        <AppFooter />
-
-      </main>
-
+      <AppFooter />
+      <UserMsg />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

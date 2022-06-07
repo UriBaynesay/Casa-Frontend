@@ -9,179 +9,87 @@ import { setFilterBy } from "../store/action/stay.action.js"
 import SearchIcon from "@mui/icons-material/Search"
 
 export const StaySearch = () => {
-  const [isSearchExpand, setSearchExpand] = useState(false)
-  const [currExpand, setExpand] = useState(null)
-  const [searchBy, setSearchBy] = useState({})
-  const dispatch = useDispatch()
-  let navigate = useNavigate()
+  const [layout, setLayout] = useState(null)
+  // const [isSearchExpand, setSearchExpand] = useState(false)
+  // const [currExpand, setExpand] = useState(null)
+  // const [searchBy, setSearchBy] = useState({})
+  // const dispatch = useDispatch()
+  // let navigate = useNavigate()
   let location = useLocation()
-  const { filterBy } = useSelector((storeState) => storeState.stayModule)
-  console.log('filter by from state ', filterBy)
-  const onSetSearchLocation = (ev) => {
-    ev.preventDefault()
-    setSearchBy({ ...searchBy, stayLocation: ev.target.value })
-  }
+  // const { filterBy } = useSelector((storeState) => storeState.stayModule)
+  // console.log('filter by from state ', filterBy)
+  // const onSetSearchLocation = (ev) => {
+  //   ev.preventDefault()
+  //   setSearchBy({ ...searchBy, stayLocation: ev.target.value })
+  // }
 
-  const onQuickSearchByLocation = (stayLocation) => {
-    dispatch(setFilterBy({ ...searchBy, stayLocation }))
-    navigate("/stays")
-  }
+  // const onQuickSearchByLocation = (stayLocation) => {
+  //   dispatch(setFilterBy({ ...searchBy, stayLocation }))
+  //   navigate("/stays")
+  // }
 
-  const onSearch = (ev = null) => {
-    if (ev) ev.preventDefault()
-    dispatch(setFilterBy(searchBy))
-    navigate("/stays")
-  }
+  // const onSearch = (ev = null) => {
+  //   if (ev) ev.preventDefault()
+  //   dispatch(setFilterBy(searchBy))
+  //   navigate("/stays")
+  // }
 
   useEffect(() => {
     //close filter expand when moveing to another page
-    setSearchExpand(false)
+    // setSearchExpand(false)
     if (location.pathname === "/") {
-      setSearchBy({})
-      document
-        .querySelector(".main-container")
-        .addEventListener("click", setSearchExpand(false))
+      setLayout("homepage")
+      // setSearchBy({})
+      // document
+      //   .querySelector(".main-container")
+      //   .addEventListener("click", setSearchExpand(false))
     }
     return () => {
-      document.removeEventListener("click", setSearchExpand())
+      // document.removeEventListener("click", setSearchExpand())
     }
   }, [location])
 
-  console.log(searchBy)
+  // console.log(searchBy)
   return (
-    <section className="app-filter-container">
-      <div className="app-filter">
-        <div
-          className="filter-btn-container filter-btn-location"
-          onClick={() => {
-            setSearchExpand(!isSearchExpand)
-            setExpand("Anywhere")
-          }}
-        >
-          <div className="filter-btn">
-            {currExpand === "Anywhere" && isSearchExpand ? (
-              <div>
-                Where
-                <form onSubmit={onSearch}>
-                  <input
-                    className="destination-input"
-                    type="text"
-                    onClick={(e) => e.stopPropagation()}
-                    onChange={(event) => {
-                      onSetSearchLocation(event)
-                    }}
-                    placeholder="Search Destinations"
-                  />
-                </form>
-              </div>
-            ) : (
-              searchBy.stayLocation ||
-              (searchBy.region && (
-                <div>
-                  {" "}
-                  Where <p>{searchBy.stayLocation || searchBy.region}</p>{" "}
-                </div>
-              )) ||
-              filterBy?.stayLocation || "Anywhere"
+    <section className={`search-container ${layout}`}>
+      <div className="input-container">
+        <div className="location-container flex space-between">
+          <div className="txt">
+            <h4 className="title">Location</h4>
+            <h4 className="description">Where are you going</h4>
+          </div>
+          <div className="separator"></div>
+        </div>
 
-            )}
+        <div className="date-checkin-container flex space-between">
+          <div className="txt">
+            <h4 className="title">Check in</h4>
+            <h4 className="description">Add dates</h4>
+          </div>
+          <div className="separator"></div>
+        </div>
+
+        <div className="date-checkout-container flex space-between">
+          <div className="txt">
+            <h4 className="title">Check out</h4>
+            <h4 className="description">Add dates</h4>
+          </div>
+          <div className="separator"></div>
+        </div>
+
+        <div className="guests-container flex space-between">
+          <div className="txt">
+            <h4 className="title">Guests</h4>
+            <h4 className="description">Add guests</h4>
           </div>
         </div>
-        <span className="filter-span"></span>
-        <div
-          className="filter-btn-container filter-btn-dates"
-          onClick={() => {
-            setSearchExpand(!isSearchExpand)
-            setExpand("Any week")
-          }}
-        >
-          <div className="filter-btn">
-            {currExpand === "Any week" && isSearchExpand ? (
-              <div>
-                <p>When</p>
-                <p>Any week</p>
-              </div>
-            ) : (
-              (searchBy.startDate && searchBy.endDate && (
-                <div className="check-in-container">
-                  <div className=" check">
-                    {" "}
-                    <p>Check in</p>{" "}
-                    {new Date(searchBy.startDate).toLocaleDateString()}
-                  </div>
-                  <div className=" check">
-                    <p>Check out</p>
-                    {new Date(searchBy.endDate).toLocaleDateString()}{" "}
-                  </div>{" "}
-                </div>
-              )) ||
-              "Any week"
-            )}
-          </div>
-        </div>
-        <span className="filter-span"></span>
-        <div className="filter-btn-container filter-btn-guests">
-          <div
-            className="filter-btn"
-            onClick={() => {
-              setSearchExpand(!isSearchExpand)
-              setExpand("Add guests")
-            }}
-          >
-            {currExpand === "Add guests" && isSearchExpand ? (
-              <div>
-                <p>Who</p>
-                <p>Add guests</p>
-              </div>
-            ) : (
-              (searchBy.guestsNumber && (
-                <p>{searchBy.guestsNumber} guests</p>
-              )) || <p className="add-guests-paragraph">Add guests</p>
-            )}
-          </div>
-          <div className="search">
-            <div className="search-icon" onClick={() => onSearch()}>
-              <SearchIcon className="search-icon-svg" />
-            </div>
+
+        <div className="search-btn-container">
+          <div className="search-btn">
+            <SearchIcon htmlColor="#fff"/>
           </div>
         </div>
       </div>
-      {isSearchExpand && (
-        <div className="filter-expand">
-          {currExpand === "Anywhere" && (
-            <div>
-              <SearchByDestination
-                onQuickSearchByLocation={onQuickSearchByLocation}
-              />
-            </div>
-          )}
-          {currExpand === "Any week" && (
-            <div>
-              <SearchByDate
-                onSetDates={(start, end) =>
-                  setSearchBy({
-                    ...searchBy,
-                    dates: {
-                      startDate: start.getTime(),
-                      endDate: end.getTime(),
-                    },
-                  })
-                }
-              />
-            </div>
-          )}
-          {currExpand === "Add guests" && (
-            <div>
-              <AddGuestsFilter
-                setGuests={(guests) =>
-                  setSearchBy({ ...searchBy, guestsCount: guests })
-                }
-                maxGuests={Infinity}
-              />
-            </div>
-          )}
-        </div>
-      )}
     </section>
   )
 }
