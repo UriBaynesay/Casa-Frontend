@@ -24,13 +24,13 @@
     font-weight: 600;
     font-size: 15px;
     display: grid;
-    grid-template-columns: 1fr 1fr 0.5fr;
+    grid-template-columns: 3fr 0.5fr;
     .stay-address {
       font-weight: 600;
+      overflow: hidden;
       color: #222222;
     }
     .star-rating {
-      grid-column: 3/4;
       justify-self: center;
     }
   }
