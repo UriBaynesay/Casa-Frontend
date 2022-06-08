@@ -10,7 +10,7 @@ import SearchIcon from "@mui/icons-material/Search"
 
 export const StaySearch = () => {
   const [layout, setLayout] = useState(null)
-  // const [searchBy, setSearchBy] = useState({})
+  const [searchBy, setSearchBy] = useState({})
   const [openModal, setOpenModal] = useState(null)
   const {filterBy}=useSelector(storeState=>storeState.stayModule)
   let location = useLocation()
@@ -33,9 +33,9 @@ export const StaySearch = () => {
   // }
 
   const onSetFilter = (value, name) => {
-    // setSearchBy({ ...searchBy, [name]: value })
-    dispatch(setFilterBy({[name]:value}))
-    setOpenModal(null)
+    setSearchBy({ ...searchBy, [name]: value })
+    // dispatch(setFilterBy({[name]:value}))
+    if(name==='stayLocation')setOpenModal(null)
   }
 
   // const onQuickSearchByLocation = (stayLocation) => {
@@ -45,7 +45,9 @@ export const StaySearch = () => {
 
   const onSearch = (ev = null) => {
     if (ev) ev.preventDefault()
-    // setSearchBy({})
+    dispatch(setFilterBy(searchBy))
+    setSearchBy({})
+    setOpenModal(null)
     navigate("/stays")
   }
 
@@ -68,7 +70,7 @@ export const StaySearch = () => {
             <input
               type="text"
               name="stayLocation"
-              value={filterBy?.stayLocation ? filterBy.stayLocation : ""}
+              value={searchBy?.stayLocation ? searchBy.stayLocation : ""}
               placeholder="Where are you going"
               onChange={(ev) => onSetFilter(ev.target.value, ev.target.name)}
             />
@@ -107,7 +109,10 @@ export const StaySearch = () => {
       </div>
       <div className="modal-container">
         {openModal && (
-          <SearchModal modal={openModal} setOpenModal={setOpenModal} />
+          <SearchModal
+            modal={openModal}
+            onSetFilter={onSetFilter}
+          />
         )}
       </div>
     </section>

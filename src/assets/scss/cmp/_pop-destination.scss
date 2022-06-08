@@ -1,8 +1,9 @@
 .pop-cities-container{
-    padding-top: 20px;
+    padding-top: 40px;
     grid-area: top-city;
     .title{
         margin-bottom: 10px;
+        font-size: 40px;
     }
     .cards-container{
         display: grid;
@@ -21,6 +22,7 @@
                 width: 100%;
             }
             .city-details{
+                padding-top:8px;
                 .town{
                     font-size: 18px;
                     font-weight: 600;

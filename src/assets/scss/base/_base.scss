@@ -48,7 +48,7 @@ input{
   &.homepage {
     display: grid;
     grid-template-columns: minmax(0, 150px) 1fr minmax(0, 150px);
-    grid-template-rows: 180px 1fr 30px;
+    grid-template-rows: 180px 1fr 90px;
     grid-template-areas:
       "header header header"
       "main main main"

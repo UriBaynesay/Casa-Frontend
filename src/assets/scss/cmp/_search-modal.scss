@@ -53,17 +53,34 @@
   .guest-input-container {
     display: flex;
     justify-content: space-between;
+    border-bottom: 1px solid $light-grey;
     .txt {
       h3 {
-        font-size: 14px;
+        font-size: 15px;
         margin-bottom: 6px;
       }
       h4 {
         font-weight: 400;
       }
     }
-    .btn-container{
+    .btn-container {
       display: flex;
+      justify-content: space-between;
+      width: 110px;
+      height: 35px;
+      .count-container{
+        display: flex;
+        align-items: center;
+      }
+      .btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 35px;
+        border: 1px solid $main-grey;
+        border-radius: 3em;
+        cursor: pointer;
+      }
     }
   }
 }

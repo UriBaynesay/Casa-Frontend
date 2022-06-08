@@ -11,7 +11,7 @@ export function TopRated() {
 
   const loadStays = async () => {
     const stay1 = await stayService.getById("622f337a75c7d36e498aaaf9")
-    const stay2 = await stayService.getById("622f337a75c7d36e498aaafa")
+    const stay2 = await stayService.getById("622f337a75c7d36e498aaaff")
     const stay3 = await stayService.getById("622f337a75c7d36e498aaafb")
     const stay4 = await stayService.getById("622f337a75c7d36e498aaafc")
     setStays([stay1, stay2, stay3, stay4])

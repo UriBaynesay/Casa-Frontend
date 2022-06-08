@@ -1,14 +1,12 @@
-import { useDispatch } from "react-redux"
-
-import { SearchByDate } from "./stay-filter-search-dates"
-import { setFilterBy } from "../store/action/stay.action"
 import { useState } from "react"
 
-export const SearchModal = ({ modal, setOpenModal }) => {
+import { SearchByDate } from "./stay-filter-search-dates"
+
+export const SearchModal = ({ modal, onSetFilter }) => {
   const onSetDates = () => {}
 
   if (modal === "location") {
-    return <LocationModal setOpenModal={setOpenModal} />
+    return <LocationModal onSetFilter={onSetFilter} />
   }
   if (modal === "date") {
     return (
@@ -18,12 +16,11 @@ export const SearchModal = ({ modal, setOpenModal }) => {
     )
   }
   if (modal === "guests") {
-    return <GuestModal setOpenModal={setOpenModal} />
+    return <GuestModal onSetFilter={onSetFilter} />
   }
 }
 
-const LocationModal = ({ setOpenModal }) => {
-  const dispatch = useDispatch()
+const LocationModal = ({ onSetFilter }) => {
   const locations = [
     "Spain",
     "United States",
@@ -41,8 +38,7 @@ const LocationModal = ({ setOpenModal }) => {
             <div
               className="card"
               onClick={() => {
-                dispatch(setFilterBy({ stayLocation: location }))
-                setOpenModal(null)
+                onSetFilter(location, "stayLocation")
               }}
             >
               <div className="img-container">
@@ -60,7 +56,7 @@ const LocationModal = ({ setOpenModal }) => {
   )
 }
 
-const GuestModal = ({ setOpenModal }) => {
+const GuestModal = ({ onSetFilter }) => {
   const guests = [
     { type: "Adults", description: "Ages 13 or above" },
     { type: "Children", description: "Ages 2-12" },
@@ -74,6 +70,15 @@ const GuestModal = ({ setOpenModal }) => {
     pets: 0,
   })
 
+  const onChangeGuests = (type, diff) => {
+    if (guestCount[type] === 0 && diff === -1) return
+    onSetFilter(
+      guestCount.adults + guestCount.children + guestCount.infants + diff,
+      "guestCount"
+    )
+    setGuestCount({ ...guestCount, [type]: guestCount[type] + diff })
+  }
+
   return (
     <div className="guests-modal-container">
       {guests.map((guest) => {
@@ -84,11 +89,21 @@ const GuestModal = ({ setOpenModal }) => {
               <h4>{guest.description}</h4>
             </div>
             <div className="btn-container">
-              <div className="subtract-btn">-</div>
+              <div
+                className="btn"
+                onClick={() => onChangeGuests(guest.type.toLowerCase(), -1)}
+              >
+                -
+              </div>
               <div className="count-container">
                 {guestCount[guest.type.toLowerCase()]}
               </div>
-              <div className="add-btn">+</div>
+              <div
+                className="btn"
+                onClick={() => onChangeGuests(guest.type.toLowerCase(), 1)}
+              >
+                +
+              </div>
             </div>
           </div>
         )
