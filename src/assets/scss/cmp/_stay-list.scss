@@ -1,7 +1,8 @@
 .stay-list-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  column-gap: 38px;
-  row-gap: 38px;
-  padding-top: 26px;
-  padding-bottom: 90px;}
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  column-gap: 24px;
+  row-gap: 34px;
+  padding-top: 45px;
+  padding-bottom: 90px;
+}
