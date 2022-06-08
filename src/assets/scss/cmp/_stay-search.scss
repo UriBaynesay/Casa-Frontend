@@ -9,19 +9,24 @@
     > *:not(:last-child) {
       padding-block: 15px;
     }
-    .separator{
-        width: 1px;
-        background-color: $light-grey;
+    .separator {
+      width: 1px;
+      background-color: $light-grey;
     }
     .search-btn-container {
-      padding: 9px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-right: 6px;
       .search-btn {
+        cursor: pointer;
         display: flex;
         justify-content: center;
         align-items: center;
         background-color: rgb(255, 56, 92);
         border-radius: 50%;
         aspect-ratio: 1;
+        padding: 12px;
       }
     }
   }
@@ -31,15 +36,18 @@
       height: 65px;
       > *:not(:last-child) {
         padding-left: 35px;
-        .title {
-          color: black;
-          font-weight: 600;
-          font-size: 12px;
-        }
-        .description {
-          font-weight: 400;
-          color: $main-grey;
-          font-size: 14px;
+        .txt {
+          cursor: pointer;
+          .title {
+            color: black;
+            font-weight: 600;
+            font-size: 12px;
+          }
+          .description {
+            font-weight: 400;
+            color: $main-grey;
+            font-size: 14px;
+          }
         }
       }
     }

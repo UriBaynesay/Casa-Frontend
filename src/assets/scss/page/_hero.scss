@@ -4,13 +4,14 @@
   grid-area: hero;
   background-color: black;
   .img-container {
+    height: 60vh;
     position: relative;
     grid-column: 2/3;
     max-width: 83.5vw;
     img {
-        border-radius: 0.5em;
+      border-radius: 0.5em;
       object-fit: cover;
-      height: 70%;
+      height: 100%;
       width: 100%;
     }
     .hero-txt {
@@ -18,9 +19,9 @@
       font-weight: 400;
       font-size: 22px;
       position: absolute;
+      width: 100%;
       top: 60%;
-      left: 50%;
-      transform: translateX(-50%);
+      text-align: center;
     }
   }
 }

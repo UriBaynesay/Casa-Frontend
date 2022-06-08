@@ -1,6 +1,9 @@
 .pop-cities-container{
-    padding-top: 14px;
+    padding-top: 20px;
     grid-area: top-city;
+    .title{
+        margin-bottom: 10px;
+    }
     .cards-container{
         display: grid;
         grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
@@ -10,11 +13,22 @@
             height: 400px;
             flex-direction: column;
             border-radius: 1em;
+            cursor: pointer;
             img{
                 border-radius: inherit;
                 object-fit: cover;
                 height: 100%;
                 width: 100%;
+            }
+            .city-details{
+                .town{
+                    font-size: 18px;
+                    font-weight: 600;
+                }
+                .country{
+                    font-size: 14px;
+                    font-weight: 400;
+                }
             }
         }
     }

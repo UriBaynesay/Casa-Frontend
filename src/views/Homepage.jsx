@@ -23,7 +23,7 @@ export const Homepage = () => {
     <main className="homepage-container">
       <Hero/>
       <PopDestination onSetFilter={onSetFilter} />
-      {/* <TopRated onSetFilter={onSetFilter} /> */}
+      <TopRated />
     </main>
   )
 }
