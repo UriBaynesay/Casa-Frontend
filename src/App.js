@@ -11,29 +11,30 @@ function App() {
   const location = useLocation()
 
   useEffect(() => {
-    switch (location.pathname) {
-      case "/":
-        setLayoutClass("homepage")
-        break
-      default:
+    if (location.pathname === "/") {
+      setLayoutClass("homepage")
+    } else if (location.pathname.includes("details")) {
+      setLayoutClass("stay-details")
+    } else {
+      setLayoutClass("")
     }
   }, [location.pathname])
 
   return (
     <div className={`App ${layoutClass}`}>
       <AppHeader />
-        <Routes>
-          {routes.map((route) => {
-            return (
-              <Route
-                key={route.path}
-                path={route.path}
-                exact={true}
-                element={route.component}
-              />
-            )
-          })}
-        </Routes>
+      <Routes>
+        {routes.map((route) => {
+          return (
+            <Route
+              key={route.path}
+              path={route.path}
+              exact={true}
+              element={route.component}
+            />
+          )
+        })}
+      </Routes>
       <AppFooter />
       <UserMsg />
     </div>

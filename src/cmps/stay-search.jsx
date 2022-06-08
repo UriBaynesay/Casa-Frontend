@@ -2,7 +2,7 @@ import { useState, useEffect } from "react"
 import { useNavigate, useLocation } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
 
-import { SearchByDate } from "./stay-filter-search-dates"
+import { SearchModal } from "./search-modal"
 import { AddGuestsFilter } from "./stay-search-addGuest-filter"
 import { setFilterBy } from "../store/action/stay.action.js"
 
@@ -10,12 +10,21 @@ import SearchIcon from "@mui/icons-material/Search"
 
 export const StaySearch = () => {
   const [layout, setLayout] = useState(null)
+  // const [searchBy, setSearchBy] = useState({})
+  const [openModal, setOpenModal] = useState(null)
+  const {filterBy}=useSelector(storeState=>storeState.stayModule)
+  let location = useLocation()
+  const dispatch = useDispatch()
+  let navigate = useNavigate()
+
+  const onOpenModal = (modal) => {
+    setOpenModal(modal)
+  }
   // const [isSearchExpand, setSearchExpand] = useState(false)
   // const [currExpand, setExpand] = useState(null)
   // const [searchBy, setSearchBy] = useState({})
-  // const dispatch = useDispatch()
-  // let navigate = useNavigate()
-  let location = useLocation()
+
+  
   // const { filterBy } = useSelector((storeState) => storeState.stayModule)
   // console.log('filter by from state ', filterBy)
   // const onSetSearchLocation = (ev) => {
@@ -23,30 +32,29 @@ export const StaySearch = () => {
   //   setSearchBy({ ...searchBy, stayLocation: ev.target.value })
   // }
 
+  const onSetFilter = (value, name) => {
+    // setSearchBy({ ...searchBy, [name]: value })
+    dispatch(setFilterBy({[name]:value}))
+    setOpenModal(null)
+  }
+
   // const onQuickSearchByLocation = (stayLocation) => {
   //   dispatch(setFilterBy({ ...searchBy, stayLocation }))
   //   navigate("/stays")
   // }
 
-  // const onSearch = (ev = null) => {
-  //   if (ev) ev.preventDefault()
-  //   dispatch(setFilterBy(searchBy))
-  //   navigate("/stays")
-  // }
+  const onSearch = (ev = null) => {
+    if (ev) ev.preventDefault()
+    // setSearchBy({})
+    navigate("/stays")
+  }
 
   useEffect(() => {
-    //close filter expand when moveing to another page
-    // setSearchExpand(false)
+    if(location.pathname!=="/stays") dispatch(setFilterBy(null))
     if (location.pathname === "/") {
       setLayout("homepage")
-      // setSearchBy({})
-      // document
-      //   .querySelector(".main-container")
-      //   .addEventListener("click", setSearchExpand(false))
     }
-    return () => {
-      // document.removeEventListener("click", setSearchExpand())
-    }
+
   }, [location])
 
   // console.log(searchBy)
@@ -54,15 +62,22 @@ export const StaySearch = () => {
     <section className={`search-container ${layout}`}>
       <div className="input-container">
         <div className="location-container flex space-between">
-          <div className="txt">
+          <div className="txt" onClick={() => onOpenModal("location")}>
             <h4 className="title">Location</h4>
-            <h4 className="description">Where are you going</h4>
+            {/* <h4 className="description">Where are you going</h4> */}
+            <input
+              type="text"
+              name="stayLocation"
+              value={filterBy?.stayLocation ? filterBy.stayLocation : ""}
+              placeholder="Where are you going"
+              onChange={(ev) => onSetFilter(ev.target.value, ev.target.name)}
+            />
           </div>
           <div className="separator"></div>
         </div>
 
         <div className="date-checkin-container flex space-between">
-          <div className="txt">
+          <div className="txt" onClick={() => onOpenModal("date")}>
             <h4 className="title">Check in</h4>
             <h4 className="description">Add dates</h4>
           </div>
@@ -70,7 +85,7 @@ export const StaySearch = () => {
         </div>
 
         <div className="date-checkout-container flex space-between">
-          <div className="txt">
+          <div className="txt" onClick={() => onOpenModal("date")}>
             <h4 className="title">Check out</h4>
             <h4 className="description">Add dates</h4>
           </div>
@@ -78,54 +93,23 @@ export const StaySearch = () => {
         </div>
 
         <div className="guests-container flex space-between">
-          <div className="txt">
+          <div className="txt" onClick={() => onOpenModal("guests")}>
             <h4 className="title">Guests</h4>
             <h4 className="description">Add guests</h4>
           </div>
         </div>
 
         <div className="search-btn-container">
-          <div className="search-btn">
-            <SearchIcon htmlColor="#fff"/>
+          <div className="search-btn" onClick={() => onSearch()}>
+            <SearchIcon htmlColor="#fff" />
           </div>
         </div>
       </div>
-    </section>
-  )
-}
-
-function SearchByDestination(props) {
-  const [region, setRegion] = useState("")
-  useEffect(() => {
-    if (region === "") return
-    props.onQuickSearchByLocation(region)
-  }, [region])
-  return (
-    <div className="destination-search-container">
-      {/* <h4 className="destination-search-container-header">search by region</h4> */}
-      <div className="regions-container">
-        <Destination region={"Spain"} setRegion={setRegion} />
-        <Destination region={"United States"} setRegion={setRegion} />
-        <Destination region={"Canada"} setRegion={setRegion} />
-        <Destination region={"Hong Kong"} setRegion={setRegion} />
-        <Destination region={"Brazil"} setRegion={setRegion} />
-        <Destination region={"Portugal"} setRegion={setRegion} />
+      <div className="modal-container">
+        {openModal && (
+          <SearchModal modal={openModal} setOpenModal={setOpenModal} />
+        )}
       </div>
-    </div>
-  )
-}
-function Destination(props) {
-  return (
-    <div
-      className="region-image-container"
-      onClick={() => props.setRegion(props.region)}
-    >
-      <img
-        src={require(`../assets/img/filter/${props.region}.png`)}
-        alt=""
-        className="region-image"
-      />
-      <p>{props.region}</p>
-    </div>
+    </section>
   )
 }

@@ -21,17 +21,6 @@ export function AppHeader() {
   let location = useLocation()
   const dispatch = useDispatch()
 
-  // const changeColors = (ev) => {
-  //   if (ev.path[1].scrollY === 0) {
-  //     setHeaderClass("home-page home-page-layout")
-  //     setImg(logoImg2)
-  //   }
-  //   if (ev.path[1].scrollY > 1) {
-  //     setHeaderClass("home-page-layout")
-  //     setImg(logoImg)
-  //   }
-  // }
-
   const emitNewOrder = () => {
     showUserMsg("New order in your dashboard!")
     setUser(userService.setNotification(true))
@@ -45,26 +34,15 @@ export function AppHeader() {
     socketService.on(SOCKET_EVENT_NEW_ORDER, emitNewOrder)
 
     if (location.pathname === "/") {
-      // window.addEventListener("scroll", changeColors)
       setHeaderClass("homepage")
       setImg(logoImg2)
-    }
-    // else
-    // if (location.pathname.includes("/stay/details")) {
-    //   setHeaderClass("details-page")
-    //   setImg(logoImg)
-    // } else if(location.pathname === "/dashboard"&&user.notification){
-    //   debugger
-    //   setUser(userService.setNotification(false))
-    // }
-    else {
+    } else if (location.pathname.includes("details")) {
+      setHeaderClass("stay-details")
+      setImg(logoImg)
+    } else {
+      setHeaderClass("")
       setImg(logoImg)
     }
-    // return () => {
-    //   window.removeEventListener("scroll", changeColors)
-    //   setHeaderClass("")
-    //   setImg(logoImg)
-    // }
   }, [location.pathname, user])
 
   return (
@@ -72,7 +50,7 @@ export function AppHeader() {
       <div className="logo-container">
         <img className="img-logo" src={img} alt="" />
         <Link to="/">
-          <h1 className="text-logo">casa</h1>
+          <h1 className="text-logo">Casa</h1>
         </Link>
       </div>
 
@@ -105,7 +83,7 @@ export function AppHeader() {
         ) : (
           <Link className="user" to="/userdashboard">
             {user?.notification && <div className="notification"></div>}
-            <img className="user-pic" src={user.imgUrl}></img>{" "}
+            <img className="user-pic" src={user.imgUrl} alt="" />
           </Link>
         )}
       </nav>
