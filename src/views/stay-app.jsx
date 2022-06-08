@@ -21,10 +21,9 @@ export const StayApp = () => {
   }, [])
 
   return (
-    <section className="stay-app-container explore-layout">
-      {/* <StaySearch /> */}
+    <main className="stay-app-container">
       <StayAppFilter onChangeFilter={onChangeFilter} />
       {stays && <StayList stays={stays} />}
-    </section>
+    </main>
   )
 }

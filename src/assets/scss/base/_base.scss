@@ -32,21 +32,27 @@ a {
   text-decoration: none;
 }
 
-p{
+p {
   line-height: 1.5px;
 }
 
-input{
+input {
   border: none;
   padding: 0px;
-  &:focus-visible{
+  &:focus-visible {
     outline: none;
   }
 }
 
 .App {
+  display: grid;
+  grid-template-columns: 0.09fr 1fr 0.094fr;
+  grid-template-rows: 80px 1fr 90px;
+  grid-template-areas: ". header ."
+  ". main ."
+  "footer footer footer";
+
   &.homepage {
-    display: grid;
     grid-template-columns: minmax(0, 150px) 1fr minmax(0, 150px);
     grid-template-rows: 180px 1fr 90px;
     grid-template-areas:
@@ -57,10 +63,10 @@ input{
   header {
     grid-area: header;
   }
-  main{
+  main {
     grid-area: main;
   }
-  footer{
+  footer {
     grid-area: footer;
   }
 }

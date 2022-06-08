@@ -55,6 +55,8 @@ export const StaySearch = () => {
     if(location.pathname!=="/stays") dispatch(setFilterBy(null))
     if (location.pathname === "/") {
       setLayout("homepage")
+    }else{
+      setLayout("")
     }
 
   }, [location])

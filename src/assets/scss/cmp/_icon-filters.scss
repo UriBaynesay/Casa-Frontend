@@ -1,0 +1,36 @@
+.icon-filters-container {
+  z-index: 10;
+  column-gap: 45px;
+  width: 100%;
+  height: 75px;
+  top: 80px;
+  position: sticky;
+  background-color: #fff;
+  display: flex;
+  grid-area: filter;
+  align-items: center;
+  margin-top: 30px;
+  .filter-container {
+    padding-bottom: 13px;
+    opacity: 0.5;
+    &:hover {
+      transition: ease-in;
+      transition-duration: 0.2s;
+      opacity: 1;
+      cursor: pointer;
+      box-shadow: inset 0px -2px 0 -0.5px rgb(221 221 221);
+    }
+    .icon-container {
+      text-align: center;
+      img {
+        justify-self: center;
+        align-self: center;
+        height: 25px;
+      }
+    }
+    .filter-name{
+      font-size: 12px;    
+      font-weight: 600;  
+    }
+  }
+}

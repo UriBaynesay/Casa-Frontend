@@ -39,6 +39,9 @@ export function AppHeader() {
     } else if (location.pathname.includes("details")) {
       setHeaderClass("stay-details")
       setImg(logoImg)
+    } else if (location.pathname === "/stays") {
+      setHeaderClass("stay-list")
+      setImg(logoImg)
     } else {
       setHeaderClass("")
       setImg(logoImg)
