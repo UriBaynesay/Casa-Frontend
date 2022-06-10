@@ -16,6 +16,7 @@ import { showUserMsg } from "../services/event-bus.service"
 
 export function AppHeader() {
   const [user, setUser] = useState(userService.getLoggedinUser())
+  const [headerLayoutClass, setHeaderLayoutClass] = useState("")
   const [headerClass, setHeaderClass] = useState("")
   const [img, setImg] = useState(logoImg2)
   let location = useLocation()
@@ -30,66 +31,68 @@ export function AppHeader() {
     if (user) {
       socketService.login(user._id)
     }
-
     socketService.on(SOCKET_EVENT_NEW_ORDER, emitNewOrder)
 
     if (location.pathname === "/") {
+      setHeaderLayoutClass("homepage-layout")
       setHeaderClass("homepage")
       setImg(logoImg2)
     } else if (location.pathname.includes("details")) {
-      setHeaderClass("stay-details")
+      setHeaderLayoutClass("stay-details")
       setImg(logoImg)
     } else if (location.pathname === "/stays") {
-      setHeaderClass("stay-list")
+      setHeaderLayoutClass("stay-list")
       setImg(logoImg)
     } else {
-      setHeaderClass("")
+      setHeaderLayoutClass("")
       setImg(logoImg)
     }
   }, [location.pathname, user])
 
   return (
-    <header className={`app-header ${headerClass}`}>
-      <div className="logo-container">
-        <img className="img-logo" src={img} alt="" />
-        <Link to="/">
-          <h1 className="text-logo">Casa</h1>
-        </Link>
+    <header className={`app-header ${headerLayoutClass}`}>
+      <div className={`header-container ${headerClass}`}>
+        <div className="logo-container">
+          <img className="img-logo" src={img} alt="" />
+          <Link to="/">
+            <h1 className="text-logo">Casa</h1>
+          </Link>
+        </div>
+
+        <StaySearch />
+
+        <nav>
+          <Link
+            className="explore"
+            to="/stays"
+            onClick={() => {
+              dispatch(setFilterBy(null))
+            }}
+          >
+            Explore
+          </Link>
+          {user ? (
+            <Link className="host" to="/dashboard">
+              Host Dashboard
+            </Link>
+          ) : (
+            <Link className="host" to="/host">
+              Become a host
+            </Link>
+          )}
+
+          {!user ? (
+            <Link className="user" to="/login">
+              <AccountCircleIcon />{" "}
+            </Link>
+          ) : (
+            <Link className="user" to="/userdashboard">
+              {user?.notification && <div className="notification"></div>}
+              <img className="user-pic" src={user.imgUrl} alt="" />
+            </Link>
+          )}
+        </nav>
       </div>
-
-      <StaySearch />
-
-      <nav>
-        <Link
-          className="explore"
-          to="/stays"
-          onClick={() => {
-            dispatch(setFilterBy(null))
-          }}
-        >
-          Explore
-        </Link>
-        {user ? (
-          <Link className="host" to="/dashboard">
-            Host Dashboard
-          </Link>
-        ) : (
-          <Link className="host" to="/host">
-            Become a host
-          </Link>
-        )}
-
-        {!user ? (
-          <Link className="user" to="/login">
-            <AccountCircleIcon />{" "}
-          </Link>
-        ) : (
-          <Link className="user" to="/userdashboard">
-            {user?.notification && <div className="notification"></div>}
-            <img className="user-pic" src={user.imgUrl} alt="" />
-          </Link>
-        )}
-      </nav>
     </header>
   )
 }

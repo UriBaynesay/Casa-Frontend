@@ -20,7 +20,7 @@ export const Homepage = () => {
     window.scrollTo(0, 0)
   }, [])
   return (
-    <main className="homepage-container">
+    <main className="homepage">
       <Hero/>
       <PopDestination onSetFilter={onSetFilter} />
       <TopRated />
