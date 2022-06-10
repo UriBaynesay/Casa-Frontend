@@ -1,4 +1,11 @@
 .app-header {
+  &.homepage-layout {
+    background-color: black;
+  }
+}
+
+.header-container {
+  grid-area: content;
   display: grid;
   grid-template-columns: 0.44fr 1fr 0.44fr;
   grid-template-areas: "logo search nav";
@@ -33,9 +40,8 @@
     }
   }
   &.homepage {
-    background-color: black;
-    grid-template-columns: minmax(0, 150px) 0.44fr 1fr 0.44fr minmax(0, 150px);
-    grid-template-areas: ". logo search nav .";
+    grid-template-columns:0.44fr 1fr 0.44fr ;
+    grid-template-areas: "logo search nav";
     color: white;
     .logo-container {
       .text-logo {
@@ -50,6 +56,5 @@
     z-index: 30;
   }
   &.stay-details {
-    
   }
 }

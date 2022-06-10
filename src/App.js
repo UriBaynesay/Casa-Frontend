@@ -1,27 +1,14 @@
-import { Routes, Route, useLocation } from "react-router-dom"
+import { Routes, Route } from "react-router-dom"
+
 import "../src/styles/scss/main.scss"
 import routes from "./routes"
 import { AppHeader } from "./cmps/app-header"
 import { UserMsg } from "./cmps/user-msg"
 import { AppFooter } from "./cmps/app-footer.jsx"
-import { useEffect, useState } from "react"
 
-function App() {
-  const [layoutClass, setLayoutClass] = useState("")
-  const location = useLocation()
-
-  useEffect(() => {
-    if (location.pathname === "/") {
-      setLayoutClass("homepage")
-    } else if (location.pathname.includes("details")) {
-      setLayoutClass("stay-details")
-    } else {
-      setLayoutClass("")
-    }
-  }, [location.pathname])
-
+export default function App() {
   return (
-    <div className={`App ${layoutClass}`}>
+    <div className="App">
       <AppHeader />
       <Routes>
         {routes.map((route) => {
@@ -40,5 +27,3 @@ function App() {
     </div>
   )
 }
-
-export default App
