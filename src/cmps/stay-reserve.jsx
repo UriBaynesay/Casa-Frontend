@@ -4,7 +4,6 @@ import { connect } from "react-redux"
 import { orderService } from "../services/order.service"
 import { showUserMsg } from "../services/event-bus.service"
 import { SearchByDate as DatePicker } from "./stay-filter-search-dates"
-import { AddGuestsFilter } from "./stay-search-addGuest-filter"
 function numberWithCommas(n) {
   var parts = n.toString().split(".");
   return parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",") + (parts[1] ? "." + parts[1] : "");
@@ -128,7 +127,7 @@ export class _Reserve extends React.Component {
                 isGuestModalOpen: !isGuestModalOpen,
               })
             }}>Guests</h3>
-            {isGuestModalOpen && (
+            {/* {isGuestModalOpen && (
               <div className="guest-modal-container">
                 <AddGuestsFilter
                   setGuests={this.setGuestCount}
@@ -145,7 +144,7 @@ export class _Reserve extends React.Component {
                   Close
                 </h3>
               </div>
-            )}
+            )} */}
           </div>
           <h3
             className="reserve-btn mouse-cursor-gradient-tracking"

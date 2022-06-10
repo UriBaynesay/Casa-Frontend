@@ -87,45 +87,43 @@ const amenities = [
   "Beachfront",
 ]
 
+const popDestinations = [
+  {
+    city: "Hong Kong",
+    country: "China",
+    img: require("../assets/img/countries/hongkong.jpg"),
+  },
+  {
+    city: "Rio de Janeiro",
+    country: "Brazil",
+    img: require("../assets/img/countries/rio.jpg"),
+  },
+  {
+    city: "Barcelona",
+    country: "Spain",
+    img: require("../assets/img/countries/barcelona.jpg"),
+  },
+  {
+    city: "New York",
+    country: "United States",
+    img: require("../assets/img/countries/newyork.jpg"),
+  },
+]
+
 export const stayService = {
   query,
   getById,
   getAmenities,
   getLabels,
+  getPopDestinations,
   saveStay,
-  deleteStay
-  // getStaysForHost,
+  deleteStay,
+  getTopRated,
 }
-// QUERY you can pass as a filter {hostId,stayLocation,label}
+// QUERY you can pass as a filter {hostId,stayLocation,label,guestCount}
 async function query(filterBy) {
   return await httpService.get(END_POINT, filterBy)
-
-  // let stays = await storageService.query(STORAGE_KEY)
-
-  // if (filterBy) {
-  //   const label = filterBy.label || null
-  //   const stayLocation = filterBy.stayLocation || null
-  //   if (label) {
-  //     stays = _filterStaysByLabel(stays, label)
-  //   }
-  //   if (stayLocation) {
-  //     stays = _filterStaysByLocation(stays, stayLocation)
-  //   }
-  // }
-
-  // return stays
 }
-
-// async function getStaysForHost(hostId) {
-//   let stays = await storageService.query(STORAGE_KEY)
-//   const hostArr = []
-//   stays.map((stay) => {
-//     if (stay.host['_id'] === hostId) {
-//       hostArr.push(stay)
-//     }
-//   })
-//   return hostArr
-// }
 
 function getAmenities() {
   return [...amenities]
@@ -134,9 +132,20 @@ function getLabels() {
   return [...labels]
 }
 
+async function getTopRated(){
+  const stay1 = await getById("622f337a75c7d36e498aaaf9")
+  const stay2 = await getById("622f337a75c7d36e498aaaff")
+  const stay3 = await getById("622f337a75c7d36e498aaafb")
+  const stay4 = await getById("622f337a75c7d36e498aaafc")
+  return [stay1,stay2,stay3,stay4]
+}
+
+function getPopDestinations(){
+  return [...popDestinations]
+}
+
 async function getById(stayId) {
   return await httpService.get(`${END_POINT}/${stayId}`)
-  // return storageService.get(STORAGE_KEY, stayId)
 }
 
 async function deleteStay(stayId) {
@@ -157,6 +166,6 @@ async function deleteStay(stayId) {
 // price
 // imgUrls
 async function saveStay(stay) {
-  if(!stay._id) return await httpService.post(END_POINT,stay)
-  else return await httpService.put(`${END_POINT}/${stay._id}`,stay)
+  if (!stay._id) return await httpService.post(END_POINT, stay)
+  else return await httpService.put(`${END_POINT}/${stay._id}`, stay)
 }

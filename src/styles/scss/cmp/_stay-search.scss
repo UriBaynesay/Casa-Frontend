@@ -1,4 +1,5 @@
 .search-container {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -75,6 +76,10 @@
     }
   }
   .modal-container {
-    position: relative;
+    position: absolute;
+    z-index: 10;
+    bottom: 0px;
+    transform: translateY(100%);
+    width: 100%;
   }
 }

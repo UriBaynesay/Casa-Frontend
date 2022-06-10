@@ -1,9 +1,8 @@
 import { useState, useEffect } from "react"
 import { useNavigate, useLocation } from "react-router-dom"
-import { useDispatch, useSelector } from "react-redux"
+import { useDispatch } from "react-redux"
 
 import { SearchModal } from "./search-modal"
-import { AddGuestsFilter } from "./stay-search-addGuest-filter"
 import { setFilterBy } from "../store/action/stay.action.js"
 
 import SearchIcon from "@mui/icons-material/Search"
@@ -12,36 +11,18 @@ export const StaySearch = () => {
   const [layout, setLayout] = useState(null)
   const [searchBy, setSearchBy] = useState({})
   const [openModal, setOpenModal] = useState(null)
-  const {filterBy}=useSelector(storeState=>storeState.stayModule)
-  let location = useLocation()
+  const location = useLocation()
   const dispatch = useDispatch()
-  let navigate = useNavigate()
+  const navigate = useNavigate()
 
   const onOpenModal = (modal) => {
     setOpenModal(modal)
   }
-  // const [isSearchExpand, setSearchExpand] = useState(false)
-  // const [currExpand, setExpand] = useState(null)
-  // const [searchBy, setSearchBy] = useState({})
-
-  
-  // const { filterBy } = useSelector((storeState) => storeState.stayModule)
-  // console.log('filter by from state ', filterBy)
-  // const onSetSearchLocation = (ev) => {
-  //   ev.preventDefault()
-  //   setSearchBy({ ...searchBy, stayLocation: ev.target.value })
-  // }
 
   const onSetFilter = (value, name) => {
     setSearchBy({ ...searchBy, [name]: value })
-    // dispatch(setFilterBy({[name]:value}))
     if(name==='stayLocation')setOpenModal(null)
   }
-
-  // const onQuickSearchByLocation = (stayLocation) => {
-  //   dispatch(setFilterBy({ ...searchBy, stayLocation }))
-  //   navigate("/stays")
-  // }
 
   const onSearch = (ev = null) => {
     if (ev) ev.preventDefault()
@@ -61,14 +42,12 @@ export const StaySearch = () => {
 
   }, [location])
 
-  // console.log(searchBy)
   return (
     <section className={`search-container ${layout}`}>
       <div className="input-container">
         <div className="location-container flex space-between">
           <div className="txt" onClick={() => onOpenModal("location")}>
             <h4 className="title">Location</h4>
-            {/* <h4 className="description">Where are you going</h4> */}
             <input
               type="text"
               name="stayLocation"
