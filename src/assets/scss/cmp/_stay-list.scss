@@ -1,4 +1,5 @@
 .stay-list-container {
+  grid-area: stay;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   column-gap: 24px;

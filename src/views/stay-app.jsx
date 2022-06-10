@@ -23,7 +23,7 @@ export const StayApp = () => {
   return (
     <main className="stay-app-container">
       <StayAppFilter onChangeFilter={onChangeFilter} />
-      {/* {stays && <StayList stays={stays} />} */}
+      {stays && <StayList stays={stays} />}
     </main>
   )
 }
