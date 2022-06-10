@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { NavLink as Link, useLocation } from "react-router-dom"
-import { useDispatch, useSelector } from "react-redux"
+import { useDispatch } from "react-redux"
 
 import { StaySearch } from "./stay-search.jsx"
 import { setFilterBy } from "../store/action/stay.action"
@@ -19,6 +19,7 @@ export function AppHeader() {
   const [headerLayoutClass, setHeaderLayoutClass] = useState("")
   const [headerClass, setHeaderClass] = useState("")
   const [img, setImg] = useState(logoImg2)
+
   let location = useLocation()
   const dispatch = useDispatch()
 
@@ -38,7 +39,7 @@ export function AppHeader() {
       setHeaderClass("homepage")
       setImg(logoImg2)
     } else if (location.pathname.includes("details")) {
-      setHeaderLayoutClass("stay-details")
+      setHeaderLayoutClass("stay-details-layout")
       setImg(logoImg)
     } else if (location.pathname === "/stays") {
       setHeaderLayoutClass("stay-list")
