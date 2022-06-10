@@ -1,5 +1,5 @@
 import { Routes, Route, useLocation } from "react-router-dom"
-import "../src/assets/scss/main.scss"
+import "../src/styles/scss/main.scss"
 import routes from "./routes"
 import { AppHeader } from "./cmps/app-header"
 import { UserMsg } from "./cmps/user-msg"
