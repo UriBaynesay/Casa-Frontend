@@ -1,4 +1,6 @@
 .stay-app-container {
+  grid-area: content;
+  margin-top: 30px;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 80px 1fr;
@@ -6,5 +8,3 @@
     "filter"
     "stay";
 }
-
-

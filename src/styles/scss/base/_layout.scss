@@ -1,8 +1,11 @@
-.homepage-layout{
+.main-layout{
     display: grid;
-    grid-template-columns: minmax(150px,1fr) minmax(auto,1600px) minmax(150px,1fr);
+    grid-template-columns: minmax(0px,1fr) minmax(auto,1600px) minmax(0px,1fr);
     grid-template-areas: ". content .";
 }
 
 .details-layout{
+    display: grid;
+    grid-template-columns: minmax(0px,1fr) minmax(auto,1125px) minmax(0px,1fr);
+    grid-template-areas: ". content .";
 }

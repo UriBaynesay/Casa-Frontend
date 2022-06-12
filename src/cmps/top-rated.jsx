@@ -17,7 +17,7 @@ export function TopRated() {
   if (!stays) return <section className="top-rated-container"></section>
 
   return (
-    <section className="top-rated homepage-layout">
+    <section className="top-rated main-layout">
       <div className="top-rated-container">
         <h1 className="title">Top Rated</h1>
         <TopRatedList stays={stays} />
