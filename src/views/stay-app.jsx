@@ -1,7 +1,6 @@
-import { useEffect, useCallback, useRef } from "react"
+import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import React from "react"
-// import { StaySearch } from "../cmps/stay-search"
+
 import { StayList } from "../cmps/stay-list"
 import { loadStays, setFilterBy } from "../store/action/stay.action"
 import { StayAppFilter } from "../cmps/stay-app-filter.jsx"
@@ -16,14 +15,17 @@ export const StayApp = () => {
     dispatch(loadStays())
   }, [filterBy])
 
-  const onChangeFilter = useCallback(async (filterBy) => {
-    dispatch(setFilterBy(filterBy))
-  }, [])
+  const onChangeFilter = (filterStaysBy) => {
+    dispatch(setFilterBy(filterStaysBy))
+    dispatch(loadStays())
+  }
 
   return (
-    <main className="stay-app-container">
-      <StayAppFilter onChangeFilter={onChangeFilter} />
-      {stays && <StayList stays={stays} />}
+    <main className="main-layout">
+      <div className="stay-app-container">
+        <StayAppFilter onChangeFilter={onChangeFilter} />
+        {stays && <StayList stays={stays} />}
+      </div>
     </main>
   )
 }

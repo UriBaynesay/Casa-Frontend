@@ -35,14 +35,15 @@ export function AppHeader() {
     socketService.on(SOCKET_EVENT_NEW_ORDER, emitNewOrder)
 
     if (location.pathname === "/") {
-      setHeaderLayoutClass("homepage-layout")
+      setHeaderLayoutClass("main-layout homepage")
       setHeaderClass("homepage")
       setImg(logoImg2)
     } else if (location.pathname.includes("details")) {
-      setHeaderLayoutClass("stay-details-layout")
+      setHeaderLayoutClass("details-layout")
       setImg(logoImg)
     } else if (location.pathname === "/stays") {
-      setHeaderLayoutClass("stay-list")
+      setHeaderLayoutClass("main-layout stay-list")
+      setHeaderClass("")
       setImg(logoImg)
     } else {
       setHeaderLayoutClass("")

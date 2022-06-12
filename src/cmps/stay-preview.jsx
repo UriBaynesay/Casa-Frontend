@@ -11,9 +11,7 @@ function numberWithCommas(n) {
   )
 }
 
-// import pictures from '../assets/img/houses'
 export function StayPreview({ stay }) {
-  // console.log(pictures)
   const calculatedStay = ((stay.reviewScores.rating / 100) * 5).toFixed(2)
 
   return (
@@ -52,10 +50,6 @@ export function StayPreview({ stay }) {
         <span className="stay-price">${numberWithCommas(stay.price)}</span>{" "}
         <span className="stay-night">night</span>
       </div>
-
-      {/* <Link to={`/stay/edit/${stay.id}`}>
-                <div className='edit-stay-btn'></div>
-            </Link> */}
     </Link>
   )
 }

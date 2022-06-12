@@ -5,7 +5,7 @@ export function PopDestination() {
   const destinations = stayService.getPopDestinations()
 
   return (
-    <section className="pop-cities homepage-layout">
+    <section className="pop-cities main-layout">
       <div className="pop-cities-container">
         <h1 className="title">Popular Destinations</h1>
         <PopDestinationList
