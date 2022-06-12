@@ -8,6 +8,8 @@ export function AppFooter() {
   useEffect(() => {
     if (!location.pathname.includes("/details")) {
       setFooterLayout("main-layout")
+    }else{
+      setFooterLayout("details-layout")
     }
   }, [location])
 

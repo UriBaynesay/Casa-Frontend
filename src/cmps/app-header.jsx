@@ -40,6 +40,7 @@ export function AppHeader() {
       setImg(logoImg2)
     } else if (location.pathname.includes("details")) {
       setHeaderLayoutClass("details-layout")
+      setHeaderClass("")
       setImg(logoImg)
     } else if (location.pathname === "/stays") {
       setHeaderLayoutClass("main-layout stay-list")

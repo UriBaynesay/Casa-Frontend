@@ -6,6 +6,6 @@
 
 .details-layout{
     display: grid;
-    grid-template-columns: minmax(0px,1fr) minmax(auto,1125px) minmax(0px,1fr);
+    grid-template-columns: minmax(0px,1fr) minmax(auto,1120px) minmax(0px,1fr);
     grid-template-areas: ". content .";
 }

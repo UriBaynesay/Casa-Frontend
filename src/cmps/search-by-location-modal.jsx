@@ -1,4 +1,4 @@
-export const LocationModal = ({ onSetFilter }) => {
+export const LocationModal = ({ onSetFilter, onCloseModal }) => {
   const locations = [
     "Spain",
     "United States",
@@ -30,6 +30,14 @@ export const LocationModal = ({ onSetFilter }) => {
           )
         })}
       </div>
+      <h3
+      className="close-modal-btn"
+        onClick={() => {
+          onCloseModal()
+        }}
+      >
+        Close
+      </h3>
     </div>
   )
 }

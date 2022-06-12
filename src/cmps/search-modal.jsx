@@ -1,14 +1,14 @@
-
-
 import { LocationModal } from "./search-by-location-modal"
 import { SearchByDate } from "./stay-filter-search-dates"
-import { GuestModal } from "./search-by-guest-modal";
+import { GuestModal } from "./search-by-guest-modal"
 
-export const SearchModal = ({ modal, onSetFilter }) => {
+export const SearchModal = ({ modal, onSetFilter, onCloseModal }) => {
   const onSetDates = () => {}
 
   if (modal === "location") {
-    return <LocationModal onSetFilter={onSetFilter} />
+    return (
+      <LocationModal onSetFilter={onSetFilter} onCloseModal={onCloseModal} />
+    )
   }
   if (modal === "date") {
     return (
@@ -18,6 +18,6 @@ export const SearchModal = ({ modal, onSetFilter }) => {
     )
   }
   if (modal === "guests") {
-    return <GuestModal onSetFilter={onSetFilter} />
+    return <GuestModal onSetFilter={onSetFilter} onCloseModal={onCloseModal} />
   }
 }
