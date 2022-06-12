@@ -40,6 +40,7 @@
 .guest-modal-wrapper {
   position: relative;
   .guests-modal-container {
+    z-index: 10;
     position: absolute;
     right: 0;
     width: 410px;
@@ -86,4 +87,11 @@
       }
     }
   }
+}
+
+.close-modal-btn{
+  font-weight: 400;
+  font-size: 14px;
+  cursor: pointer;
+  text-decoration: underline;
 }

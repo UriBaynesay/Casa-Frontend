@@ -4,17 +4,14 @@ import { connect } from "react-redux"
 import { orderService } from "../services/order.service"
 import { showUserMsg } from "../services/event-bus.service"
 import { SearchByDate as DatePicker } from "./stay-filter-search-dates"
-function numberWithCommas(n) {
-  var parts = n.toString().split(".");
-  return parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",") + (parts[1] ? "." + parts[1] : "");
-}
+import { GuestModal } from "./search-by-guest-modal"
+import starIcon from "../assets/img/svgs/star.svg"
 export class _Reserve extends React.Component {
   state = {
     dates: null,
     isDateModalOpen: false,
     isGuestModalOpen: false,
     guestCount: 0,
-    price: this.props.stayPrice,
   }
 
   componentDidMount() {
@@ -83,17 +80,28 @@ export class _Reserve extends React.Component {
   }
 
   render() {
-
-    const { dates, isDateModalOpen, isGuestModalOpen, price } = this.state
+    const { dates, isDateModalOpen, isGuestModalOpen, guestCount } = this.state
+    const { price, reviewScores, reviews } = this.props
     return (
       <section className="reserve-container">
         <div className="reserve-modal">
-          <h1>
-            ${price} <span className="night-container">night</span>
-          </h1>
+          <div className="top-info">
+            <h1>
+              ${price} <span className="night-container">night</span>
+            </h1>
+            <div className="stats">
+              <span>
+                <img width="14px" src={starIcon} alt="" />{" "}
+                {(reviewScores.rating / 100).toFixed(1) * 5} ·
+              </span>
+              <span className="reviews"> {reviews.length} reviews</span>
+            </div>
+          </div>
+
           <div
-            className={`order-datepicker-guest ${isDateModalOpen || isGuestModalOpen ? "active" : ""
-              }`}
+            className={`order-datepicker-guest ${
+              isDateModalOpen || isGuestModalOpen ? "active" : ""
+            }`}
           >
             <div
               className="date-picker-modal"
@@ -121,30 +129,26 @@ export class _Reserve extends React.Component {
                 {isDateModalOpen && <DatePicker onSetDates={this.onSetDates} />}
               </div>
             </div>
-            <h3 className="guests-title" onClick={() => {
-              this.setState({
-                ...this.state,
-                isGuestModalOpen: !isGuestModalOpen,
-              })
-            }}>Guests</h3>
-            {/* {isGuestModalOpen && (
-              <div className="guest-modal-container">
-                <AddGuestsFilter
-                  setGuests={this.setGuestCount}
-                  maxGuests={this.props.numOfGuest}
-                />
-                <h3
-                  onClick={() => {
-                    this.setState({
-                      ...this.state,
-                      isGuestModalOpen: !isGuestModalOpen,
-                    })
-                  }}
-                >
-                  Close
-                </h3>
-              </div>
-            )} */}
+            <h3
+              className="guests-title"
+              onClick={() => {
+                this.setState({
+                  ...this.state,
+                  isGuestModalOpen: !isGuestModalOpen,
+                })
+              }}
+            >
+              {guestCount?guestCount+' guests':'Guests'}
+            </h3>
+            {isGuestModalOpen && (
+              <GuestModal
+                setGuests={this.setGuestCount}
+                maxGuests={this.props.numOfGuest}
+                onCloseModal={() => {
+                  this.setState({ ...this.state, isGuestModalOpen: false })
+                }}
+              />
+            )}
           </div>
           <h3
             className="reserve-btn mouse-cursor-gradient-tracking"
@@ -158,8 +162,10 @@ export class _Reserve extends React.Component {
             <h3>
               $
               {dates !== null
-                ? numberWithCommas(((dates.endDateStamp - dates.startDateStamp) / 86400000) *
-                  price)
+                ? numberWithCommas(
+                    ((dates.endDateStamp - dates.startDateStamp) / 86400000) *
+                      price
+                  )
                 : "0"}
             </h3>
           </div>
@@ -178,3 +184,11 @@ const mapStateToProps = (storeState) => {
 const mapDispatchToProps = {}
 
 export const Reserve = connect(mapStateToProps, mapDispatchToProps)(_Reserve)
+
+function numberWithCommas(n) {
+  var parts = n.toString().split(".")
+  return (
+    parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",") +
+    (parts[1] ? "." + parts[1] : "")
+  )
+}

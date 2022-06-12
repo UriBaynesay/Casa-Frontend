@@ -1,6 +1,7 @@
+import de from "date-fns/esm/locale/de/index.js"
 import { useState } from "react"
 
-export const GuestModal = ({ onSetFilter }) => {
+export const GuestModal = (props) => {
   const guests = [
     { type: "Adults", description: "Ages 13 or above" },
     { type: "Children", description: "Ages 2-12" },
@@ -16,10 +17,14 @@ export const GuestModal = ({ onSetFilter }) => {
 
   const onChangeGuests = (type, diff) => {
     if (guestCount[type] === 0 && diff === -1) return
-    onSetFilter(
-      guestCount.adults + guestCount.children + guestCount.infants + diff,
-      "guestCount"
-    )
+    const totalGuests =
+      guestCount.adults + guestCount.children + guestCount.infants
+    if (props.maxGuests && totalGuests === props.maxGuests && diff === 1) return
+    if (props.onSetFilter) {
+      props.onSetFilter(totalGuests + diff, "guestCount")
+    } else {
+      props.setGuests(totalGuests + diff)
+    }
     setGuestCount({ ...guestCount, [type]: guestCount[type] + diff })
   }
 
@@ -53,7 +58,14 @@ export const GuestModal = ({ onSetFilter }) => {
             </div>
           )
         })}
-        {}
+        <h3
+          className="close-modal-btn"
+          onClick={() => {
+            props.onCloseModal()
+          }}
+        >
+          Close
+        </h3>
       </div>
     </div>
   )

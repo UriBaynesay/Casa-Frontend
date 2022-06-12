@@ -19,6 +19,10 @@ export const StaySearch = () => {
     setOpenModal(modal)
   }
 
+  const onCloseModal=()=>{
+    setOpenModal(null)
+  }
+
   const onSetFilter = (value, name) => {
     setSearchBy({ ...searchBy, [name]: value })
     if(name==='stayLocation')setOpenModal(null)
@@ -93,6 +97,7 @@ export const StaySearch = () => {
           <SearchModal
             modal={openModal}
             onSetFilter={onSetFilter}
+            onCloseModal={onCloseModal}
           />
         )}
       </div>
