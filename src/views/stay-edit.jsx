@@ -51,7 +51,6 @@ export const StayEdit = () => {
       fullname: fName + " " + lName,
       password: data.get("password"),
     };
-    console.log(user);
   };
   return (
     <section className="edit-stay-container become-host-layout">

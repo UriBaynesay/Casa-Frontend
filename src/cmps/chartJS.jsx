@@ -24,7 +24,6 @@ export class DashBoard extends React.Component {
 
     render() {
         const { dataCharts } = this.state
-        console.log(this.state)
         return <section className="dash-board">
             <h2>Charts</h2>
             <div className="charts-container">

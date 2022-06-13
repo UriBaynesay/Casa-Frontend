@@ -15,8 +15,6 @@ export const UserDashboard = () => {
     const [selected, setSelected] = useState(1)
     const [hostListings, setHostListings] = useState("")
     const [hostOrders, setNewOrders] = useState("")
-    console.log("orders", hostOrders)
-    console.log("listings", hostListings)
 
     const handleClick = (divNum) => () => {
         setSelected(divNum)
