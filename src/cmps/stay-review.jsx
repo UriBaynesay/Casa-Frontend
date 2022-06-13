@@ -44,7 +44,7 @@ export const StayReview = ({ reviewScores, reviews }) => {
 
       <div
         className="review-cards-container"
-        style={isReviewsExpanded ? { height: "fit-content" } : null}
+        style={isReviewsExpanded ? { maxHeight: "fit-content" } : null}
       >
         {reviews.map((review) => {
           return (

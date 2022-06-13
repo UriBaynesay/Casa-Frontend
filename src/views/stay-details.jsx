@@ -7,9 +7,8 @@ import { StayInfo } from "../cmps/stay-info"
 import { Reserve } from "../cmps/stay-reserve"
 import { StayReview } from "../cmps/stay-review"
 import { Map } from "../cmps/map"
-import { StayTitleInfo } from "../cmps/stay-title-info"
+import { StayTitleInfo } from "../cmps/stay-details-title-info"
 import { StayImgs } from "../cmps/stay-imgs"
-
 import { AddReview } from "../cmps/add-review"
 
 export const StayDetails = () => {
@@ -59,16 +58,18 @@ export const StayDetails = () => {
             reviewsLength={stay.reviews.length}
           />
         </div>
+
         <StayReview reviewScores={stay.reviewScores} reviews={stay.reviews} />
         <div>
           <AddReview addGuestReview={addGuestReview} loggedinUser={user} />
         </div>
-        <div className="map-container">
-          <Map
-            lat={stay.address.location.lat}
-            lan={stay.address.location.lan}
-          />
-        </div>
+
+        <Map
+          center={{
+            lng: stay.address.location.lat,
+            lat: stay.address.location.lan,
+          }}
+        />
       </section>
     </main>
   )

@@ -24,9 +24,8 @@
           object-fit: cover;
           height: 69%;
         }
-        > *:hover {
-          background-color: rgba(211, 211, 211, 0.164);
-          border-radius: 8px;
+        > * {
+          cursor: pointer;
         }
         .share-btn {
           display: flex;
@@ -93,9 +92,5 @@
     h4 {
       font-size: 18px;
     }
-  }
-
-  .map-container {
-    margin-bottom: 5rem;
   }
 }
