@@ -32,7 +32,7 @@
     .amenities {
       padding-top: 50px;
       margin-bottom: 20px;
-      height: 210px;
+      max-height: 210px;
       overflow: hidden;
       display: grid;
       grid-template-columns: 0.6fr 0.9fr;
@@ -52,6 +52,7 @@
       border-radius: 8px;
       width: fit-content;
       padding: 13px 23px;
+      cursor: pointer;
     }
   }
 

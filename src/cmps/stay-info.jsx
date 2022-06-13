@@ -32,7 +32,7 @@ export const StayInfo = ({ stay }) => {
         <h2>What this place offers</h2>
         <div
           className="amenities"
-          style={isAmenitiesExpanded ? { height: "fit-content" } : null}
+          style={isAmenitiesExpanded ? { maxHeight: "fit-content" } : null}
         >
           {amenities.map((amenity, idx) => {
             return <AmenityIcon iconType={amenity} key={idx} />

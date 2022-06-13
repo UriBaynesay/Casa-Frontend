@@ -91,10 +91,12 @@
     border-radius: 8px;
     width: fit-content;
     padding: 13px 23px;
+    cursor: pointer;
   }
   .review-cards-container {
     margin-top: 20px;
-    height: 380px;
+    max-height: 380px;
+    margin-bottom: 20px;
     overflow: hidden;
     display: grid;
     grid-template-columns: 0.9fr 0.9fr;

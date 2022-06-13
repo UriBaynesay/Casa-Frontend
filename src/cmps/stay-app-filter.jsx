@@ -1,7 +1,5 @@
-import React, { useState } from "react"
-
 import { stayService } from "../services/stay.service"
-import { FilterIconPreview } from "./filter-icon-preview";
+import { FilterIconPreview } from "./filter-icon-preview"
 
 export function StayAppFilter({ onChangeFilter }) {
   const filterNames = stayService.getLabels()
@@ -12,11 +10,12 @@ export function StayAppFilter({ onChangeFilter }) {
 
   return (
     <div className="icon-filters-container">
-      {filterNames.map((iconFilter) => {
+      {filterNames.map((iconFilter, idx) => {
         return (
           <FilterIconPreview
             iconFilter={iconFilter}
             handleSetFilter={handleSetFilter}
+            key={idx}
           />
         )
       })}
