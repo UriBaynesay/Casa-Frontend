@@ -55,8 +55,8 @@ export const StayDetails = () => {
             price={stay.price}
             numOfGuest={stay.capacity}
             hostId={stay.host["_id"]}
-            reviewScores={stay.reviewScores}
-            reviews={stay.reviews}
+            rating={stay.reviewScores.rating}
+            reviewsLength={stay.reviews.length}
           />
         </div>
         <StayReview reviewScores={stay.reviewScores} reviews={stay.reviews} />

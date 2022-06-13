@@ -37,13 +37,12 @@ export const StaySearch = () => {
   }
 
   useEffect(() => {
-    if(location.pathname!=="/stays") dispatch(setFilterBy(null))
+    if (location.pathname !== "/stays") dispatch(setFilterBy(null))
     if (location.pathname === "/") {
       setLayout("homepage")
-    }else{
+    } else {
       setLayout("")
     }
-
   }, [location])
 
   return (

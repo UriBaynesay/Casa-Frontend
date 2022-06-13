@@ -1,15 +1,11 @@
 import { Link } from "react-router-dom"
 import React from "react"
+
+import { utilService } from "../services/util.service";
 import "react-responsive-carousel/lib/styles/carousel.css"
 import { Carousel } from "react-responsive-carousel"
 import starIcon from "../assets/img/svgs/star.svg"
-function numberWithCommas(n) {
-  var parts = n.toString().split(".")
-  return (
-    parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",") +
-    (parts[1] ? "." + parts[1] : "")
-  )
-}
+
 
 export function StayPreview({ stay }) {
   const calculatedStay = ((stay.reviewScores.rating / 100) * 5).toFixed(2)
@@ -47,7 +43,7 @@ export function StayPreview({ stay }) {
       <div className="stay-quick-data">{stay.propertyType}</div>
       <div className="stay-quick-data">{stay.roomType}</div>
       <div className="stay-price">
-        <span className="stay-price">${numberWithCommas(stay.price)}</span>{" "}
+        <span className="stay-price">${utilService.numberWithCommas(stay.price)}</span>{" "}
         <span className="stay-night">night</span>
       </div>
     </Link>
