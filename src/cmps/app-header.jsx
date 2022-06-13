@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react"
 import { NavLink as Link, useLocation } from "react-router-dom"
-import { useDispatch } from "react-redux"
+import { useDispatch , useSelector } from "react-redux"
 
 import { StaySearch } from "./stay-search.jsx"
 import { setFilterBy } from "../store/action/stay.action"
+import { onUpdate } from "../store/action/user.action"
 import logoImg from "../assets/img/logo/new-logo.svg"
 import logoImg2 from "../assets/img/logo/whitelogo.png"
 import AccountCircleIcon from "@mui/icons-material/AccountCircle"
-import { userService } from "../services/user.service"
+
 import {
   socketService,
   SOCKET_EVENT_NEW_ORDER,
@@ -15,7 +16,7 @@ import {
 import { showUserMsg } from "../services/event-bus.service"
 
 export function AppHeader() {
-  const [user, setUser] = useState(userService.getLoggedinUser())
+  const {user}=useSelector(storeState=>storeState.userModule)
   const [headerLayoutClass, setHeaderLayoutClass] = useState("")
   const [headerClass, setHeaderClass] = useState("")
   const [img, setImg] = useState(logoImg2)
@@ -25,7 +26,7 @@ export function AppHeader() {
 
   const emitNewOrder = () => {
     showUserMsg("New order in your dashboard!")
-    setUser(userService.setNotification(true))
+    dispatch(onUpdate(true))
   }
 
   useEffect(() => {
@@ -47,7 +48,8 @@ export function AppHeader() {
       setHeaderClass("")
       setImg(logoImg)
     } else {
-      setHeaderLayoutClass("")
+      setHeaderLayoutClass("main-layout")
+      setHeaderClass("")
       setImg(logoImg)
     }
   }, [location.pathname, user])

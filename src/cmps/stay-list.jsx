@@ -28,7 +28,6 @@ export function StayList({ stays }) {
   }, [])
 
   const handleDotClick = (ev) => {
-    console.log(ev)
     ev.preventDefault()
   }
 

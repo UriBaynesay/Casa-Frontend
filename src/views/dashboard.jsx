@@ -5,7 +5,6 @@ import { orderService } from "../services/order.service"
 import { useSelector } from "react-redux"
 import { StayEdit } from "../views/stay-edit"
 import { socketService,SOCKET_EVENT_NEW_ORDER } from "../services/socket.service";
-import { userService } from "../services/user.service";
 import { DashboardData } from './dashboarddata'
 
 export const DashBoard = () => {
@@ -16,8 +15,6 @@ export const DashBoard = () => {
   const [selected, setSelected] = useState(1)
   const [hostListings, setHostListings] = useState("")
   const [hostOrders, setNewOrders] = useState("")
-  console.log("orders", hostOrders)
-  console.log("listings", hostListings)
 
   const handleClick = (divNum) => () => {
     setSelected(divNum)
@@ -129,19 +126,6 @@ export const DashBoard = () => {
           <div className={selected === 1 ? "listings active" : "listings"}>
             {hostListings &&
               hostListings.map((listing, idx) => {
-                console.log(idx)
-                // let count = 0
-                // if (hostOrders.length > 0) {
-                //   console.log(hostOrders);
-                //   if (hostOrders[idx].stay.name === listing.name) {
-                //     count++
-                //     console.log(
-                //       "host-order name, listing name",
-                //       hostOrders[idx].stay.name,
-                //       listing.name
-                //     )
-                //   }
-                // }
                 return (
                   <div className="listing">
                     <div className="name"><Link to={`/stay/details/${listing._id}`}>{listing.name}</Link></div>
@@ -156,7 +140,6 @@ export const DashBoard = () => {
           <div className={selected === 2 ? "orders active" : "orders"}>
             {hostOrders &&
               hostOrders.map((order) => {
-                console.log(order)
 
                 return (
                   <div className="order">
