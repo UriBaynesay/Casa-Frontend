@@ -26,20 +26,24 @@
 @import './cmp/icon-filters';
 @import './cmp/add-review';
 @import './cmp/hero';
+@import './cmp/user-orders';
+@import './cmp/user-orders-stats';
+@import './cmp/user-orders-list';
+@import './cmp/user-order-preview';
+@import './cmp/user-trips';
+@import './cmp/user-stays';
+@import './cmp/user-stays-list';
+
 
 /* PAGES */
 
-@import './page/dashboard';
 @import './page/home-page';
+@import './page/user-details';
 @import './page/login';
 @import './page/stay-app';
 @import './page/stay-details';
-@import './page/privacy';
-@import './page/become-a-host';
 @import './page/stay-edit';
 @import './page/host-page';
-@import './page/dashboard';
-@import './page/user-dashboard';
 @import './page/signup';
 
 

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { NavLink as Link, useLocation } from "react-router-dom"
-import { useDispatch , useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 
 import { StaySearch } from "./stay-search.jsx"
 import { setFilterBy } from "../store/action/stay.action"
@@ -16,7 +16,7 @@ import {
 import { showUserMsg } from "../services/event-bus.service"
 
 export function AppHeader() {
-  const {user}=useSelector(storeState=>storeState.userModule)
+  const { user } = useSelector((storeState) => storeState.userModule)
   const [headerLayoutClass, setHeaderLayoutClass] = useState("")
   const [headerClass, setHeaderClass] = useState("")
   const [img, setImg] = useState(logoImg2)
@@ -39,7 +39,7 @@ export function AppHeader() {
       setHeaderLayoutClass("main-layout homepage")
       setHeaderClass("homepage")
       setImg(logoImg2)
-    } else if (location.pathname.includes("details")) {
+    } else if (location.pathname.includes("stay/details")) {
       setHeaderLayoutClass("details-layout")
       setHeaderClass("")
       setImg(logoImg)
@@ -76,22 +76,17 @@ export function AppHeader() {
           >
             Explore
           </Link>
-          {user ? (
-            <Link className="host" to="/dashboard">
-              Host Dashboard
-            </Link>
-          ) : (
-            <Link className="host" to="/host">
-              Become a host
-            </Link>
-          )}
+
+          <Link className="host" to="/host">
+            Become a host
+          </Link>
 
           {!user ? (
             <Link className="user" to="/login">
               <AccountCircleIcon />{" "}
             </Link>
           ) : (
-            <Link className="user" to="/userdashboard">
+            <Link className="user" to="/userdetails/orders">
               {user?.notification && <div className="notification"></div>}
               <img className="user-pic" src={user.imgUrl} alt="" />
             </Link>

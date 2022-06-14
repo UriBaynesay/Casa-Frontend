@@ -1,7 +1,10 @@
 .app-header {
   background-color: white;
+  border-bottom: 1px solid $light-grey;
+  min-height: 83px;
   &.homepage {
     background-color: black;
+    border: none;
   }
   &.stay-list{
     position: sticky;
