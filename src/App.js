@@ -18,7 +18,19 @@ export default function App() {
               path={route.path}
               exact={true}
               element={route.component}
-            />
+            >
+              {route.nestedRoutes &&
+                route.nestedRoutes.map(nested => {
+                  return (
+                    <Route
+                      key={nested.path}
+                      path={nested.path}
+                      exact={true}
+                      element={nested.component}
+                    />
+                  )
+                })}
+            </Route>
           )
         })}
       </Routes>

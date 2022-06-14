@@ -1,0 +1,21 @@
+.stats-container {
+  display: flex;
+  margin-bottom: 30px;
+  h1{
+    font-weight: 400;
+  }
+  > * {
+    border-radius: 1em;
+    border: 1px solid $light-grey;
+    padding: 20px;
+  }
+  >*:not(:last-child){
+    margin-right: 12px;
+  }
+  .orders-status-container{
+    display: flex;
+    >*{
+        padding-right: 40px;
+    }
+  }
+}

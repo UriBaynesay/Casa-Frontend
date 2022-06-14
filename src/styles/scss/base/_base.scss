@@ -38,6 +38,15 @@ ul{
   list-style-type: none;
 }
 
+button{
+  background-color: transparent;
+  border: none;
+  font-family: inherit;
+  color: inherit;
+  padding-left: 0px;
+  cursor: pointer;
+}
+
 input {
   border: none;
   padding: 0px;

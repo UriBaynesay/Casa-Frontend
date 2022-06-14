@@ -1,0 +1,18 @@
+.user-details {
+  margin-top: 50px;
+  min-height: 82vh;
+  .user-details-container {
+    grid-area: content;
+    display: flex;
+    .user-details-controls {
+      margin-right: 75px;
+      .user-details-nav-container {
+        display: flex;
+        flex-direction: column;
+        > * {
+          margin-bottom: 12px;
+        }
+      }
+    }
+  }
+}
