@@ -9,8 +9,30 @@
       .user-details-nav-container {
         display: flex;
         flex-direction: column;
+        font-size: 22px;
         > * {
-          margin-bottom: 12px;
+          margin-bottom: 28px;
+          display: flex;
+          .icon-container{
+            height: 32px;
+            width: 32px;
+            margin-right: 8px;
+            img{
+              object-fit: cover;
+              height: 100%;
+              width: 100%;
+            }
+          }
+          &.active{
+            margin-left: 12px;
+          }
+        }
+      }
+      .log-out-btn{
+        cursor: pointer;
+        color: darkred;
+        &:hover{
+          text-decoration: underline;
         }
       }
     }

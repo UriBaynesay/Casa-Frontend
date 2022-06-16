@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux"
 
 import { StaySearch } from "./stay-search.jsx"
 import { setFilterBy } from "../store/action/stay.action"
-import { onUpdate } from "../store/action/user.action"
+import { updateUserNotification } from "../store/action/user.action"
 import logoImg from "../assets/img/logo/new-logo.svg"
 import logoImg2 from "../assets/img/logo/whitelogo.png"
 import AccountCircleIcon from "@mui/icons-material/AccountCircle"
@@ -26,7 +26,7 @@ export function AppHeader() {
 
   const emitNewOrder = () => {
     showUserMsg("New order in your dashboard!")
-    dispatch(onUpdate(true))
+    dispatch(updateUserNotification(true))
   }
 
   useEffect(() => {
@@ -51,6 +51,9 @@ export function AppHeader() {
       setHeaderLayoutClass("main-layout")
       setHeaderClass("")
       setImg(logoImg)
+    }
+    return () => {
+      socketService.off(SOCKET_EVENT_NEW_ORDER, emitNewOrder)
     }
   }, [location.pathname, user])
 

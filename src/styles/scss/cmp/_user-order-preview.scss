@@ -1,8 +1,11 @@
 button {
   font-size: 18px;
+  &:disabled{
+    color: lightgray;
+  }
 }
 
-button:hover {
+button:hover:not(:disabled) {
   text-decoration: underline;
 }
 

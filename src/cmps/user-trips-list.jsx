@@ -1,6 +1,6 @@
 import { UserTripPreview } from "./user-trip-preview"
 
-export const UserTripsList = ({ trips }) => {
+export const UserTripsList = ({ trips, onUpdateOrder }) => {
   return (
     <section className="user-trips-list-container">
       <h3 className="stay-name-title">Stay name</h3>
@@ -12,7 +12,7 @@ export const UserTripsList = ({ trips }) => {
       <h3 className="order-status-title">Order status</h3>
       <h3 className="action-title">Actions</h3>
       {trips.map((trip) => {
-        return <UserTripPreview trip={trip} />
+        return <UserTripPreview trip={trip} onUpdateOrder={onUpdateOrder} />
       })}
     </section>
   )

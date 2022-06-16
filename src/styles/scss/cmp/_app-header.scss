@@ -6,7 +6,7 @@
     background-color: black;
     border: none;
   }
-  &.stay-list{
+  &.stay-list {
     position: sticky;
     top: 0px;
     z-index: 10;
@@ -28,7 +28,7 @@
         width: 30px;
       }
       .text-logo {
-        color: rgb(255, 56, 92);
+        color: #ff385c;
         padding-left: 5px;
       }
     }
@@ -46,11 +46,24 @@
         padding-right: 35px;
       }
     }
-    .user-pic{
-      height: 32px;
-      width: 32px;
-      object-fit: cover;
+    .user {
+      position: relative;
+      .notification {
+        position: absolute;
+        background-color: #ff385c;
+        height: 10px;
+        width: 10px;
+        border-radius: 2em;
+        top: 0px;
+        left: 0px;
+      }
+      .user-pic {
+        height: 32px;
+        width: 32px;
+        object-fit: cover;
+      }
     }
+
     &.homepage {
       grid-template-columns: 0.44fr 1fr 0.44fr;
       grid-template-areas: "logo search nav";
