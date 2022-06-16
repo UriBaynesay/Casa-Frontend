@@ -1,6 +1,6 @@
 import React from "react"
 
-export const UserOrderPreview = ({ order }) => {
+export const UserOrderPreview = ({ order, onUpdateOrder }) => {
   return (
     <React.Fragment>
       <div className="stay-name">{order.stay.name}</div>
@@ -17,12 +17,14 @@ export const UserOrderPreview = ({ order }) => {
         <button
           className="accept-btn"
           disabled={order.status === "accepted" ? true : false}
+          onClick={() => onUpdateOrder(order, "accepted")}
         >
           <div>Accept</div>
         </button>
         <button
           className="decline-btn"
           disabled={order.status === "declined" ? true : false}
+          onClick={() => onUpdateOrder(order, "declined")}
         >
           <div>Decline</div>
         </button>

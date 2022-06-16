@@ -33,7 +33,7 @@ async function remove(orderId) {
 // to add an order you have to give {stayId,hostId,startDate,endDate}
 async function saveOrder(order) {
   if (!order._id) return await httpService.post(END_POINT, order)
-  else return await httpService.put(END_POINT, order)
+  else return await httpService.put(`${END_POINT}/${order._id}`, order)
 }
 
 function getUserOrdersStats(orders) {
@@ -64,7 +64,8 @@ function _getAvgRating(orders) {
 
 function _getTotalRevenue(orders) {
   return orders.reduce((acc, order) => {
-    return acc + order.price
+    if (order.status === "accepted") return acc + order.price
+    return acc
   }, 0)
 }
 

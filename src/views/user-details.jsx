@@ -1,11 +1,10 @@
 import { useDispatch } from "react-redux"
-import { Link, Outlet, useNavigate } from "react-router-dom"
+import { Link, Outlet, useNavigate,NavLink } from "react-router-dom"
 
 import { onLogout } from "../store/action/user.action"
 import { socketService } from "../services/socket.service"
 
 export const UserDetails = () => {
-  
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
@@ -19,15 +18,30 @@ export const UserDetails = () => {
       <div className="user-details-container">
         <div className="user-details-controls">
           <nav className="user-details-nav-container">
-            <Link to="orders">Orders</Link>
-            <Link to="trips">Trips</Link>
-            <Link to="stays">Stays</Link>
+            <NavLink to="orders">
+              <div className="icon-container">
+                <img src={require("../assets/img/host/orders.png")} alt="" />
+              </div>
+              <span>Orders</span>
+            </NavLink>
+            <NavLink to="trips">
+              <div className="icon-container">
+                <img src={require("../assets/img/host/trips.png")} alt="" />
+              </div>
+              <span>Trips</span>
+            </NavLink>
+            <NavLink to="stays">
+              <div className="icon-container">
+                <img src={require("../assets/img/host/stay.png")} alt="" />
+              </div>
+              <span>Stays</span>
+            </NavLink>
           </nav>
           <div className="log-out-btn" onClick={logout}>
             Logout
           </div>
         </div>
-        <Outlet/>
+        <Outlet />
       </div>
     </main>
   )

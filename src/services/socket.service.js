@@ -4,6 +4,7 @@ import { userService } from './user.service'
 // export const SOCKET_EMIT_SEND_MSG = 'chat addMsg';
 // export const SOCKET_EMIT_CHAT_TOY = 'chat toy';
 export const SOCKET_EVENT_NEW_ORDER = 'new-order';
+export const SOCKET_EVENT_UPDATED_ORDER = "updated-order"
 // export const SOCKET_EVENT_REVIEW_ADDED = 'review-added';
 // export const SOCKET_EVENT_REVIEW_ABOUT_YOU = 'review-about-you';
 
@@ -53,43 +54,6 @@ function createSocketService() {
     },
 
   }
-  return socketService
-}
-
-// eslint-disable-next-line
-function createDummySocketService() {
-  var listenersMap = {}
-  const socketService = {
-    listenersMap,
-    setup() {
-      listenersMap = {}
-    },
-    terminate() {
-      this.setup()
-    },
-    login() {   
-    },
-    logout() {   
-    },
-    on(eventName, cb) {
-      listenersMap[eventName] = [...(listenersMap[eventName]) || [], cb]
-    },
-    off(eventName, cb) {
-      if (!listenersMap[eventName]) return
-      if (!cb) delete listenersMap[eventName]
-      else listenersMap[eventName] = listenersMap[eventName].filter(l => l !== cb)
-    },
-    emit(eventName, data) {
-      if (!listenersMap[eventName]) return
-      listenersMap[eventName].forEach(listener => {
-        listener(data)
-      })
-    },
-    debugMsg() {
-      this.emit('chat addMsg', { from: 'Someone', txt: 'Aha it worked!' })
-    },
-  }
-  window.listenersMap = listenersMap;
   return socketService
 }
 

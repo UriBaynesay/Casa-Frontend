@@ -39,7 +39,7 @@ export function onSignup(newUser) {
   }
 }
 
-export function onUpdate(hasNotification) {
+export function updateUserNotification(hasNotification) {
   return async (dispatch) => {
     try {
       const user = userService.setNotification(hasNotification)
