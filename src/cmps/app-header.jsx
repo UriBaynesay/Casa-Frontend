@@ -19,6 +19,7 @@ export function AppHeader() {
   const { user } = useSelector((storeState) => storeState.userModule)
   const [headerLayoutClass, setHeaderLayoutClass] = useState("")
   const [headerClass, setHeaderClass] = useState("")
+  const [dropDownToggle,setDropDownToggle]=useState(false)
   const [img, setImg] = useState(logoImg2)
 
   let location = useLocation()
@@ -29,11 +30,18 @@ export function AppHeader() {
     dispatch(updateUserNotification(true))
   }
 
+  const toggleNavDropDown = () => {
+    const elDropDown = document.querySelector(".links-container")
+    elDropDown.style.display = dropDownToggle?'none':'flex'
+    setDropDownToggle(!dropDownToggle)
+  }
+
   useEffect(() => {
     if (user) {
       socketService.login(user._id)
     }
     socketService.on(SOCKET_EVENT_NEW_ORDER, emitNewOrder)
+    if(dropDownToggle) toggleNavDropDown()
 
     if (location.pathname === "/") {
       setHeaderLayoutClass("main-layout homepage")
@@ -70,19 +78,24 @@ export function AppHeader() {
         <StaySearch />
 
         <nav>
-          <Link
-            className="explore"
-            to="/stays"
-            onClick={() => {
-              dispatch(setFilterBy(null))
-            }}
-          >
-            Explore
-          </Link>
+          <div className="hamburger">
+            <span onClick={toggleNavDropDown}>≡</span>
+          </div>
+          <div className="links-container">
+            <Link
+              className="explore"
+              to="/stays"
+              onClick={() => {
+                dispatch(setFilterBy(null))
+              }}
+            >
+              Explore
+            </Link>
 
-          <Link className="host" to="/host">
-            Become a host
-          </Link>
+            <Link className="host" to="/host">
+              Become a host
+            </Link>
+          </div>
 
           {!user ? (
             <Link className="user" to="/login">
