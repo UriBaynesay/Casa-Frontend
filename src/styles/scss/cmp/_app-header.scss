@@ -1,6 +1,6 @@
 .app-header {
   background-color: white;
-  border-bottom: 1px solid $light-grey;
+
   min-height: 83px;
   &.homepage {
     background-color: black;
@@ -29,6 +29,8 @@
     }
   }
   @media (min-width: 1150px) {
+    border-bottom: 1px solid $light-grey;
+
     &.stay-list {
       position: sticky;
       top: 0px;
@@ -58,7 +60,7 @@
         grid-area: search;
       }
       nav {
-        .home{
+        .home {
           display: none;
         }
         display: flex;

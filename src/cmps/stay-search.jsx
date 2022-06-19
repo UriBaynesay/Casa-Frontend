@@ -3,7 +3,7 @@ import { useNavigate, useLocation } from "react-router-dom"
 import { useDispatch } from "react-redux"
 
 import { SearchModal } from "./search-modal"
-import { setFilterBy } from "../store/action/stay.action.js"
+import { setFilterBy,setStays } from "../store/action/stay.action.js"
 
 import SearchIcon from "@mui/icons-material/Search"
 
@@ -19,13 +19,13 @@ export const StaySearch = () => {
     setOpenModal(modal)
   }
 
-  const onCloseModal=()=>{
+  const onCloseModal = () => {
     setOpenModal(null)
   }
 
   const onSetFilter = (value, name) => {
     setSearchBy({ ...searchBy, [name]: value })
-    if(name==='stayLocation')setOpenModal(null)
+    if (name === "stayLocation") setOpenModal(null)
   }
 
   const onSearch = (ev = null) => {
@@ -37,7 +37,11 @@ export const StaySearch = () => {
   }
 
   useEffect(() => {
-    if (location.pathname !== "/stays") dispatch(setFilterBy(null))
+    if (location.pathname !== "/stays") {
+      dispatch(setFilterBy(null))
+      dispatch(setStays(null))
+    }
+
     if (location.pathname === "/") {
       setLayout("homepage")
     } else {
