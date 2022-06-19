@@ -1,6 +1,18 @@
-export const StayImgs = ({imgUrls}) => {
+import "react-responsive-carousel/lib/styles/carousel.css"
+import { Carousel } from "react-responsive-carousel"
+
+export const StayImgs = ({ imgUrls }) => {
   return (
     <div className="img-layout">
+      <div className="imgs-carousel-container">
+        <Carousel showThumbs={false} showArrows={false} showStatus={false}>
+          {imgUrls.map((imgUrl) => {
+            return (
+              <img src={require(`../assets/img/houses/${imgUrl}`)} alt="" />
+            )
+          })}
+        </Carousel>
+      </div>
       <div className="stay-imgs-container">
         <img
           className="main-img-container"

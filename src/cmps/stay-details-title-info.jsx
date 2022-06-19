@@ -26,7 +26,7 @@ export const StayTitleInfo = ({
           )}
           <span className="address">{address.street}</span>
         </div>
-        <div className="quick-actions">
+        {/* <div className="quick-actions">
           <div className="share-btn">
             <img src={require("../assets/img/Icons/upload.png")} alt="" />
             Share
@@ -35,7 +35,7 @@ export const StayTitleInfo = ({
             <img src={require("../assets/img/Icons/save.png")} alt="" />
             Save
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   )

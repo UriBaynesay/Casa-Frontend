@@ -47,7 +47,7 @@ export const StayDetails = () => {
           address={stay.address}
         />
         <StayImgs imgUrls={stay.imgUrls} />
-        <div className="info-reserve">
+         <div className="info-reserve">
           <StayInfo stay={stay} />
           <Reserve
             stayId={stay._id}
@@ -59,7 +59,7 @@ export const StayDetails = () => {
           />
         </div>
 
-        <StayReview reviewScores={stay.reviewScores} reviews={stay.reviews} />
+        {/* <StayReview reviewScores={stay.reviewScores} reviews={stay.reviews} />
         <div>
           <AddReview addGuestReview={addGuestReview} loggedinUser={user} />
         </div>
@@ -69,7 +69,7 @@ export const StayDetails = () => {
             lng: stay.address.location.lat,
             lat: stay.address.location.lan,
           }}
-        />
+        />  */}
       </section>
     </main>
   )
