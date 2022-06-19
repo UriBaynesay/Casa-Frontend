@@ -1,5 +1,8 @@
 .search-container {
   padding-top: 8px;
+  @media (max-width:1149px) {
+    min-width: 55vw;
+  }
   .input-container {
     background-color: white;
     border: 1px solid $secondary-grey;
@@ -37,6 +40,14 @@
         padding: 4px;
       }
     }
+    @media (max-width:1149px) {
+      display: flex;
+      justify-content: space-between;
+      .date-checkin-container,.date-checkout-container,.guests-container{
+        display: none;
+      }
+      
+    }
   }
   &.homepage {
     box-shadow: none;
@@ -57,8 +68,7 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+
     .input-container {
       display: grid;
       grid-template-columns: 1fr 0.65fr 0.65fr 0.65fr 0.25fr;

@@ -70,6 +70,10 @@ export function AppHeader() {
         <StaySearch />
 
         <nav>
+          <Link className="home" to="/">
+            Home
+          </Link>
+
           <Link
             className="explore"
             to="/stays"
