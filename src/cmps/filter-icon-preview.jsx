@@ -9,7 +9,7 @@ export const FilterIconPreview = ({ iconFilter, handleSetFilter }) => {
           key={iconFilter}
           src={require(`../assets/img/filters/${iconFilter}.jpg`)}
           alt=""
-        ></img>
+        />
       </div>
       <span className="filter-name">{iconFilter}</span>
     </div>
