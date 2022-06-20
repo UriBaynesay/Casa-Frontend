@@ -16,14 +16,13 @@
   justify-content: space-between;
   .filter-container {
     padding-bottom: 13px;
-    @media (max-width:849px) {
-      display: flex;
-      align-items: center;
-    }
-    .icon-container{
+    display: flex;
+    align-items: center;
+
+    .icon-container {
       height: 25px;
       width: 25px;
-      img{
+      img {
         object-fit: cover;
         height: 100%;
         width: 100%;
@@ -41,6 +40,7 @@
     align-items: center;
 
     .filter-container {
+      flex-direction: column;
       opacity: 0.5;
       &:hover {
         transition: ease-in;

@@ -1,11 +1,12 @@
 .stay-main-info-container {
-  padding-right: 90px;
+  @media (max-width: 899px) {
+    grid-area: info;
+    > * {
+      padding: 10px 0px;
+    }
+  }
   .short-info-container {
-    display: flex;
-    justify-content: space-between;
     .txt-info {
-      display: flex;
-      flex-direction: column;
       h4 {
         padding-top: 4px;
         font-weight: 400;
@@ -24,29 +25,29 @@
     }
   }
   .amenities-container {
-    padding-bottom: 24px;
-    padding-top: 30px;
     h2 {
       color: $main-black;
+      @media (max-width: 899px) {
+        margin: 10px 0px;
+      }
     }
     .amenities {
-      padding-top: 50px;
-      margin-bottom: 20px;
       max-height: 210px;
       overflow: hidden;
       display: grid;
       grid-template-columns: 0.6fr 0.9fr;
-      gap: 20px;
+      @media (max-width: 899px) {
+        gap: 32px;
+      }
       .amenity-icon-container {
         display: flex;
         font-size: 18px;
         line-height: 20px;
-        .amenity-txt{
+        .amenity-txt {
           padding-left: 10px;
         }
       }
     }
-
     .amenities-btn {
       border: 1px solid $black;
       border-radius: 8px;
@@ -55,10 +56,35 @@
       cursor: pointer;
     }
   }
-
   & > *:not(:last-child) {
-    border-bottom: 1px solid rgb(221, 221, 221);
-    padding-bottom: 24px;
-    padding-top: 30px;
+      border-bottom: 1px solid rgb(221, 221, 221);
+    }
+}
+
+@media (min-width: 900px) {
+  .stay-main-info-container {
+    padding-right: 90px;
+    .short-info-container {
+      display: flex;
+      justify-content: space-between;
+      .txt-info {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+    .amenities-container {
+      padding-bottom: 24px;
+      padding-top: 30px;
+      .amenities {
+        padding-top: 50px;
+        margin-bottom: 20px;
+        gap: 20px;
+      }
+    }
+
+    & > *:not(:last-child) {
+      padding-bottom: 24px;
+      padding-top: 30px;
+    }
   }
 }

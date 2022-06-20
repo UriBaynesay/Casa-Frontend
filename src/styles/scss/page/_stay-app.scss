@@ -1,14 +1,5 @@
 .stay-app-container {
   grid-area: content;
-  
-  .filter-btn-container{
-    width: 80px;
-    img{
-      object-fit: cover;
-      height: 100%;
-      width: 100%;
-    }
-  }
 }
 
 @media (min-width: 850px) {

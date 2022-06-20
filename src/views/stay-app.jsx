@@ -19,6 +19,7 @@ export const StayApp = () => {
   const onChangeFilter = (filterStaysBy) => {
     dispatch(setFilterBy(filterStaysBy))
     dispatch(loadStays())
+    if(filterIconsOpen) onToggleSideBar()
   }
 
   const onToggleSideBar = () => {

@@ -8,7 +8,7 @@ export const StayTitleInfo = ({
   address,
 }) => {
   return (
-    <div className="stay-title-info-container">
+    <section className="stay-title-info-container">
       <h1 className="stay-name">{name}</h1>
       <div className="short-desc">
         <div className="stats">
@@ -26,7 +26,7 @@ export const StayTitleInfo = ({
           )}
           <span className="address">{address.street}</span>
         </div>
-        <div className="quick-actions">
+        {/* <div className="quick-actions">
           <div className="share-btn">
             <img src={require("../assets/img/Icons/upload.png")} alt="" />
             Share
@@ -35,8 +35,8 @@ export const StayTitleInfo = ({
             <img src={require("../assets/img/Icons/save.png")} alt="" />
             Save
           </div>
-        </div>
+        </div> */}
       </div>
-    </div>
+    </section>
   )
 }
