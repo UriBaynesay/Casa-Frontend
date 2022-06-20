@@ -1,6 +1,12 @@
 .signup-page {
-  min-height: 88vh;
+  min-height: 75vh;
+  @media (min-width: 1150px) {
+    min-height: 85vh;
+  }
   .signup-container {
     grid-area: content;
+  }
+  .MuiBox-root{
+    margin-top: 20px;
   }
 }

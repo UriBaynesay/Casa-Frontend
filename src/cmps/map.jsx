@@ -21,6 +21,7 @@ export const Map = ({ center }) => {
   return isLoaded ? (
     <GoogleMap
       mapContainerStyle={containerStyle}
+      mapContainerClassName="map-container"
       center={center}
       zoom={12}
       onUnmount={onUnmount}
