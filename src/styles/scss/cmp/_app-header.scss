@@ -27,6 +27,26 @@
         z-index: 30;
       }
     }
+    nav {
+      .user {
+        position: relative;
+        .notification {
+          position: absolute;
+          background-color: #ff385c;
+          height: 10px;
+          width: 10px;
+          border-radius: 2em;
+          top: 0px;
+          left: 0px;
+        }
+        .user-pic {
+          border-radius: 2em;
+          height: 32px;
+          width: 32px;
+          object-fit: cover;
+        }
+      }
+    }
   }
   @media (min-width: 1150px) {
     border-bottom: 1px solid $light-grey;
@@ -71,23 +91,6 @@
         padding-top: 32px;
         > *:not(:last-child) {
           padding-right: 35px;
-        }
-      }
-      .user {
-        position: relative;
-        .notification {
-          position: absolute;
-          background-color: #ff385c;
-          height: 10px;
-          width: 10px;
-          border-radius: 2em;
-          top: 0px;
-          left: 0px;
-        }
-        .user-pic {
-          height: 32px;
-          width: 32px;
-          object-fit: cover;
         }
       }
 

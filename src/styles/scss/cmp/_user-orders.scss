@@ -1,6 +1,8 @@
 .user-orders-container {
-  flex-grow: 1;
-  h1{
+  @media (min-width: 950px) {
+    flex-grow: 1;
+  }
+  h1 {
     text-align: center;
   }
 }
