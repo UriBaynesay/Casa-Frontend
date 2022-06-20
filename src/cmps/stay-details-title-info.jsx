@@ -8,7 +8,7 @@ export const StayTitleInfo = ({
   address,
 }) => {
   return (
-    <div className="stay-title-info-container">
+    <section className="stay-title-info-container">
       <h1 className="stay-name">{name}</h1>
       <div className="short-desc">
         <div className="stats">
@@ -37,6 +37,6 @@ export const StayTitleInfo = ({
           </div>
         </div> */}
       </div>
-    </div>
+    </section>
   )
 }

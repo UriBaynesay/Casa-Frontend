@@ -3,7 +3,8 @@ import { Carousel } from "react-responsive-carousel"
 
 export const StayImgs = ({ imgUrls }) => {
   return (
-    <div className="img-layout">
+    <section className="img-layout">
+      {/* for mobile */}
       <div className="imgs-carousel-container">
         <Carousel showThumbs={false} showArrows={false} showStatus={false}>
           {imgUrls.map((imgUrl) => {
@@ -13,6 +14,8 @@ export const StayImgs = ({ imgUrls }) => {
           })}
         </Carousel>
       </div>
+
+      {/* wider screen */}
       <div className="stay-imgs-container">
         <img
           className="main-img-container"
@@ -20,7 +23,7 @@ export const StayImgs = ({ imgUrls }) => {
           alt=""
         />
         {imgUrls.map((imgUrl, idx) => {
-          if (idx === 0) return
+          if (idx === 0) return 
           let style = null
           if (idx === 2) style = { borderTopRightRadius: "12px" }
           if (idx === 4) style = { borderBottomRightRadius: "12px" }
@@ -35,6 +38,6 @@ export const StayImgs = ({ imgUrls }) => {
           )
         })}
       </div>
-    </div>
+    </section>
   )
 }
