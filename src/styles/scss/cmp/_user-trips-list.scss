@@ -1,7 +1,14 @@
 .user-trips-list-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  @media (max-width: 949px) {
+    max-width: 100vw;
+    overflow: scroll;
+  }
   > * {
+    @media (max-width: 949px) {
+      margin-right: 12px;
+    }
     border-bottom: 1px solid $light-grey;
     padding-block: 30px;
     font-size: 18px;

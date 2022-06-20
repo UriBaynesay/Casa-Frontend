@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux"
-import { Link, Outlet, useNavigate,NavLink } from "react-router-dom"
+import { Outlet, useNavigate, NavLink } from "react-router-dom"
 
 import { onLogout } from "../store/action/user.action"
 import { socketService } from "../services/socket.service"
