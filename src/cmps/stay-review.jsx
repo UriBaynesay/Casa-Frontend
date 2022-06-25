@@ -1,11 +1,11 @@
-import { useState } from "react";
-import starIcon from "../assets/img/svgs/star.svg";
+import { useState } from "react"
+import starIcon from "../assets/img/svgs/star.svg"
 export const StayReview = ({ reviewScores, reviews }) => {
-  const [isReviewsExpanded, setIsReviewsExpanded] = useState(false);
+  const [isReviewsExpanded, setIsReviewsExpanded] = useState(false)
   return (
     <section className="reviews-container">
       <h1>
-        <img width="14px" src={starIcon} alt=""/>{" "}
+        <img width="14px" src={starIcon} alt="" />{" "}
         {(reviewScores.rating / 100).toFixed(1) * 5} · {reviews.length} reviews
       </h1>
       <div className="rating-breakdown">
@@ -54,7 +54,15 @@ export const StayReview = ({ reviewScores, reviews }) => {
                 </div>
                 <h3>{review.by.fullname}</h3>
               </div>
-              <p>{review.txt}</p>
+              <p
+                style={
+                  isReviewsExpanded
+                    ? { height: "fit-content" }
+                    : { height: "72px" }
+                }
+              >
+                {review.txt}
+              </p>
             </div>
           )
         })}
@@ -69,4 +77,4 @@ export const StayReview = ({ reviewScores, reviews }) => {
       </div>
     </section>
   )
-};
+}

@@ -9,7 +9,7 @@ export const StayImgs = ({ imgUrls }) => {
         <Carousel showThumbs={false} showArrows={false} showStatus={false}>
           {imgUrls.map((imgUrl) => {
             return (
-              <img src={require(`../assets/img/houses/${imgUrl}`)} alt="" />
+              <img src={require(`../assets/img/houses/${imgUrl}`)} alt="" key={imgUrl}/>
             )
           })}
         </Carousel>
