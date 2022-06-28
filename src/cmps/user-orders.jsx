@@ -9,18 +9,21 @@ import {
 } from "../services/socket.service"
 import { UserOrdersList } from "./user-orders-list"
 import { UserOrdersStats } from "./user-orders-stats"
-import { updateUserNotification } from "../store/action/user.action";
+import { updateUserNotification } from "../store/action/user.action"
 
 export const UserOrders = () => {
   const [orders, setOrders] = useState(null)
   const { user } = useSelector((storeState) => storeState.userModule)
-  const dispatch=useDispatch()
+  const dispatch = useDispatch()
 
   useEffect(() => {
     socketService.on(SOCKET_EVENT_NEW_ORDER, loadUserOrders)
     socketService.on(SOCKET_EVENT_UPDATED_ORDER, loadUserOrders)
-    dispatch(updateUserNotification(false))
-    if (user && !orders) loadUserOrders()
+    if (user) {
+      dispatch(updateUserNotification(false))
+      if (!orders) loadUserOrders()
+    }
+
     return () => {
       socketService.off(SOCKET_EVENT_NEW_ORDER, loadUserOrders)
       socketService.off(SOCKET_EVENT_UPDATED_ORDER, loadUserOrders)
