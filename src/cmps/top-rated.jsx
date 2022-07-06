@@ -11,17 +11,23 @@ export function TopRated() {
   }, [])
 
   const loadStays = async () => {
-    setStays(await stayService.getTopRated())
+    try {
+      const topRatedStays = await stayService.getTopRated()
+      setStays(topRatedStays)
+    } catch (error) {
+      console.error(error)
+    }
   }
-
-  if (!stays) return <section className="top-rated-container"></section>
-
   return (
     <section className="top-rated main-layout">
-      <div className="top-rated-container">
-        <h1 className="title">Top Rated</h1>
-        <TopRatedList stays={stays} />
-      </div>
+      {stays ? (
+        <div className="top-rated-container">
+          <h1 className="title">Top Rated</h1>
+          <TopRatedList stays={stays} />
+        </div>
+      ) : (
+        <div></div>
+      )}
     </section>
   )
 }

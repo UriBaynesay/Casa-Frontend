@@ -132,15 +132,19 @@ function getLabels() {
   return [...labels]
 }
 
-async function getTopRated(){
-  const stay1 = await getById("622f337b75c7d36e498aabbe")
-  const stay2 = await getById("622f337c75c7d36e498aabd7")
-  const stay3 = await getById("622f337a75c7d36e498aab00")
-  const stay4 = await getById("622f337a75c7d36e498aab2c")
-  return [stay1,stay2,stay3,stay4]
+async function getTopRated() {
+  try {
+    const stay1 = await getById("622f337b75c7d36e498aabbe")
+    const stay2 = await getById("622f337c75c7d36e498aabd7")
+    const stay3 = await getById("622f337a75c7d36e498aab00")
+    const stay4 = await getById("622f337a75c7d36e498aab2c")
+    return [stay1, stay2, stay3, stay4]
+  } catch (error) {
+    throw error
+  }
 }
 
-function getPopDestinations(){
+function getPopDestinations() {
   return [...popDestinations]
 }
 
