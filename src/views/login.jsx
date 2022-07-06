@@ -12,19 +12,20 @@ import { createTheme, ThemeProvider } from "@mui/material/styles"
 import { onLogin } from "../store/action/user.action.js"
 
 const theme = createTheme()
-export function Login() {
+
+export const Login = () => {
   let navigate = useNavigate()
   const dispatch = useDispatch()
 
-  const handleSubmit = (event) => {
-    event.preventDefault()
-    const data = new FormData(event.currentTarget)
+  const handleSubmit = (ev) => {
+    ev.preventDefault()
+    const data = new FormData(ev.currentTarget)
     const credentials = {
       username: data.get("username"),
       password: data.get("password"),
     }
     dispatch(onLogin(credentials))
-    navigate(-1)
+    navigate("/")
   }
 
   return (
@@ -45,7 +46,7 @@ export function Login() {
               </Typography>
               <Box
                 component="form"
-                onSubmit={handleSubmit}
+                onSubmit={(event) => handleSubmit(event)}
                 noValidate
                 sx={{ mt: 1 }}
               >

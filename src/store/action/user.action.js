@@ -1,16 +1,17 @@
 import { userService } from "../../services/user.service"
+import { showUserMsg } from "../../services/event-bus.service";
 
 export function onLogin(credentials) {
   return async (dispatch) => {
     try {
       const user = await userService.login(credentials)
-
       dispatch({
         type: "SET_USER",
         user,
       })
     } catch (err) {
-      console.error(err)
+      console.error(err.data);
+      showUserMsg(err.data)
     }
   }
 }

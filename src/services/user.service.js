@@ -1,4 +1,3 @@
-
 import { httpService } from "./http.service"
 
 const END_POINT_AUTH = {
@@ -19,9 +18,8 @@ export const userService = {
   getById,
   remove,
   update,
-  setNotification
+  setNotification,
 }
-
 
 async function getUsers() {
   return await httpService.get(END_POINT_USER)
@@ -29,13 +27,10 @@ async function getUsers() {
 
 async function getById(userId) {
   return await httpService.get(END_POINT_USER, userId)
-
-
 }
 
 async function remove(userId) {
   return await httpService.delete(`${END_POINT_USER}/${userId}`)
-
 }
 
 async function update(user) {
@@ -49,11 +44,12 @@ async function update(user) {
 
 async function login(userCred) {
   try {
+    debugger
     const user = await httpService.post(END_POINT_AUTH.login, userCred)
     sessionStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(user))
     return user
   } catch (err) {
-    console.log("Failed to login", err.msg)
+    throw err
   }
 }
 
@@ -67,7 +63,6 @@ async function signup(userCred) {
   } catch (err) {
     console.log("Failed to signup", err.msg)
   }
-
 }
 
 async function logout() {
@@ -79,9 +74,9 @@ function getLoggedinUser() {
   return JSON.parse(sessionStorage.getItem(STORAGE_KEY_LOGGEDIN_USER)) || null
 }
 
-function setNotification(hasNotification){
-  const user={...getLoggedinUser()}
-  user.notification=hasNotification
+function setNotification(hasNotification) {
+  const user = { ...getLoggedinUser() }
+  user.notification = hasNotification
   sessionStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(user))
   return user
 }
