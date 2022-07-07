@@ -11,16 +11,17 @@ import { createTheme, ThemeProvider } from "@mui/material/styles"
 import { onLogin } from "../store/action/user.action.js"
 import { useEffect } from "react"
 
-const theme = createTheme()
-
 export const Login = () => {
+  const theme = createTheme()
+
   const dispatch = useDispatch()
   const navigate = useNavigate()
+  
   const loggedInUser = useSelector((storeState) => storeState.userModule.user)
 
   useEffect(() => {
     if (loggedInUser) navigate("/")
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [loggedInUser])
 
   const handleSubmit = (ev) => {
