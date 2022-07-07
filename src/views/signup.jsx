@@ -1,4 +1,4 @@
-import { connect } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { useNavigate, Link } from "react-router-dom"
 
 import Button from "@mui/material/Button"
@@ -9,23 +9,31 @@ import Typography from "@mui/material/Typography"
 import Container from "@mui/material/Container"
 import { createTheme, ThemeProvider } from "@mui/material/styles"
 import { onSignup } from "../store/action/user.action.js"
+import { useEffect } from "react"
 
-export function _Signup() {
+export const Signup = () => {
   const theme = createTheme()
-  let navigate = useNavigate()
+
+  const dispatch = useDispatch()
+  const loggedInUser = useSelector((storeState) => storeState.userModule.user)
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    if (loggedInUser) navigate("/")
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [loggedInUser])
 
   const handleSubmit = (event) => {
     event.preventDefault()
     const data = new FormData(event.currentTarget)
-    const fName = data.get("firstName")
-    const lName = data.get("lastName")
+    const firstName = data.get("firstName")
+    const lastName = data.get("lastName")
     const user = {
       username: data.get("username"),
-      fullname: fName + " " + lName,
+      fullname: firstName + " " + lastName,
       password: data.get("password"),
     }
-    onSignup(user)
-    navigate("/")
+    dispatch(onSignup(user))
   }
 
   return (
@@ -115,14 +123,3 @@ export function _Signup() {
     </main>
   )
 }
-
-function mapStateToProps(storeState) {
-  return {
-    user: storeState.userModule.user,
-  }
-}
-const mapDispatchToProps = {
-  onSignup,
-}
-
-export const Signup = connect(mapStateToProps, mapDispatchToProps)(_Signup)

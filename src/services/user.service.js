@@ -48,7 +48,7 @@ async function login(userCred) {
     sessionStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(user))
     return user
   } catch (err) {
-    throw err
+    throw err.data
   }
 }
 
@@ -59,7 +59,7 @@ async function signup(userCred) {
     sessionStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(user))
     return user
   } catch (err) {
-    console.error("Failed to signup", err.msg)
+    throw err.data
   }
 }
 
