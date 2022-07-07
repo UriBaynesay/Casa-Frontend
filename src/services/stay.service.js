@@ -122,7 +122,12 @@ export const stayService = {
 }
 // QUERY you can pass as a filter {hostId,stayLocation,label,guestCount}
 async function query(filterBy) {
-  return await httpService.get(END_POINT, filterBy)
+  try {
+    const stays = await httpService.get(END_POINT, filterBy)
+    return stays
+  } catch (error) {
+    throw error
+  }
 }
 
 function getAmenities() {
