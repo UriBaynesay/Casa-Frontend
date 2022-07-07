@@ -1,4 +1,3 @@
-import de from "date-fns/esm/locale/de/index.js"
 import { useState } from "react"
 
 export const GuestModal = (props) => {
