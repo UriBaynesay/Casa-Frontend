@@ -2,7 +2,7 @@ import React from "react"
 import { connect } from "react-redux"
 
 import { orderService } from "../services/order.service"
-import { utilService } from "../services/util.service";
+import { utilService } from "../services/util.service"
 import { showUserMsg } from "../services/event-bus.service"
 import { GuestModal } from "./search-by-guest-modal"
 import { ReserveDateModal } from "./reserve-date-modal"
@@ -33,8 +33,8 @@ export class _Reserve extends React.Component {
   }
 
   onReserve = async () => {
-    const { user, stayId, hostId ,price } = this.props
-    const { dates , guestCount } = this.state
+    const { user, stayId, hostId, price } = this.props
+    const { dates, guestCount } = this.state
     if (!user) {
       showUserMsg("Please login")
       return
@@ -57,9 +57,9 @@ export class _Reserve extends React.Component {
         endDate: dates.endDateStamp,
       })
       showUserMsg("Order sent")
-
     } catch (err) {
-      if (err === "not availble") showUserMsg("No available dates")
+      if (err === "not availble") showUserMsg("Not availble in those dates")
+      else showUserMsg("Failed to save your order please try again later")
     }
   }
 
@@ -155,4 +155,3 @@ const mapStateToProps = (storeState) => {
 const mapDispatchToProps = {}
 
 export const Reserve = connect(mapStateToProps, mapDispatchToProps)(_Reserve)
-

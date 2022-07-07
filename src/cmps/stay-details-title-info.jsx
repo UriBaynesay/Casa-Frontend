@@ -26,16 +26,6 @@ export const StayTitleInfo = ({
           )}
           <span className="address">{address.street}</span>
         </div>
-        {/* <div className="quick-actions">
-          <div className="share-btn">
-            <img src={require("../assets/img/Icons/upload.png")} alt="" />
-            Share
-          </div>
-          <div className="save-btn">
-            <img src={require("../assets/img/Icons/save.png")} alt="" />
-            Save
-          </div>
-        </div> */}
       </div>
     </section>
   )

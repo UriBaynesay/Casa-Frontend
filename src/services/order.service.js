@@ -32,8 +32,23 @@ async function remove(orderId) {
 
 // to add an order you have to give {stayId,hostId,startDate,endDate}
 async function saveOrder(order) {
-  if (!order._id) return await httpService.post(END_POINT, order)
-  else return await httpService.put(`${END_POINT}/${order._id}`, order)
+  if (!order._id) {
+    try {
+      const newOrder = await httpService.post(END_POINT, order)
+      return newOrder
+    } catch (error) {
+      throw error.data
+    }
+  }
+  try {
+    const updatedOrder = await httpService.put(
+      `${END_POINT}/${order._id}`,
+      order
+    )
+    return updatedOrder
+  } catch (error) {
+    throw error.data
+  }
 }
 
 function getUserOrdersStats(orders) {

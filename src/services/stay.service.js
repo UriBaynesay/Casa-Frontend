@@ -154,7 +154,12 @@ function getPopDestinations() {
 }
 
 async function getById(stayId) {
-  return await httpService.get(`${END_POINT}/${stayId}`)
+  try {
+    const stay = await httpService.get(`${END_POINT}/${stayId}`)
+    return stay
+  } catch (error) {
+    throw error.data
+  }
 }
 
 async function deleteStay(stayId) {
