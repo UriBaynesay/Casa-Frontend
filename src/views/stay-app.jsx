@@ -14,12 +14,13 @@ export const StayApp = () => {
   useEffect(() => {
     window.scrollTo(0, 0)
     dispatch(loadStays())
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filterBy])
 
   const onChangeFilter = (filterStaysBy) => {
     dispatch(setFilterBy(filterStaysBy))
     dispatch(loadStays())
-    if(filterIconsOpen) onToggleSideBar()
+    if (filterIconsOpen) onToggleSideBar()
   }
 
   const onToggleSideBar = () => {
