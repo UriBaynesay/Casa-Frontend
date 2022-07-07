@@ -1,8 +1,9 @@
 import { userService } from "../../services/user.service"
-import { showUserMsg } from "../../services/event-bus.service";
+import { showUserMsg } from "../../services/event-bus.service"
 
 export function onLogin(credentials) {
   return async (dispatch) => {
+    debugger
     try {
       const user = await userService.login(credentials)
       dispatch({
@@ -10,7 +11,7 @@ export function onLogin(credentials) {
         user,
       })
     } catch (err) {
-      console.error(err.data);
+      console.error(err.data)
       showUserMsg(err.data)
     }
   }

@@ -44,7 +44,6 @@ async function update(user) {
 
 async function login(userCred) {
   try {
-    debugger
     const user = await httpService.post(END_POINT_AUTH.login, userCred)
     sessionStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(user))
     return user
@@ -56,12 +55,11 @@ async function login(userCred) {
 // need username fullname and password
 async function signup(userCred) {
   try {
-    debugger
     const user = await httpService.post(END_POINT_AUTH.signup, userCred)
     sessionStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(user))
     return user
   } catch (err) {
-    console.log("Failed to signup", err.msg)
+    console.error("Failed to signup", err.msg)
   }
 }
 

@@ -1,21 +1,27 @@
-import { useNavigate } from "react-router-dom"
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 
 import Button from "@mui/material/Button"
 import TextField from "@mui/material/TextField"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import Grid from "@mui/material/Grid"
 import Box from "@mui/material/Box"
 import Typography from "@mui/material/Typography"
 import Container from "@mui/material/Container"
 import { createTheme, ThemeProvider } from "@mui/material/styles"
 import { onLogin } from "../store/action/user.action.js"
+import { useEffect } from "react"
 
 const theme = createTheme()
 
 export const Login = () => {
-  let navigate = useNavigate()
   const dispatch = useDispatch()
+  const navigate = useNavigate()
+  const loggedInUser = useSelector((storeState) => storeState.userModule.user)
+
+  useEffect(() => {
+    if (loggedInUser) navigate("/")
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [loggedInUser])
 
   const handleSubmit = (ev) => {
     ev.preventDefault()
@@ -25,7 +31,6 @@ export const Login = () => {
       password: data.get("password"),
     }
     dispatch(onLogin(credentials))
-    navigate("/")
   }
 
   return (
