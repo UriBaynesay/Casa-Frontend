@@ -39,11 +39,19 @@ export class _Reserve extends React.Component {
       showUserMsg("Please login")
       return
     }
-    if (!dates.endDateStamp || !dates.startDateStamp) {
+    if (!dates || !dates.endDateStamp || !dates.startDateStamp) {
       showUserMsg("Please select dates")
       this.setState({
         ...this.state,
         isDateModalOpen: true,
+      })
+      return
+    }
+    if (guestCount === 0) {
+      showUserMsg("Please select the number of people visiting")
+      this.setState({
+        ...this.state,
+        isGuestModalOpen: true,
       })
       return
     }
@@ -58,7 +66,8 @@ export class _Reserve extends React.Component {
       })
       showUserMsg("Order sent")
     } catch (err) {
-      if (err === "not availble") showUserMsg("Not availble in those dates")
+      if (err === "not availble")
+        showUserMsg("Sorry not availble in those dates")
       else showUserMsg("Failed to save your order please try again later")
     }
   }
