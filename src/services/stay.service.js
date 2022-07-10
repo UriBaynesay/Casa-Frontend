@@ -126,7 +126,7 @@ async function query(filterBy) {
     const stays = await httpService.get(END_POINT, filterBy)
     return stays
   } catch (error) {
-    throw error
+    throw error.data
   }
 }
 
@@ -163,7 +163,11 @@ async function getById(stayId) {
 }
 
 async function deleteStay(stayId) {
-  return await httpService.delete(`${END_POINT}/${stayId}`)
+  try {
+    return await httpService.delete(`${END_POINT}/${stayId}`)
+  } catch (error) {
+    throw error.data
+  }
 }
 
 // name
@@ -180,6 +184,21 @@ async function deleteStay(stayId) {
 // price
 // imgUrls
 async function saveStay(stay) {
-  if (!stay._id) return await httpService.post(END_POINT, stay)
-  else return await httpService.put(`${END_POINT}/${stay._id}`, stay)
+  if (!stay._id) {
+    try {
+      const newStay = await httpService.post(END_POINT, stay)
+      return newStay
+    } catch (error) {
+      throw error.data
+    }
+  } else
+    try {
+      const updatedStay = await httpService.put(
+        `${END_POINT}/${stay._id}`,
+        stay
+      )
+      return updatedStay
+    } catch (error) {
+      throw error.data
+    }
 }

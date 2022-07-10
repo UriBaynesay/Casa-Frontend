@@ -2,7 +2,7 @@ export const utilService = {
   makeId,
   makeLorem,
   getRandomIntInclusive,
-  numberWithCommas
+  
 }
 
 function makeId(length = 6) {
@@ -30,12 +30,4 @@ function getRandomIntInclusive(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min + 1)) + min; //The maximum is inclusive and the minimum is inclusive 
-}
-
-function numberWithCommas(n) {
-  var parts = n.toString().split(".")
-  return (
-    parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",") +
-    (parts[1] ? "." + parts[1] : "")
-  )
 }

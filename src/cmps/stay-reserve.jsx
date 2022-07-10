@@ -80,7 +80,7 @@ export class _Reserve extends React.Component {
         <div className="reserve-modal">
           <div className="top-info">
             <h1>
-              ${price} <span className="night-container">night</span>
+              ${price.toLocaleString()} <span className="night-container">night</span>
             </h1>
             <div className="stats">
               <span>
@@ -142,10 +142,10 @@ export class _Reserve extends React.Component {
             <h3>
               $
               {dates !== null
-                ? utilService.numberWithCommas(
+                ? (
                     ((dates.endDateStamp - dates.startDateStamp) / 86400000) *
                       price
-                  )
+                  ).toLocaleString()
                 : "0"}
             </h3>
           </div>
