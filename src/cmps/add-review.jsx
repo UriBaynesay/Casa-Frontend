@@ -12,16 +12,6 @@ export class AddReview extends Component {
     const { value } = target
     this.setState({ review: { ...this.state.review, txt: value } })
   }
-  sendReview = () => {
-    let { review } = this.state
-    let { loggedinUser } = this.props
-    review.by = {
-      _id: loggedinUser._id,
-      fullname: loggedinUser.fullname,
-      imgUrl: loggedinUser.imgUrl,
-    }
-    this.props.addGuestReview(review)
-  }
 
   render() {
     const { review } = this.state
@@ -47,7 +37,7 @@ export class AddReview extends Component {
           placeholder="Add your review..."
         />
 
-        <button onClick={this.sendReview}> Send </button>
+        <button> Send </button>
       </section>
     )
   }

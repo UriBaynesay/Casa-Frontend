@@ -33,10 +33,7 @@ export const StayDetails = () => {
       navigate(-1)
     }
   }
-  const addGuestReview = (review) => {
-    review.createdAt = Date.now() / 1000
-    stay.reviews.push(review)
-  }
+  
 
   return (
     <main className="details-layout">
@@ -53,7 +50,6 @@ export const StayDetails = () => {
           <StayImgs imgUrls={stay.imgUrls} />
 
           <section className="info-reserve">
-            
             <StayInfo stay={stay} />
             <Reserve
               stayId={stay._id}
@@ -67,7 +63,7 @@ export const StayDetails = () => {
 
           <StayReview reviewScores={stay.reviewScores} reviews={stay.reviews} />
 
-          <AddReview addGuestReview={addGuestReview} loggedinUser={user} />
+          <AddReview  loggedinUser={user} />
 
           <Map
             center={{

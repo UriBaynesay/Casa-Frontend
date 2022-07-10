@@ -1,7 +1,10 @@
 import { useState } from "react"
 import starIcon from "../assets/img/svgs/star.svg"
+
 export const StayReview = ({ reviewScores, reviews }) => {
+
   const [isReviewsExpanded, setIsReviewsExpanded] = useState(false)
+  
   return (
     <section className="reviews-container">
       <h1>
