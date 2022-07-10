@@ -10,7 +10,7 @@ export function onLogin(credentials) {
         user,
       })
     } catch (err) {
-      showUserMsg(err.data)
+      showUserMsg(err)
     }
   }
 }
@@ -31,7 +31,7 @@ export function onSignup(newUser) {
       const user = await userService.signup(newUser)
       dispatch({
         type: "SET_USER",
-        user
+        user,
       })
     } catch (error) {
       showUserMsg(error)
@@ -40,15 +40,11 @@ export function onSignup(newUser) {
 }
 
 export function updateUserNotification(hasNotification) {
-  return async (dispatch) => {
-    try {
-      const user = userService.setNotification(hasNotification)
-      dispatch({
-        type: "SET_USER",
-        user: user,
-      })
-    } catch (error) {
-      console.error(error)
-    }
+  return (dispatch) => {
+    const user = userService.setNotification(hasNotification)
+    dispatch({
+      type: "SET_USER",
+      user: user,
+    })
   }
 }

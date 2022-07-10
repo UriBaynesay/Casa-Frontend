@@ -19,15 +19,29 @@ export const orderService = {
 
 // you can pass in filterBy {userId,hostId,stayId}
 async function query(filterBy) {
-  return await httpService.get(END_POINT, filterBy)
+  try {
+    const orders = await httpService.get(END_POINT, filterBy)
+    return orders
+  } catch (error) {
+    throw error.data
+  }
 }
 
 async function getById(orderId) {
-  return await httpService.get(`${END_POINT}/${orderId}`)
+  try {
+    const order = await httpService.get(`${END_POINT}/${orderId}`)
+    return order
+  } catch (error) {
+    throw error.data
+  }
 }
 
 async function remove(orderId) {
-  return await httpService.delete(`${END_POINT}/${orderId}`)
+  try {
+    return await httpService.delete(`${END_POINT}/${orderId}`)
+  } catch (error) {
+    throw error.data
+  }
 }
 
 // to add an order you have to give {stayId,hostId,startDate,endDate}

@@ -43,7 +43,7 @@ export function StayPreview({ stay }) {
       <div className="stay-quick-data">{stay.propertyType}</div>
       <div className="stay-quick-data">{stay.roomType}</div>
       <div className="stay-price">
-        <span className="stay-price">${utilService.numberWithCommas(stay.price)}</span>{" "}
+        <span className="stay-price">${stay.price.toLocaleString()}</span>{" "}
         <span className="stay-night">night</span>
       </div>
     </Link>

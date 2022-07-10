@@ -13,8 +13,12 @@ export const UserStays = () => {
   }, [user])
 
   const loadUserStays = async () => {
-    const userStays = await stayService.query({ hostId: user._id })
-    setStays(userStays)
+    try {
+      const userStays = await stayService.query({ hostId: user._id })
+      setStays(userStays)
+    } catch (error) {
+      console.error(error)
+    }
   }
 
   return (

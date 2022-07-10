@@ -31,8 +31,12 @@ export const UserOrders = () => {
   }, [])
 
   const loadUserOrders = async () => {
-    const userOrders = await orderService.query({ hostId: user._id })
-    if (userOrders.length) setOrders(userOrders)
+    try {
+      const userOrders = await orderService.query({ hostId: user._id })
+      if (userOrders.length) setOrders(userOrders)
+    } catch (error) {
+      console.error(error)
+    }
   }
 
   const onUpdateOrder = async (order, status) => {

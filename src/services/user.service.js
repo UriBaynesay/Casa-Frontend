@@ -22,24 +22,45 @@ export const userService = {
 }
 
 async function getUsers() {
-  return await httpService.get(END_POINT_USER)
+  try {
+    const users = await httpService.get(END_POINT_USER)
+    return users
+  } catch (error) {
+    throw error.data
+  }
 }
 
 async function getById(userId) {
-  return await httpService.get(END_POINT_USER, userId)
+  try {
+    const user = await httpService.get(END_POINT_USER, userId)
+    return user
+  } catch (error) {
+    throw error.data
+  }
 }
 
 async function remove(userId) {
-  return await httpService.delete(`${END_POINT_USER}/${userId}`)
+  try {
+    return await httpService.delete(`${END_POINT_USER}/${userId}`)
+  } catch (error) {
+    throw error.data
+  }
 }
 
 async function update(user) {
-  const updatedUser = await httpService.put(
-    `${END_POINT_USER}/${user._id}`,
-    user
-  )
-  sessionStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(updatedUser))
-  return updatedUser
+  try {
+    const updatedUser = await httpService.put(
+      `${END_POINT_USER}/${user._id}`,
+      user
+    )
+    sessionStorage.setItem(
+      STORAGE_KEY_LOGGEDIN_USER,
+      JSON.stringify(updatedUser)
+    )
+    return updatedUser
+  } catch (error) {
+    throw error.data
+  }
 }
 
 async function login(userCred) {
