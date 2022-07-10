@@ -1,4 +1,3 @@
-import { useState, useCallback } from "react"
 import { GoogleMap, useJsApiLoader, Marker } from "@react-google-maps/api"
 
 export const Map = ({ center }) => {
@@ -12,11 +11,6 @@ export const Map = ({ center }) => {
     width: "100%",
     height: "400px",
   }
-  const [map, setMap] = useState(null)
-
-  const onUnmount = useCallback(function callback(map) {
-    setMap(null)
-  }, [])
 
   return isLoaded ? (
     <GoogleMap
@@ -24,7 +18,6 @@ export const Map = ({ center }) => {
       mapContainerClassName="map-container"
       center={center}
       zoom={12}
-      onUnmount={onUnmount}
     >
       <Marker position={center} />
     </GoogleMap>
