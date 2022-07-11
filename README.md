@@ -1,4 +1,4 @@
-# Casa frontend
+# Casa Frontend
 
 ## Technologies used :
 React-Routing,State managment(redux)
