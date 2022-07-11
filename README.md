@@ -1,6 +1,6 @@
 ## Casa frontend
-#Technologies used :
 
+#T echnologies used :
 React-Routing,State managment(redux)
 
 SCSS
