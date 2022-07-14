@@ -88,6 +88,7 @@
     margin-bottom: 20px;
     overflow: hidden;
     .review-card {
+      margin-bottom: 30px;
       p {
         height: 72px;
         overflow: hidden;
@@ -147,11 +148,11 @@
     }
 
     .review-cards-container {
-      margin-top: 20px;
-      display: grid;
-      grid-template-columns: 0.9fr 0.9fr;
+      margin: 20px;
+      column-count: 2;
       gap: 50px;
       .review-card {
+        -webkit-column-break-inside: avoid;
         &:nth-child(even) {
           justify-self: end;
         }
