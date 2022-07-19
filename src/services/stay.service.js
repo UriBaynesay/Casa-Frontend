@@ -1,11 +1,6 @@
-// import { storageService } from "./async.storage.service"
-// import { stay_db } from "../data/db"
 import { httpService } from "./http.service"
 
 const END_POINT = "stay"
-// const STORAGE_KEY = 'STAY_STORAGE_KEY'
-
-// _setupForLocalStorage()
 
 const labels = [
   "Design",
@@ -14,12 +9,10 @@ const labels = [
   "Islands",
   "National Parks",
   "Cabins",
-  // "OMG!",
   "Camping",
   "Tiny Homes",
   "Lakefront",
   "Arctic",
-  // "Amazing views",
   "Desert",
   "Surfing",
   "Mansions",

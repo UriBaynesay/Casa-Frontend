@@ -10,7 +10,7 @@ export const StayInfo = ({ stay }) => {
   const amenities = stayService.getAmenities()
   return (
     <section className="stay-main-info-container">
-      <div className="short-info-container">
+      <section className="short-info-container">
         <div className="txt-info">
           <h2>
             {stay.roomType} hosted by {stay.host.fullname}
@@ -24,18 +24,18 @@ export const StayInfo = ({ stay }) => {
         <div className="host-img-container">
           <img src={stay.host.thumbnailUrl} alt="" />
         </div>
-      </div>
-      <div className="summary">
+      </section>
+      <section className="summary">
         <p>{stay.summary}</p>
-      </div>
-      <div className="amenities-container">
+      </section>
+      <section className="amenities-container">
         <h2>What this place offers</h2>
         <div
           className="amenities"
           style={isAmenitiesExpanded ? { maxHeight: "fit-content" } : null}
         >
           {amenities.map((amenity, idx) => {
-            return <AmenityIcon iconType={amenity} key={idx} />
+            return <AmenityIcon iconType={amenity} stayHas={stay.amenities.find(a=>a===amenity)} key={idx} />
           })}
         </div>
         <div
@@ -46,7 +46,7 @@ export const StayInfo = ({ stay }) => {
         >
           <h3>{isAmenitiesExpanded ? "Show less" : "Show more"}</h3>
         </div>
-      </div>
+      </section>
     </section>
   )
 }
