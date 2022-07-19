@@ -1,11 +1,5 @@
-// import { storageService } from "./async.storage.service";
-// import { order_db } from "../data/db";
+
 import { httpService } from "./http.service"
-
-// import { stayService } from "./stay.service";
-
-// const STORAGE_KEY = "ORDERS_STORAGE_KEY";
-// _setupForLocalStorage();
 
 const END_POINT = "order"
 

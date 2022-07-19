@@ -1,12 +1,8 @@
 import io from 'socket.io-client'
 import { userService } from './user.service'
 
-// export const SOCKET_EMIT_SEND_MSG = 'chat addMsg';
-// export const SOCKET_EMIT_CHAT_TOY = 'chat toy';
 export const SOCKET_EVENT_NEW_ORDER = 'new-order';
 export const SOCKET_EVENT_UPDATED_ORDER = "updated-order"
-// export const SOCKET_EVENT_REVIEW_ADDED = 'review-added';
-// export const SOCKET_EVENT_REVIEW_ABOUT_YOU = 'review-about-you';
 
 const SOCKET_EMIT_LOGIN = 'set-user-socket';
 const SOCKET_EMIT_LOGOUT = 'unset-user-socket';
@@ -14,10 +10,7 @@ const SOCKET_EMIT_LOGOUT = 'unset-user-socket';
 
 const baseUrl = (process.env.NODE_ENV === 'production') ? '' : '//localhost:3030'
 export const socketService = createSocketService()
-// export const socketService = createDummySocketService()
 
-// for debugging from console
-// window.socketService = socketService
 
 socketService.setup()
 

@@ -11,7 +11,6 @@ import { UserTrips } from "./cmps/user-trips"
 import { UserOrders } from "./cmps/user-orders"
 import { UserStays } from "./cmps/user-stays"
 
-// Routes accesible from the main navigation (in AppHeader)
 const routes = [
   {
     path: "/",
