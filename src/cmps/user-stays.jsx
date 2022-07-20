@@ -10,6 +10,7 @@ export const UserStays = () => {
 
   useEffect(() => {
     if (user && !stays) loadUserStays()
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user])
 
   const loadUserStays = async () => {

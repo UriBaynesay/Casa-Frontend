@@ -18,6 +18,7 @@ export const UserTrips = () => {
     return ()=>{
       socketService.off(SOCKET_EVENT_UPDATED_ORDER, loadTrips)
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const loadTrips = async () => {
@@ -26,10 +27,11 @@ export const UserTrips = () => {
   }
 
   const onUpdateOrder = async (order, status) => {
-    const newOrder = { ...order, status }
+    const updatedOrder = { ...order, status }
     try {
-      await orderService.saveOrder(newOrder)
-      loadTrips()
+      await orderService.saveOrder(updatedOrder)
+      const newTrips=trips.filter(trip=>trip._id!==order._id)
+      setTrips([...newTrips,updatedOrder])
     } catch (error) {
       console.error(error)
     }

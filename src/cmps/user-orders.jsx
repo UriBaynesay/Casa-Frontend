@@ -28,6 +28,7 @@ export const UserOrders = () => {
       socketService.off(SOCKET_EVENT_NEW_ORDER, loadUserOrders)
       socketService.off(SOCKET_EVENT_UPDATED_ORDER, loadUserOrders)
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const loadUserOrders = async () => {
@@ -40,10 +41,11 @@ export const UserOrders = () => {
   }
 
   const onUpdateOrder = async (order, status) => {
-    const newOrder = { ...order, status }
+    const updatedOrder = { ...order, status }
     try {
-      await orderService.saveOrder(newOrder)
-      loadUserOrders()
+      await orderService.saveOrder(updatedOrder)
+      const newOrders = orders.filter((o) => o._id !== order._id)
+      setOrders([...newOrders, updatedOrder])
     } catch (error) {
       console.error(error)
     }
