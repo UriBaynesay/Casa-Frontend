@@ -1,12 +1,10 @@
 import { useState } from "react"
 
+import { utilService } from "../services/util.service";
+
 export const GuestModal = (props) => {
-  const guests = [
-    { type: "Adults", description: "Ages 13 or above" },
-    { type: "Children", description: "Ages 2-12" },
-    { type: "Infants", description: "Under 2" },
-    { type: "Pets", description: "" },
-  ]
+  const guests = utilService.guestTypes
+  
   const [guestCount, setGuestCount] = useState({
     adults: 0,
     children: 0,
