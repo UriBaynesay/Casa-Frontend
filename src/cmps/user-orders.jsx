@@ -44,8 +44,6 @@ export const UserOrders = () => {
     const updatedOrder = { ...order, status }
     try {
       await orderService.saveOrder(updatedOrder)
-      const newOrders = orders.filter((o) => o._id !== order._id)
-      setOrders([...newOrders, updatedOrder])
     } catch (error) {
       console.error(error)
     }

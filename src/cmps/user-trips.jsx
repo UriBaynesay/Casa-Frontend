@@ -30,8 +30,6 @@ export const UserTrips = () => {
     const updatedOrder = { ...order, status }
     try {
       await orderService.saveOrder(updatedOrder)
-      const newTrips=trips.filter(trip=>trip._id!==order._id)
-      setTrips([...newTrips,updatedOrder])
     } catch (error) {
       console.error(error)
     }
