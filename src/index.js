@@ -1,12 +1,13 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import { BrowserRouter as Router } from "react-router-dom";
+import React from "react"
+import ReactDOM from "react-dom/client"
+import { BrowserRouter as Router } from "react-router-dom"
+import * as serviceWorkerRegistration from "./serviceWorkerRegistration"
 
-import App from "./App";
-import { store } from "./store/store.js";
-import { Provider } from "react-redux";
+import App from "./App"
+import { store } from "./store/store.js"
+import { Provider } from "react-redux"
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
+const root = ReactDOM.createRoot(document.getElementById("root"))
 root.render(
   <React.StrictMode>
     <Provider store={store}>
@@ -15,4 +16,7 @@ root.render(
       </Router>
     </Provider>
   </React.StrictMode>
-);
+)
+
+serviceWorkerRegistration.unregister()
+
