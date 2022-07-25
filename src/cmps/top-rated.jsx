@@ -1,23 +1,9 @@
-import { useEffect, useState } from "react"
-
 import { stayService } from "../services/stay.service"
 import { TopRatedList } from "./top-rated-list"
 
 export function TopRated() {
-  const [stays, setStays] = useState(null)
+  const stays=stayService.getTopRated()
 
-  useEffect(() => {
-    loadStays()
-  }, [])
-
-  const loadStays = async () => {
-    try {
-      const topRatedStays = await stayService.getTopRated()
-      setStays(topRatedStays)
-    } catch (error) {
-      console.error(error)
-    }
-  }
   return (
     <section className="top-rated main-layout">
       {stays ? (
