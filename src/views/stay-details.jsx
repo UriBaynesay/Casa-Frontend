@@ -33,7 +33,6 @@ export const StayDetails = () => {
       navigate(-1)
     }
   }
-  
 
   return (
     <main className="details-layout">
@@ -63,7 +62,7 @@ export const StayDetails = () => {
 
           <StayReview reviewScores={stay.reviewScores} reviews={stay.reviews} />
 
-          <AddReview  loggedinUser={user} />
+          <AddReview loggedinUser={user} />
 
           <Map
             center={{
