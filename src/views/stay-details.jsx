@@ -34,6 +34,15 @@ export const StayDetails = () => {
     }
   }
 
+  const addReview = async (txt)=>{
+    try {
+      const review=await stayService.addReview(stay._id,txt)
+      setStay({...stay,reviews:[...stay.reviews,review]})
+    } catch (err) {
+      showUserMsg(err)
+    }
+  }
+
   return (
     <main className="details-layout">
       {stay ? (
@@ -62,7 +71,7 @@ export const StayDetails = () => {
 
           <StayReview reviewScores={stay.reviewScores} reviews={stay.reviews} />
 
-          <AddReview loggedinUser={user} />
+          <AddReview loggedinUser={user} addReview={addReview}/>
 
           <Map
             center={{

@@ -110,6 +110,7 @@ export const stayService = {
   getLabels,
   getPopDestinations,
   saveStay,
+  addReview,
   deleteStay,
   getTopRated,
 }
@@ -772,4 +773,12 @@ async function saveStay(stay) {
     } catch (error) {
       throw error.data
     }
+}
+
+async function addReview(stayId, txt) {
+  try {
+    return await httpService.post(`${END_POINT}/review/${stayId}`, {txt})
+  } catch (err) {
+    throw err.data
+  }
 }
