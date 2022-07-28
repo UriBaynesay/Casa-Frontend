@@ -3,19 +3,17 @@ import Avatar from "@mui/material/Avatar"
 
 export class AddReview extends Component {
   state = {
-    review: {
-      txt: "",
-    },
+      txt: ""
   }
 
   handleChange = ({ target }) => {
     const { value } = target
-    this.setState({ review: { ...this.state.review, txt: value } })
+    this.setState({txt: value})
   }
 
   render() {
-    const { review } = this.state
-    const { loggedinUser } = this.props
+    const { txt } = this.state
+    const { loggedinUser, addReview } = this.props
     const imgUrl = loggedinUser ? loggedinUser.imgUrl : ""
     const fullname = loggedinUser ? loggedinUser.fullname : "Guest"
 
@@ -33,11 +31,11 @@ export class AddReview extends Component {
           name="txt"
           autoComplete="off"
           onChange={this.handleChange}
-          value={review.txt}
+          value={txt}
           placeholder="Add your review..."
         />
 
-        <button> Send </button>
+        <button onClick={()=>{addReview(txt);this.setState({txt:""})}}> Send </button>
       </section>
     )
   }
