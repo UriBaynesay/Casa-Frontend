@@ -1,7 +1,6 @@
 import React from "react"
 import ReactDOM from "react-dom/client"
 import { BrowserRouter as Router } from "react-router-dom"
-import * as serviceWorkerRegistration from "./serviceWorkerRegistration"
 
 import App from "./App"
 import { store } from "./store/store.js"
@@ -18,5 +17,4 @@ root.render(
   </React.StrictMode>
 )
 
-serviceWorkerRegistration.unregister()
 
