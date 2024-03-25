@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-import { utilService } from "../services/util.service";
+import { utilService } from "../../services/util.service";
 
 export const GuestModal = (props) => {
   const guests = utilService.guestTypes

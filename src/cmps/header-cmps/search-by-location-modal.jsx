@@ -21,7 +21,7 @@ export const LocationModal = ({ onSetFilter, onCloseModal }) => {
             >
               <div className="img-container">
                 <img
-                  src={require(`../assets/img/countries/${location} search.png`)}
+                  src={require(`../../assets/img/countries/${location} search.png`)}
                   alt=""
                 />
               </div>

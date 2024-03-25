@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { NavLink as Link, useLocation } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
 
-import { StaySearch } from "./stay-search.jsx"
+import { StaySearch } from "./header-cmps/stay-search.jsx"
 import { setFilterBy } from "../store/action/stay.action"
 import { updateUserNotification } from "../store/action/user.action"
 import logoImg from "../assets/img/logo/new-logo.svg"
@@ -55,6 +55,7 @@ export function AppHeader() {
     return () => {
       socketService.off(SOCKET_EVENT_NEW_ORDER, emitNewOrder)
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [location.pathname, user])
 
   return (
