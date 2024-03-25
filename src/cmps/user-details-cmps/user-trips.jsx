@@ -5,8 +5,8 @@ import { UserTripsList } from "./user-trips-list"
 import {
   socketService,
   SOCKET_EVENT_UPDATED_ORDER,
-} from "../services/socket.service"
-import { orderService } from "../services/order.service"
+} from "../../services/socket.service"
+import { orderService } from "../../services/order.service"
 
 export const UserTrips = () => {
   const [trips, setTrips] = useState(null)

@@ -1,15 +1,15 @@
 import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 
-import { orderService } from "../services/order.service"
+import { orderService } from "../../services/order.service"
 import {
   socketService,
   SOCKET_EVENT_NEW_ORDER,
   SOCKET_EVENT_UPDATED_ORDER,
-} from "../services/socket.service"
+} from "../../services/socket.service"
 import { UserOrdersList } from "./user-orders-list"
 import { UserOrdersStats } from "./user-orders-stats"
-import { updateUserNotification } from "../store/action/user.action"
+import { updateUserNotification } from "../../store/action/user.action"
 
 export const UserOrders = () => {
   const [orders, setOrders] = useState(null)

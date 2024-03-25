@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { useSelector } from "react-redux"
 
-import { stayService } from "../services/stay.service"
+import { stayService } from "../../services/stay.service"
 import { UserStaysList } from "./user-stays-list"
 
 export const UserStays = () => {
