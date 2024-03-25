@@ -9,7 +9,11 @@ export const StayImgs = ({ imgUrls }) => {
         <Carousel showThumbs={false} showArrows={false} showStatus={false}>
           {imgUrls.map((imgUrl) => {
             return (
-              <img src={require(`../assets/img/houses/${imgUrl}`)} alt="" key={imgUrl}/>
+              <img
+                src={require(`../../assets/img/houses/${imgUrl}`)}
+                alt=""
+                key={imgUrl}
+              />
             )
           })}
         </Carousel>
@@ -19,11 +23,11 @@ export const StayImgs = ({ imgUrls }) => {
       <div className="stay-imgs-container">
         <img
           className="main-img-container"
-          src={require(`../assets/img/houses/${imgUrls[0]}`)}
+          src={require(`../../assets/img/houses/${imgUrls[0]}`)}
           alt=""
         />
         {imgUrls.map((imgUrl, idx) => {
-          if (idx === 0) return 
+          if (idx === 0) return null
           let style = null
           if (idx === 2) style = { borderTopRightRadius: "12px" }
           if (idx === 4) style = { borderBottomRightRadius: "12px" }
@@ -32,7 +36,7 @@ export const StayImgs = ({ imgUrls }) => {
               style={style}
               className="secondary-img-container"
               key={idx}
-              src={require(`../assets/img/houses/${imgUrl}`)}
+              src={require(`../../assets/img/houses/${imgUrl}`)}
               alt=""
             />
           )

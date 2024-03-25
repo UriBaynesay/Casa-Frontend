@@ -1,13 +1,12 @@
 import React from "react"
 import { connect } from "react-redux"
 
-import { orderService } from "../services/order.service"
-import { utilService } from "../services/util.service"
-import { showUserMsg } from "../services/event-bus.service"
-import { GuestModal } from "./search-by-guest-modal"
+import { orderService } from "../../services/order.service"
+import { showUserMsg } from "../../services/event-bus.service"
+import { GuestModal } from "../search-by-guest-modal"
 import { ReserveDateModal } from "./reserve-date-modal"
 import { GradientButton } from "./gradient-button"
-import starIcon from "../assets/img/svgs/star.svg"
+import starIcon from "../../assets/img/svgs/star.svg"
 export class _Reserve extends React.Component {
   state = {
     dates: null,

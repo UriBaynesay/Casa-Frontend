@@ -1,6 +1,6 @@
 import React from "react"
 
-import { SearchByDate as DatePicker } from "./stay-filter-search-dates"
+import { SearchByDate as DatePicker } from "../stay-filter-search-dates"
 
 export const ReserveDateModal = ({dates,isDateModalOpen,onSetDates}) => {
   return (
