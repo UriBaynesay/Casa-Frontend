@@ -7,9 +7,9 @@ import { StayEdit } from "./views/stay-edit"
 import { Login } from "./views/login"
 import { Signup } from "./views/signup"
 import { UserDetails } from "./views/user-details"
-import { UserTrips } from "./cmps/user-trips"
-import { UserOrders } from "./cmps/user-orders"
-import { UserStays } from "./cmps/user-stays"
+import { UserTrips } from "./cmps/user-details-cmps/user-trips"
+import { UserOrders } from "./cmps/user-details-cmps/user-orders"
+import { UserStays } from "./cmps/user-details-cmps/user-stays"
 
 const routes = [
   {

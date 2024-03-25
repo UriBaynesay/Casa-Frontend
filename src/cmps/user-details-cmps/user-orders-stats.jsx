@@ -1,4 +1,4 @@
-import { orderService } from "../services/order.service"
+import { orderService } from "../../services/order.service"
 
 export const UserOrdersStats = ({ orders }) => {
   const userOrdersStats = orderService.getUserOrdersStats(orders)
