@@ -3,7 +3,7 @@ import { connect } from "react-redux"
 
 import { orderService } from "../../services/order.service"
 import { showUserMsg } from "../../services/event-bus.service"
-import { GuestModal } from "../search-by-guest-modal"
+import { GuestModal } from "../header-cmps/search-by-guest-modal"
 import { ReserveDateModal } from "./reserve-date-modal"
 import { GradientButton } from "./gradient-button"
 import starIcon from "../../assets/img/svgs/star.svg"
