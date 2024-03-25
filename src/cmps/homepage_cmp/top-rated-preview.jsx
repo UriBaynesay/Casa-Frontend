@@ -5,7 +5,7 @@ export const TopRatedPreview = ({ stay }) => {
     <div className="card">
       <Link to={`/stay/details/${stay._id}`}>
           <img
-            src={require(`../assets/img/houses/${stay.imgUrls[0]}`)}
+            src={require(`../../assets/img/houses/${stay.imgUrls[0]}`)}
             alt=""
           />
           <div className="city-details">
