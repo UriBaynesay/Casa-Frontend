@@ -1,4 +1,4 @@
-import starIcon from "../assets/img/svgs/star.svg"
+import starIcon from "../../assets/img/svgs/star.svg"
 
 export const StayTitleInfo = ({
   name,
