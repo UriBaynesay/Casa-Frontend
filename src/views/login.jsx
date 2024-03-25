@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
 
 import { onLogin } from "../store/action/user.action.js"
-import { LoginForm } from "../cmps/login-form"
+import { LoginForm } from "../cmps/login-cmps/login-form.jsx"
 
 export const Login = () => {
   const dispatch = useDispatch()

@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
 
 import { onSignup } from "../store/action/user.action.js"
-import { SignupForm } from "../cmps/signup-form"
+import { SignupForm } from "../cmps/signup-cmps/signup-form.jsx"
 
 export const Signup = () => {
   const dispatch = useDispatch()
