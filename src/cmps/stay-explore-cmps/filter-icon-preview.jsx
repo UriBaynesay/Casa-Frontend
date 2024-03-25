@@ -7,7 +7,7 @@ export const FilterIconPreview = ({ iconFilter, handleSetFilter }) => {
       <div className="icon-container">
         <img
           key={iconFilter}
-          src={require(`../assets/img/filters/${iconFilter}.jpg`)}
+          src={require(`../../assets/img/filters/${iconFilter}.jpg`)}
           alt=""
         />
       </div>
