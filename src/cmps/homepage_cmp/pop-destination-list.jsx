@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
-import { setFilterBy } from "../store/action/stay.action";
+import { setFilterBy } from "../../store/action/stay.action";
 import { PopDestinationPreview } from "./pop-destination-preview";
 
 export const PopDestinationList = ({ destinations }) => {

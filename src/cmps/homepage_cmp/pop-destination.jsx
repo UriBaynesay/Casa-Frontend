@@ -1,4 +1,4 @@
-import { stayService } from "../services/stay.service"
+import { stayService } from "../../services/stay.service"
 import { PopDestinationList } from "./pop-destination-list"
 
 export function PopDestination() {

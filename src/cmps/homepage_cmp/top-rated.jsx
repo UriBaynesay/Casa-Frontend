@@ -1,4 +1,4 @@
-import { stayService } from "../services/stay.service"
+import { stayService } from "../../services/stay.service"
 import { TopRatedList } from "./top-rated-list"
 
 export function TopRated() {
