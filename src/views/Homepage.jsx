@@ -1,8 +1,8 @@
 import { useEffect } from "react"
 
-import { Hero } from "../cmps/homepage_cmp/hero.jsx"
-import { PopDestination } from "../cmps/homepage_cmp/pop-destination.jsx"
-import { TopRated } from "../cmps/homepage_cmp/top-rated.jsx"
+import { Hero } from "../cmps/homepage-cmps/hero.jsx"
+import { PopDestination } from "../cmps/homepage-cmps/pop-destination.jsx"
+import { TopRated } from "../cmps/homepage-cmps/top-rated.jsx"
 
 export const Homepage = () => {
 

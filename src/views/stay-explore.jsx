@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 
-import { StayList } from "../cmps/stay-list"
-import { loadStays, setFilterBy } from "../store/action/stay.action"
-import { StayAppFilter } from "../cmps/stay-app-filter.jsx"
+import { StayList } from "../cmps/stay-explore-cmps/stay-list.jsx"
+import { loadStays, setFilterBy } from "../store/action/stay.action.js"
+import { StayAppFilter } from "../cmps/stay-explore-cmps/stay-app-filter.jsx"
 
-export const StayApp = () => {
+export const StayExplore = () => {
   const { stays } = useSelector((storeState) => storeState.stayModule)
   const { filterBy } = useSelector((storeState) => storeState.stayModule)
   const [filterIconsOpen, setFilterIconsOpen] = useState(false)

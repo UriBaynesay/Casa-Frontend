@@ -1,6 +1,6 @@
 import React from "react"
 import { Homepage } from "./views/Homepage"
-import { StayApp } from "./views/stay-app"
+import { StayExplore } from "./views/stay-explore"
 import { HostPage } from "./views/host-page"
 import { StayDetails } from "./views/stay-details"
 import { StayEdit } from "./views/stay-edit"
@@ -18,7 +18,7 @@ const routes = [
   },
   {
     path: "stays",
-    component: <StayApp />,
+    component: <StayExplore />,
   },
   {
     path: "host",
@@ -46,7 +46,7 @@ const routes = [
     nestedRoutes: [
       { path: "trips", component: <UserTrips /> },
       { path: "orders", component: <UserOrders /> },
-      { path: "stays", component: <UserStays /> }
+      { path: "stays", component: <UserStays /> },
     ],
   },
 ]

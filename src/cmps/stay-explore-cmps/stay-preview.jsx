@@ -1,10 +1,9 @@
 import { Link } from "react-router-dom"
 import React from "react"
 
-import { utilService } from "../services/util.service";
 import "react-responsive-carousel/lib/styles/carousel.css"
 import { Carousel } from "react-responsive-carousel"
-import starIcon from "../assets/img/svgs/star.svg"
+import starIcon from "../../assets/img/svgs/star.svg"
 
 
 export function StayPreview({ stay }) {
@@ -16,19 +15,19 @@ export function StayPreview({ stay }) {
         <Carousel showThumbs={false} showArrows={true} showStatus={false}>
           <div>
             <img
-              src={require(`../assets/img/houses/${stay.imgUrls[0]}`)}
+              src={require(`../../assets/img/houses/${stay.imgUrls[0]}`)}
               alt=""
             />
           </div>
           <div>
             <img
-              src={require(`../assets/img/houses/${stay.imgUrls[1]}`)}
+              src={require(`../../assets/img/houses/${stay.imgUrls[1]}`)}
               alt=""
             />
           </div>
           <div>
             <img
-              src={require(`../assets/img/houses/${stay.imgUrls[2]}`)}
+              src={require(`../../assets/img/houses/${stay.imgUrls[2]}`)}
               alt=""
             />
           </div>
@@ -37,7 +36,7 @@ export function StayPreview({ stay }) {
       <span className="top-summary">
         <span className="stay-address">{stay.address.street} </span>
         <span className="star-rating">
-          {calculatedStay} <img width="14px" src={starIcon}></img>
+          {calculatedStay} <img width="14px" src={starIcon} alt=""/>
         </span>
       </span>
       <div className="stay-quick-data">{stay.propertyType}</div>

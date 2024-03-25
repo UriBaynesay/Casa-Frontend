@@ -1,4 +1,4 @@
-import { stayService } from "../services/stay.service"
+import { stayService } from "../../services/stay.service"
 import { FilterIconPreview } from "./filter-icon-preview"
 
 export function StayAppFilter({ onChangeFilter }) {
