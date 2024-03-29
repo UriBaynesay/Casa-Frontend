@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { StayList } from "../cmps/stay-explore-cmps/stay-list.jsx"
 import { loadStays, setFilterBy } from "../store/action/stay.action.js"
 import { StayAppFilter } from "../cmps/stay-explore-cmps/stay-app-filter.jsx"
+import { AppHeader } from "../cmps/app-header.jsx"
 
 export const StayExplore = () => {
   const { stays } = useSelector((storeState) => storeState.stayModule)
@@ -30,14 +31,17 @@ export const StayExplore = () => {
   }
 
   return (
-    <main className="main-layout">
-      <div className="stay-app-container">
-        <div className="filter-btn-container" onClick={onToggleSideBar}>
-          <img src={require("../assets/img/Icons/filters.PNG")} alt="" />
+    <>
+      <AppHeader theme={"stay-explore"} />
+      <main className="main-layout">
+        <div className="stay-app-container">
+          <div className="filter-btn-container" onClick={onToggleSideBar}>
+            <img src={require("../assets/img/Icons/filters.PNG")} alt="" />
+          </div>
+          <StayAppFilter onChangeFilter={onChangeFilter} />
+          {stays && <StayList stays={stays} />}
         </div>
-        <StayAppFilter onChangeFilter={onChangeFilter} />
-        {stays && <StayList stays={stays} />}
-      </div>
-    </main>
+      </main>
+    </>
   )
 }

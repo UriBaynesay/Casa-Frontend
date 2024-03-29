@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom"
 
 import { onLogin } from "../store/action/user.action.js"
 import { LoginForm } from "../cmps/login-cmps/login-form.jsx"
+import { AppHeader } from "../cmps/app-header.jsx"
 
 export const Login = () => {
   const dispatch = useDispatch()
@@ -27,10 +28,13 @@ export const Login = () => {
   }
 
   return (
-    <main className="login-page main-layout">
-      <section className="login-container">
-        <LoginForm handleSubmit={handleSubmit} />
-      </section>
-    </main>
+    <>
+      <AppHeader />
+      <main className="login-page main-layout">
+        <section className="login-container">
+          <LoginForm handleSubmit={handleSubmit} />
+        </section>
+      </main>
+    </>
   )
 }
