@@ -12,6 +12,16 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main{
+  flex-grow: 1;
+}
+
 h1,
 h2,
 h3,
@@ -33,12 +43,12 @@ a {
   text-decoration: none;
 }
 
-ul{
+ul {
   margin-block: 0px;
   list-style-type: none;
 }
 
-button{
+button {
   background-color: transparent;
   border: none;
   font-family: inherit;

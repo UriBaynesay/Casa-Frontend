@@ -53,7 +53,7 @@ export const StayEdit = () => {
     };
   };
   return (
-    <section className="edit-stay-container become-host-layout">
+    <main className="edit-stay-container become-host-layout">
       <ThemeProvider theme={theme}>
         <Container component="main" maxWidth="xs">
           <Box
@@ -184,6 +184,6 @@ export const StayEdit = () => {
           </Box>
         </Container>
       </ThemeProvider>
-    </section>
+    </main>
   );
 };

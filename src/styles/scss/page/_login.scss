@@ -1,8 +1,4 @@
 .login-page {
-  min-height: 75vh;
-  @media (min-width: 1150px) {
-    min-height: 85vh;
-  }
   .login-container {
     grid-area: content;
     font-size: 14px;

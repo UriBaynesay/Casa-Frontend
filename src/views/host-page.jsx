@@ -6,7 +6,7 @@ export const HostPage = () => {
     navigator("/userdetails/orders")
   }
   return (
-    <section className="host-page-container become-host-layout">
+    <main className="host-page-container become-host-layout">
       <div className="host-img-container">
         <div className="host-img"></div>
       </div>
@@ -16,6 +16,6 @@ export const HostPage = () => {
           Get Started!
         </button>
       </div>
-    </section>
+    </main>
   )
 }
