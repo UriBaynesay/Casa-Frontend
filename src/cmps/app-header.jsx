@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react"
-import { NavLink as Link, useLocation } from "react-router-dom"
+import { useEffect } from "react"
+import { NavLink as Link } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
 
 import { StaySearch } from "./header-cmps/stay-search.jsx"
@@ -15,13 +15,31 @@ import {
 } from "../services/socket.service"
 import { showUserMsg } from "../services/event-bus.service"
 
-export function AppHeader() {
+export const AppHeader = ({ theme }) => {
   const { user } = useSelector((storeState) => storeState.userModule)
-  const [headerLayoutClass, setHeaderLayoutClass] = useState("")
-  const [headerClass, setHeaderClass] = useState("")
-  const [img, setImg] = useState(logoImg2)
+  let headerLayoutClass, headerClass, img
+  switch (theme) {
+    case "homepage":
+      headerLayoutClass = "main-layout homepage"
+      headerClass = "homepage"
+      img = logoImg2
+      break
+    case "stay-explore":
+      headerLayoutClass = "main-layout stay-list"
+      headerClass = ""
+      img = logoImg
+      break
+    case "stay-details":
+      headerLayoutClass = "details-layout"
+      headerClass = ""
+      img = logoImg
+      break
+    default:
+      headerLayoutClass = "main-layout"
+      headerClass = ""
+      img = logoImg
+  }
 
-  let location = useLocation()
   const dispatch = useDispatch()
 
   const emitNewOrder = () => {
@@ -35,28 +53,11 @@ export function AppHeader() {
     }
     socketService.on(SOCKET_EVENT_NEW_ORDER, emitNewOrder)
 
-    if (location.pathname === "/") {
-      setHeaderLayoutClass("main-layout homepage")
-      setHeaderClass("homepage")
-      setImg(logoImg2)
-    } else if (location.pathname.includes("stay/details")) {
-      setHeaderLayoutClass("details-layout")
-      setHeaderClass("")
-      setImg(logoImg)
-    } else if (location.pathname === "/stays") {
-      setHeaderLayoutClass("main-layout stay-list")
-      setHeaderClass("")
-      setImg(logoImg)
-    } else {
-      setHeaderLayoutClass("main-layout")
-      setHeaderClass("")
-      setImg(logoImg)
-    }
     return () => {
       socketService.off(SOCKET_EVENT_NEW_ORDER, emitNewOrder)
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [location.pathname, user])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [user])
 
   return (
     <header className={`app-header ${headerLayoutClass}`}>

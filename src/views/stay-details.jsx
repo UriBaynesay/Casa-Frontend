@@ -11,6 +11,7 @@ import { StayTitleInfo } from "../cmps/stay-details-cmps/stay-details-title-info
 import { StayImgs } from "../cmps/stay-details-cmps/stay-imgs"
 import { AddReview } from "../cmps/stay-details-cmps/add-review"
 import { showUserMsg } from "../services/event-bus.service"
+import { AppHeader } from "../cmps/app-header"
 
 export const StayDetails = () => {
   const params = useParams()
@@ -34,55 +35,61 @@ export const StayDetails = () => {
     }
   }
 
-  const addReview = async (txt)=>{
+  const addReview = async (txt) => {
     try {
-      const review=await stayService.addReview(stay._id,txt)
-      setStay({...stay,reviews:[...stay.reviews,review]})
+      const review = await stayService.addReview(stay._id, txt)
+      setStay({ ...stay, reviews: [...stay.reviews, review] })
     } catch (err) {
       showUserMsg(err)
     }
   }
 
   return (
-    <main className="details-layout">
-      {stay ? (
-        <section className="stay-details-container">
-          <StayTitleInfo
-            name={stay.name}
-            reviewScores={stay.reviewScores}
-            host={stay.host}
-            reviews={stay.reviews}
-            address={stay.address}
-          />
+    <>
+      <AppHeader theme={"stay-details"} />
+      <main className="details-layout">
+        {stay ? (
+          <section className="stay-details-container">
+            <StayTitleInfo
+              name={stay.name}
+              reviewScores={stay.reviewScores}
+              host={stay.host}
+              reviews={stay.reviews}
+              address={stay.address}
+            />
 
-          <StayImgs imgUrls={stay.imgUrls} />
+            <StayImgs imgUrls={stay.imgUrls} />
 
-          <section className="info-reserve">
-            <StayInfo stay={stay} />
-            <Reserve
-              stayId={stay._id}
-              price={stay.price}
-              numOfGuest={stay.capacity}
-              hostId={stay.host["_id"]}
-              rating={stay.reviewScores.rating}
-              reviewsLength={stay.reviews.length}
+            <section className="info-reserve">
+              <StayInfo stay={stay} />
+              <Reserve
+                stayId={stay._id}
+                price={stay.price}
+                numOfGuest={stay.capacity}
+                hostId={stay.host["_id"]}
+                rating={stay.reviewScores.rating}
+                reviewsLength={stay.reviews.length}
+              />
+            </section>
+
+            <StayReview
+              reviewScores={stay.reviewScores}
+              reviews={stay.reviews}
+            />
+
+            <AddReview loggedinUser={user} addReview={addReview} />
+
+            <Map
+              center={{
+                lng: stay.address.location.lat,
+                lat: stay.address.location.lan,
+              }}
             />
           </section>
-
-          <StayReview reviewScores={stay.reviewScores} reviews={stay.reviews} />
-
-          <AddReview loggedinUser={user} addReview={addReview}/>
-
-          <Map
-            center={{
-              lng: stay.address.location.lat,
-              lat: stay.address.location.lan,
-            }}
-          />
-        </section>
-      ) : (
-        <div></div>
-      )}
-    </main>
+        ) : (
+          <div></div>
+        )}
+      </main>
+    </>
   )
 }
