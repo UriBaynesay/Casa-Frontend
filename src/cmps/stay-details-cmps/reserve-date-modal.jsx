@@ -2,7 +2,7 @@ import React from "react"
 
 import { SearchByDate as DatePicker } from "../header-cmps/stay-filter-search-dates"
 
-export const ReserveDateModal = ({dates,isDateModalOpen,onSetDates}) => {
+export const ReserveDateModal = ({ dates, isDateModalOpen, onSetDates }) => {
   return (
     <React.Fragment>
       <h3 className="start-date">

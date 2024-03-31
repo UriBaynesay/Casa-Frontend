@@ -1,7 +1,6 @@
 import React from "react"
 
 export class GradientButton extends React.Component {
-
   componentDidMount() {
     let btn = document.querySelector(".mouse-cursor-gradient-tracking")
     btn.addEventListener("mousemove", (e) => {
@@ -24,12 +23,9 @@ export class GradientButton extends React.Component {
   }
 
   render() {
-    const {txt,cb}=this.props
+    const { txt, cb } = this.props
     return (
-      <h3
-        className="reserve-btn mouse-cursor-gradient-tracking"
-        onClick={cb}
-      >
+      <h3 className="reserve-btn mouse-cursor-gradient-tracking" onClick={cb}>
         {txt}
       </h3>
     )

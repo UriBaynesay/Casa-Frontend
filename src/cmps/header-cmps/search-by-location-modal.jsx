@@ -31,7 +31,7 @@ export const LocationModal = ({ onSetFilter, onCloseModal }) => {
         })}
       </div>
       <h3
-      className="close-modal-btn"
+        className="close-modal-btn"
         onClick={() => {
           onCloseModal()
         }}

@@ -15,10 +15,10 @@ export const UserTrips = () => {
   useEffect(() => {
     socketService.on(SOCKET_EVENT_UPDATED_ORDER, loadTrips)
     loadTrips()
-    return ()=>{
+    return () => {
       socketService.off(SOCKET_EVENT_UPDATED_ORDER, loadTrips)
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const loadTrips = async () => {

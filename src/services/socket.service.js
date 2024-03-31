@@ -1,26 +1,23 @@
-import io from 'socket.io-client'
-import { userService } from './user.service'
+import io from "socket.io-client"
+import { userService } from "./user.service"
 
-export const SOCKET_EVENT_NEW_ORDER = 'new-order';
+export const SOCKET_EVENT_NEW_ORDER = "new-order"
 export const SOCKET_EVENT_UPDATED_ORDER = "updated-order"
 
-const SOCKET_EMIT_LOGIN = 'set-user-socket';
-const SOCKET_EMIT_LOGOUT = 'unset-user-socket';
+const SOCKET_EMIT_LOGIN = "set-user-socket"
+const SOCKET_EMIT_LOGOUT = "unset-user-socket"
 
-
-const baseUrl = (process.env.NODE_ENV === 'production') ? '' : '//localhost:3030'
+const baseUrl = process.env.NODE_ENV === "production" ? "" : "//localhost:3030"
 export const socketService = createSocketService()
-
 
 socketService.setup()
 
-
 function createSocketService() {
-  var socket = null;
+  var socket = null
   const socketService = {
     setup() {
       socket = io(baseUrl)
-      setTimeout(()=>{
+      setTimeout(() => {
         const user = userService.getLoggedinUser()
         if (user) this.login(user._id)
       }, 500)
@@ -29,7 +26,7 @@ function createSocketService() {
       socket.on(eventName, cb)
     },
     off(eventName, cb = null) {
-      if (!socket) return;
+      if (!socket) return
       if (!cb) socket.removeAllListeners(eventName)
       else socket.off(eventName, cb)
     },
@@ -45,11 +42,6 @@ function createSocketService() {
     terminate() {
       socket = null
     },
-
   }
   return socketService
 }
-
-
-
-

@@ -1,6 +1,6 @@
 import starIcon from "../../assets/img/svgs/star.svg"
 
-export const StayReviewScore = ({ reviewScores,reviews }) => {
+export const StayReviewScore = ({ reviewScores, reviews }) => {
   return (
     <div className="reviews-score">
       <h1>

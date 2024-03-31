@@ -777,7 +777,7 @@ async function saveStay(stay) {
 
 async function addReview(stayId, txt) {
   try {
-    return await httpService.post(`${END_POINT}/review/${stayId}`, {txt})
+    return await httpService.post(`${END_POINT}/review/${stayId}`, { txt })
   } catch (err) {
     throw err.data
   }

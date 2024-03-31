@@ -14,7 +14,7 @@ import FormGroup from "@mui/material/FormGroup"
 import FormControlLabel from "@mui/material/FormControlLabel"
 import Checkbox from "@mui/material/Checkbox"
 
-import { AppHeader } from "../cmps/app-header";
+import { AppHeader } from "../cmps/app-header"
 
 const theme = createTheme()
 
@@ -56,7 +56,7 @@ export const StayEdit = () => {
   }
   return (
     <>
-    <AppHeader/>
+      <AppHeader />
       <main className="edit-stay-container become-host-layout">
         <ThemeProvider theme={theme}>
           <Container component="main" maxWidth="xs">

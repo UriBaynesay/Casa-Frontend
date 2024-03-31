@@ -17,6 +17,7 @@ import { showUserMsg } from "../services/event-bus.service"
 
 export const AppHeader = ({ theme }) => {
   const { user } = useSelector((storeState) => storeState.userModule)
+  const dispatch = useDispatch()
   let headerLayoutClass, headerClass, img
   switch (theme) {
     case "homepage":
@@ -39,8 +40,6 @@ export const AppHeader = ({ theme }) => {
       headerClass = ""
       img = logoImg
   }
-
-  const dispatch = useDispatch()
 
   const emitNewOrder = () => {
     showUserMsg("New order in your dashboard!")

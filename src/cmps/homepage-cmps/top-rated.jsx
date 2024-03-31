@@ -2,7 +2,7 @@ import { stayService } from "../../services/stay.service"
 import { TopRatedList } from "./top-rated-list"
 
 export function TopRated() {
-  const stays=stayService.getTopRated()
+  const stays = stayService.getTopRated()
 
   return (
     <section className="top-rated main-layout">

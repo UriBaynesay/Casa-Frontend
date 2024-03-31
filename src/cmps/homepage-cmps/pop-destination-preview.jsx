@@ -1,4 +1,4 @@
-export const PopDestinationPreview = ({ destination,onSetFilter }) => {
+export const PopDestinationPreview = ({ destination, onSetFilter }) => {
   return (
     <div className="card" onClick={() => onSetFilter(destination.city)}>
       <img src={destination.img} alt="" />

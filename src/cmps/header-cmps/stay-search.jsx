@@ -3,7 +3,7 @@ import { useNavigate, useLocation } from "react-router-dom"
 import { useDispatch } from "react-redux"
 
 import { SearchModal } from "./search-modal.jsx"
-import { setFilterBy,setStays } from "../../store/action/stay.action.js"
+import { setFilterBy, setStays } from "../../store/action/stay.action.js"
 
 import SearchIcon from "@mui/icons-material/Search"
 
@@ -47,7 +47,7 @@ export const StaySearch = () => {
     } else {
       setLayout("")
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [location])
 
   return (

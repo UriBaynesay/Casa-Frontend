@@ -9,7 +9,7 @@ export function SearchByDate(props) {
 
   useEffect(() => {
     props.onSetDates(startDate, endDate)
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [startDate, endDate])
 
   const handleSelect = (ranges) => {

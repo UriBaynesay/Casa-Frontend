@@ -5,7 +5,6 @@ import "react-responsive-carousel/lib/styles/carousel.css"
 import { Carousel } from "react-responsive-carousel"
 import starIcon from "../../assets/img/svgs/star.svg"
 
-
 export function StayPreview({ stay }) {
   const calculatedStay = ((stay.reviewScores.rating / 100) * 5).toFixed(2)
 
@@ -36,7 +35,7 @@ export function StayPreview({ stay }) {
       <span className="top-summary">
         <span className="stay-address">{stay.address.street} </span>
         <span className="star-rating">
-          {calculatedStay} <img width="14px" src={starIcon} alt=""/>
+          {calculatedStay} <img width="14px" src={starIcon} alt="" />
         </span>
       </span>
       <div className="stay-quick-data">{stay.propertyType}</div>

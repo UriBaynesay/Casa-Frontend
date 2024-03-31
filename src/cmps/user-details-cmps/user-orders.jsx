@@ -28,7 +28,7 @@ export const UserOrders = () => {
       socketService.off(SOCKET_EVENT_NEW_ORDER, loadUserOrders)
       socketService.off(SOCKET_EVENT_UPDATED_ORDER, loadUserOrders)
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const loadUserOrders = async () => {

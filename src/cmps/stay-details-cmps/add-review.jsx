@@ -3,12 +3,12 @@ import Avatar from "@mui/material/Avatar"
 
 export class AddReview extends Component {
   state = {
-      txt: ""
+    txt: "",
   }
 
   handleChange = ({ target }) => {
     const { value } = target
-    this.setState({txt: value})
+    this.setState({ txt: value })
   }
 
   render() {
@@ -35,7 +35,15 @@ export class AddReview extends Component {
           placeholder="Add your review..."
         />
 
-        <button onClick={()=>{addReview(txt);this.setState({txt:""})}}> Send </button>
+        <button
+          onClick={() => {
+            addReview(txt)
+            this.setState({ txt: "" })
+          }}
+        >
+          {" "}
+          Send{" "}
+        </button>
       </section>
     )
   }

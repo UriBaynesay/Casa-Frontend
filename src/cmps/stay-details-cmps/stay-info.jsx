@@ -35,7 +35,13 @@ export const StayInfo = ({ stay }) => {
           style={isAmenitiesExpanded ? { maxHeight: "fit-content" } : null}
         >
           {amenities.map((amenity, idx) => {
-            return <AmenityIcon iconType={amenity} stayHas={stay.amenities.find(a=>a===amenity)} key={idx} />
+            return (
+              <AmenityIcon
+                iconType={amenity}
+                stayHas={stay.amenities.find((a) => a === amenity)}
+                key={idx}
+              />
+            )
           })}
         </div>
         <div

@@ -8,9 +8,7 @@ export function PopDestination() {
     <section className="pop-cities main-layout">
       <div className="pop-cities-container">
         <h1 className="title">Popular Destinations</h1>
-        <PopDestinationList
-          destinations={destinations}
-        />
+        <PopDestinationList destinations={destinations} />
       </div>
     </section>
   )

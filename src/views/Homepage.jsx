@@ -12,7 +12,7 @@ export const Homepage = () => {
 
   return (
     <>
-      <AppHeader theme={'homepage'}/>
+      <AppHeader theme={"homepage"} />
       <main className="homepage">
         <Hero />
         <PopDestination />
