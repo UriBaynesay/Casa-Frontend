@@ -1,41 +1,35 @@
-import React from "react"
+import { useEffect, useState } from "react"
 
 import { eventBusService } from "../services/event-bus.service.js"
 
-export class UserMsg extends React.Component {
-  removeEvent
+export const UserMsg = () => {
+  const [msg, setMsg] = useState(null)
 
-  state = {
-    msg: null,
-  }
-
-  componentDidMount() {
-    this.removeEvent = eventBusService.on("show-user-msg", (msg) => {
-      this.setState({ msg })
+  useEffect(() => {
+    let eventHandler = eventBusService.on("show-user-msg", (msg) => {
+      setMsg(msg)
       setTimeout(() => {
-        this.setState({ msg: null })
+        setMsg(null)
       }, 2500)
     })
-  }
 
-  componentWillUnmount() {
-    this.removeEvent()
-  }
+    return () => {
+      eventHandler()
+    }
+  }, [])
 
-  render() {
-    if (!this.state.msg) return <span></span>
-    const msgClass = this.state.msg.type || ""
-    return (
-      <section className={"user-msg " + msgClass}>
+  return (
+    msg && (
+      <section className={"user-msg " + msg.type}>
         <button
           onClick={() => {
-            this.setState({ msg: null })
+            setMsg({ msg: null })
           }}
         >
           x
         </button>
-        <h4>{this.state.msg.txt}</h4>
+        <h4>{msg.txt}</h4>
       </section>
     )
-  }
+  )
 }
