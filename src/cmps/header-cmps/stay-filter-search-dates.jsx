@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from "react"
+import { useState, useEffect } from "react"
 import "react-date-range/dist/styles.css"
 import "react-date-range/dist/theme/default.css"
 import { DateRangePicker } from "react-date-range"
 
-export function SearchByDate(props) {
+export const SearchByDate = ({ onSetDates }) => {
   const [startDate, setStartDate] = useState(new Date())
   const [endDate, setEndtDate] = useState(new Date())
 
   useEffect(() => {
-    props.onSetDates(startDate, endDate)
+    onSetDates(startDate, endDate)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [startDate, endDate])
 

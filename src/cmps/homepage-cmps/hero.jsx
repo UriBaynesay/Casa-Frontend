@@ -1,4 +1,4 @@
-export function Hero() {
+export const Hero = () => {
   return (
     <div className="hero main-layout">
       <div className="hero-container">

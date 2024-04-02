@@ -1,7 +1,7 @@
 import { stayService } from "../../services/stay.service"
 import { TopRatedList } from "./top-rated-list"
 
-export function TopRated() {
+export const TopRated = () => {
   const stays = stayService.getTopRated()
 
   return (
