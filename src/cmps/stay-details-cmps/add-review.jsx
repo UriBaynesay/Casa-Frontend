@@ -1,50 +1,39 @@
-import { Component } from "react"
+import {  useState } from "react"
 import Avatar from "@mui/material/Avatar"
 
-export class AddReview extends Component {
-  state = {
-    txt: "",
+export const AddReview = ({ loggedInUser, addReview }) => {
+  const [text, setText] = useState("")
+  const handleChange = (value) => {
+    setText(value)
   }
-
-  handleChange = ({ target }) => {
-    const { value } = target
-    this.setState({ txt: value })
-  }
-
-  render() {
-    const { txt } = this.state
-    const { loggedinUser, addReview } = this.props
-    const imgUrl = loggedinUser ? loggedinUser.imgUrl : ""
-    const fullname = loggedinUser ? loggedinUser.fullname : "Guest"
-
-    return (
-      <section className="add-review-container">
-        <h2>Add Review</h2>
+  return (
+    <section className="add-review-container">
+      <h2>Add Review</h2>
+      {loggedInUser && (
         <div className="loggedin-user">
-          <Avatar src={imgUrl} />
+          <Avatar src={loggedInUser.imgUrl} />
 
-          <h3>{fullname}</h3>
+          <h3>{loggedInUser.fullname}</h3>
         </div>
-
-        <textarea
-          type="text"
-          name="txt"
-          autoComplete="off"
-          onChange={this.handleChange}
-          value={txt}
-          placeholder="Add your review..."
-        />
-
-        <button
-          onClick={() => {
-            addReview(txt)
-            this.setState({ txt: "" })
-          }}
-        >
-          {" "}
-          Send{" "}
-        </button>
-      </section>
-    )
-  }
+      )}
+      <textarea
+        type="text"
+        name="txt"
+        autoComplete="off"
+        onChange={(ev)=>handleChange(ev.target.value)}
+        value={text}
+        placeholder="Add your review..."
+      />
+      <button
+        onClick={() => {
+          addReview(text)
+          setText("")
+        }}
+      >
+        {" "}
+        Send{" "}
+      </button>
+    </section>
+  )
 }
+

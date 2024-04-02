@@ -77,7 +77,7 @@ export const StayDetails = () => {
               reviews={stay.reviews}
             />
 
-            <AddReview loggedinUser={user} addReview={addReview} />
+            <AddReview loggedInUser={user} addReview={addReview} />
 
             <Map
               center={{
