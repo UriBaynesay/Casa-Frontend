@@ -6,7 +6,7 @@ This is a react app for an AirBnB clone project.
 
 ## Live Demo : 
 
-[https://airbnb-final-project.onrender.com/](https://casa-c2ku.onrender.com/)
+https://casa-c2ku.onrender.com/
 
 ## Technologies used :
 
