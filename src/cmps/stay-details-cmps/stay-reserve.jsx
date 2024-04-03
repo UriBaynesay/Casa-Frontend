@@ -7,6 +7,7 @@ import { GuestModal } from "../header-cmps/search-by-guest-modal"
 import { ReserveDateModal } from "./reserve-date-modal"
 import { GradientButton } from "./gradient-button"
 import starIcon from "../../assets/img/svgs/star.svg"
+
 export class _Reserve extends React.Component {
   state = {
     dates: null,
