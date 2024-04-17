@@ -13,27 +13,27 @@
 /* CMPS */
 @import './cmp/app-header';
 @import './cmp/user-msg';
-@import './cmp/stay-list';
-@import './cmp/stay-preview';
+@import './cmp/stay-explore/stay-list';
+@import './cmp/stay-explore/stay-preview';
 @import './cmp/app-footer';
 @import'./cmp/stay-search';
-@import'./cmp/stay-info';
-@import'./cmp/stay-reserve';
-@import'./cmp/pop-destination';
-@import'./cmp/top-rated';
-@import'./cmp/stay-review';
+@import'./cmp/stay-details/stay-info';
+@import'./cmp/stay-details/stay-reserve';
+@import'./cmp/homepage/pop-destination';
+@import'./cmp/homepage/top-rated';
+@import'./cmp/stay-details/stay-review';
 @import'./cmp/search-modal';
-@import './cmp/icon-filters';
-@import './cmp/add-review';
-@import './cmp/hero';
-@import './cmp/user-orders';
-@import './cmp/user-orders-stats';
-@import './cmp/user-orders-list';
-@import './cmp/user-order-preview';
-@import './cmp/user-trips';
-@import './cmp/user-trips-list';
-@import './cmp/user-stays';
-@import './cmp/user-stays-list';
+@import './cmp/stay-explore/icon-filters';
+@import './cmp/stay-details/add-review';
+@import './cmp/homepage/hero';
+@import './cmp/user-details/user-orders';
+@import './cmp/user-details/user-orders-stats';
+@import './cmp/user-details/user-orders-list';
+@import './cmp/user-details/user-order-preview';
+@import './cmp/user-details/user-trips';
+@import './cmp/user-details/user-trips-list';
+@import './cmp/user-details/user-stays';
+@import './cmp/user-details/user-stays-list';
 
 
 /* PAGES */
