@@ -14,19 +14,6 @@ export function StayList({ stays }) {
     }
   }, [])
 
-  useEffect(() => {
-    const elArrows = document.querySelectorAll(".control-arrow ")
-    elArrows.forEach((arrow) => {
-      arrow.addEventListener("click", handleDotClick)
-    })
-
-    return () => {
-      elArrows.forEach((arrow) => {
-        arrow.removeEventListener("click", handleDotClick)
-      })
-    }
-  }, [])
-
   const handleDotClick = (ev) => {
     ev.preventDefault()
   }
