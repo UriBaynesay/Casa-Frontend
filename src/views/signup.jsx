@@ -19,11 +19,9 @@ export const Signup = () => {
   const handleSubmit = (event) => {
     event.preventDefault()
     const data = new FormData(event.currentTarget)
-    const firstName = data.get("firstName")
-    const lastName = data.get("lastName")
     const user = {
       username: data.get("username"),
-      fullname: firstName + " " + lastName,
+      fullname: data.get("fullName"),
       password: data.get("password"),
     }
     dispatch(onSignup(user))
