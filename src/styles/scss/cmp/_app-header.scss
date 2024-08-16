@@ -5,6 +5,7 @@
   &.homepage {
     background-color: black;
     border: none;
+    z-index: 20;
   }
   .header-container {
     grid-area: content;
@@ -29,6 +30,7 @@
     }
     nav {
       .user {
+        cursor: pointer;
         position: relative;
         .notification {
           position: absolute;
@@ -45,6 +47,22 @@
           width: 32px;
           object-fit: cover;
         }
+        .user-nav-menu-modal {
+          color: black;
+          display: flex;
+          flex-direction: column;
+          position: absolute;
+          background-color: white;
+          right: 8px;
+          padding-inline: 8px;
+          padding-block: 24px;
+          border-radius: 16px;
+          border: 1px lightgray solid;
+          width: 8vw;
+          a{
+            margin-top: 4px;
+          }
+        }
       }
     }
   }
@@ -54,7 +72,7 @@
     &.stay-list {
       position: sticky;
       top: 0px;
-      z-index: 10;
+      z-index: 20;
     }
 
     .header-container {
