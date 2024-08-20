@@ -10,6 +10,7 @@ import { UserDetails } from "./views/user-details"
 import { UserTrips } from "./cmps/user-details-cmps/user-trips"
 import { UserOrders } from "./cmps/user-details-cmps/user-orders"
 import { UserStays } from "./cmps/user-details-cmps/user-stays"
+import { Logout } from "./views/logout"
 
 const routes = [
   {
@@ -48,6 +49,10 @@ const routes = [
       { path: "orders", component: <UserOrders /> },
       { path: "stays", component: <UserStays /> },
     ],
+  },
+  {
+    path: "/logout",
+    component: <Logout/>,
   },
 ]
 
