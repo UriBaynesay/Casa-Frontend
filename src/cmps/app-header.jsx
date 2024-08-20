@@ -9,7 +9,6 @@ import logoImg from "../assets/img/logo/new-logo.svg"
 import logoImg2 from "../assets/img/logo/whitelogo.png"
 import AccountCircleIcon from "@mui/icons-material/AccountCircle"
 
-
 import {
   socketService,
   SOCKET_EVENT_NEW_ORDER,
@@ -96,7 +95,7 @@ export const AppHeader = ({ theme }) => {
               <AccountCircleIcon />
             </Link>
           ) : (
-              <UserNav user={user}></UserNav>
+            <UserNav user={user}></UserNav>
           )}
         </nav>
       </div>
