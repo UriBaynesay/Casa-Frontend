@@ -93,10 +93,13 @@ export const AppHeader = ({ theme }) => {
 
           {!user ? (
             <Link className="user" to="/login">
-              <AccountCircleIcon />
+              <AccountCircleIcon />{" "}
             </Link>
           ) : (
-              <UserNav user={user}></UserNav>
+            <Link className="user" to="/userdetails/orders">
+              {user?.notification && <div className="notification"></div>}
+              <img className="user-pic" src={user.imgUrl} alt="" />
+            </Link>
           )}
         </nav>
       </div>
