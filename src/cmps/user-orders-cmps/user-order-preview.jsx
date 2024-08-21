@@ -2,10 +2,10 @@ import React from "react"
 
 export const UserOrderPreview = ({ order, onUpdateOrder }) => {
   return (
-    <React.Fragment>
+    <article className="order-preview-container">
       <div className="stay-name">{order.stay.name}</div>
       <div className="user-fullname">{order.byUser.fullname}</div>
-      <div className="order-total">$ {order.price}</div>
+      <div className="order-total">{order.price} $</div>
       <div className="order-start-date">
         {new Date(order.startDate).toLocaleDateString()}
       </div>
@@ -29,6 +29,6 @@ export const UserOrderPreview = ({ order, onUpdateOrder }) => {
           <div>Decline</div>
         </button>
       </div>
-    </React.Fragment>
+    </article>
   )
 }

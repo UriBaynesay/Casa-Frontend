@@ -26,10 +26,9 @@
 @import './cmp/stay-explore/icon-filters';
 @import './cmp/stay-details/add-review';
 @import './cmp/homepage/hero';
-@import './cmp/user-details/user-orders';
-@import './cmp/user-details/user-orders-stats';
-@import './cmp/user-details/user-orders-list';
-@import './cmp/user-details/user-order-preview';
+@import './cmp/user-orders/user-orders-stats';
+@import './cmp/user-orders/user-orders-list';
+@import './cmp/user-orders/user-order-preview';
 @import './cmp/user-details/user-trips';
 @import './cmp/user-details/user-trips-list';
 @import './cmp/user-details/user-stays';
@@ -40,6 +39,7 @@
 
 @import './page/home-page';
 @import './page/user-details';
+@import './page/user-orders';
 @import './page/login';
 @import './page/stay-app';
 @import './page/stay-details';

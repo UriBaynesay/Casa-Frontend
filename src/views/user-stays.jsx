@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react"
 import { useSelector } from "react-redux"
 
-import { stayService } from "../../services/stay.service"
-import { UserStaysList } from "./user-stays-list"
+import { AppHeader } from "../cmps/app-header"
+import { stayService } from "../services/stay.service"
+import { UserStaysList } from "../cmps/user-stays-cmps/user-stays-list"
 
 export const UserStays = () => {
   const [stays, setStays] = useState(null)
@@ -23,9 +24,14 @@ export const UserStays = () => {
   }
 
   return (
-    <section className="user-stays-container">
-      <h1>Your stays</h1>
-      {stays && <UserStaysList stays={stays} />}
-    </section>
+    <div>
+      <AppHeader />
+      <main className="user-details main-layout">
+        <section className="user-stays-container">
+          <h1>Your stays</h1>
+          {stays && <UserStaysList stays={stays} />}
+        </section>
+      </main>
+    </div>
   )
 }

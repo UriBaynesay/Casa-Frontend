@@ -1,68 +1,14 @@
 .user-details {
   .user-details-container {
     grid-area: content;
-    .user-details-controls {
-      @media (max-width: 949px) {
-        margin-bottom: 50px;
-        display: flex;
-        .user-details-nav-container {
-          display: flex;
-          > * {
-            text-align: center;
-            margin-right: 12px;
-            opacity: 0.5;
-            &.active {
-              opacity: 1;
-            }
-          }
-        }
-        justify-content: space-between;
-        align-items: center;
-      }
-      .user-details-nav-container {
-        font-size: 22px;
-      }
-      .log-out-btn {
-        cursor: pointer;
-        color: darkred;
-      }
-    }
   }
 }
 
 @media (min-width: 950px) {
   .user-details {
     margin-top: 50px;
-    min-height: 82vh;
     .user-details-container {
       display: flex;
-      .user-details-controls {
-        margin-right: 75px;
-        .user-details-nav-container {
-          > * {
-            margin-bottom: 28px;
-            display: flex;
-            .icon-container {
-              height: 32px;
-              width: 32px;
-              margin-right: 8px;
-              img {
-                object-fit: cover;
-                height: 100%;
-                width: 100%;
-              }
-            }
-            &.active {
-              margin-left: 12px;
-            }
-          }
-        }
-        .log-out-btn {
-          &:hover {
-            text-decoration: underline;
-          }
-        }
-      }
     }
   }
 }

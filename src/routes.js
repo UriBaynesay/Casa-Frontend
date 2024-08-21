@@ -7,10 +7,10 @@ import { StayEdit } from "./views/stay-edit"
 import { Login } from "./views/login"
 import { Signup } from "./views/signup"
 import { UserDetails } from "./views/user-details"
-import { UserTrips } from "./cmps/user-details-cmps/user-trips"
-import { UserOrders } from "./cmps/user-details-cmps/user-orders"
-import { UserStays } from "./cmps/user-details-cmps/user-stays"
+import { UserTrips } from "./views/user-trips"
+import { UserStays } from "./views/user-stays"
 import { Logout } from "./views/logout"
+import { UserOrders } from "./views/user-orders"
 
 const routes = [
   {
@@ -18,19 +18,19 @@ const routes = [
     component: <Homepage />,
   },
   {
-    path: "stays",
+    path: "/stays",
     component: <StayExplore />,
   },
   {
-    path: "host",
+    path: "/host",
     component: <HostPage />,
   },
   {
-    path: "stay/details/:stayId",
+    path: "/stay/details/:stayId",
     component: <StayDetails />,
   },
   {
-    path: "stay/edit",
+    path: "/stay/edit",
     component: <StayEdit />,
   },
   {
@@ -42,17 +42,15 @@ const routes = [
     component: <Signup />,
   },
   {
-    path: "userdetails",
+    path: "user/details",
     component: <UserDetails />,
-    nestedRoutes: [
-      { path: "trips", component: <UserTrips /> },
-      { path: "orders", component: <UserOrders /> },
-      { path: "stays", component: <UserStays /> },
-    ],
   },
+  { path: "user/trips", component: <UserTrips /> },
+  { path: "user/orders", component: <UserOrders /> },
+  { path: "user/stays", component: <UserStays /> },
   {
-    path: "/logout",
-    component: <Logout/>,
+    path: "user/logout",
+    component: <Logout />,
   },
 ]
 
