@@ -34,7 +34,7 @@ export const UserProfile = () => {
         {user && (
           <div className="user-profile-container">
             <ProfileInfo user={user} stays={stays}></ProfileInfo>
-            <HostingInfo fullname={user.fullname} stays={stays}></HostingInfo>
+            <HostingInfo stays={stays}></HostingInfo>
           </div>
         )}
       </main>

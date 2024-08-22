@@ -3,7 +3,7 @@ export const ProfileInfo = ({ user, stays }) => {
     return acc + stay.reviews.length
   }, 0)
 
-  let avgRating
+  let avgRating = 0
   if (stays.length !== 0) {
     avgRating =
       stays.reduce((acc, stay) => {
@@ -21,16 +21,14 @@ export const ProfileInfo = ({ user, stays }) => {
           <h3>{user.fullname}</h3>
         </div>
       )}
-      {stays.length && (
-        <div className="profile-hosting-stats-container">
-          <p>
-            <span>{numOfReviews}</span> Reviews
-          </p>
-          <p>
-            <span>{avgRating / 10}</span> Rating
-          </p>
-        </div>
-      )}
+      <div className="profile-hosting-stats-container">
+        <p>
+          <span>{numOfReviews}</span> Reviews
+        </p>
+        <p>
+          <span>{avgRating / 10}</span> Rating
+        </p>
+      </div>
     </section>
   )
 }
