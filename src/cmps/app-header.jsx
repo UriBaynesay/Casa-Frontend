@@ -92,7 +92,7 @@ export const AppHeader = ({ theme }) => {
 
           {!user ? (
             <Link className="user" to="/login">
-              <AccountCircleIcon />
+              <AccountCircleIcon />{" "}
             </Link>
           ) : (
             <UserNav user={user}></UserNav>
