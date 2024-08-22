@@ -3,7 +3,7 @@ import { useSelector } from "react-redux"
 
 import { AppHeader } from "../cmps/app-header"
 import { stayService } from "../services/stay.service"
-import { UserStaysList } from "../cmps/user-stays-cmps/user-stays-list"
+import { StayList } from "../cmps/stay-explore-cmps/stay-list"
 
 export const UserStays = () => {
   const [stays, setStays] = useState(null)
@@ -29,7 +29,7 @@ export const UserStays = () => {
       <main className="user-profile main-layout">
         <section className="user-stays-container">
           <h1>Your stays</h1>
-          {stays && <UserStaysList stays={stays} />}
+          {stays && <StayList stays={stays}></StayList>}
         </section>
       </main>
     </div>
