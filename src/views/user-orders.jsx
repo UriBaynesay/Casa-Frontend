@@ -13,7 +13,7 @@ import { updateUserNotification } from "../store/action/user.action"
 import { AppHeader } from "../cmps/app-header"
 
 export const UserOrders = () => {
-  const [orders, setOrders] = useState(null)
+  const [orders, setOrders] = useState([])
   const tableTitles = [
     { class: "stay-name-title", title: "Stay name" },
     { class: "user-fullname-title", title: "Guest name" },
@@ -31,7 +31,7 @@ export const UserOrders = () => {
     socketService.on(SOCKET_EVENT_UPDATED_ORDER, loadUserOrders)
     if (user) {
       dispatch(updateUserNotification(false))
-      if (!orders) loadUserOrders()
+      if (!orders.length) loadUserOrders()
     }
 
     return () => {
@@ -62,17 +62,21 @@ export const UserOrders = () => {
   return (
     <Fragment>
       <AppHeader />
-      <main className="main-layout">
+      <main className="user-profile main-layout">
         <section className="user-orders-container">
-          <UserOrdersStats orders={orders} />
-          <h3 className="order-title">Orders for your stays</h3>
-          <div className="user-orders-table-titles-container">
-            {tableTitles.map((title) => (
-              <h4 className={title.class}>{title.title}</h4>
-            ))}
-          </div>
-          {orders && (
-            <UserOrdersList orders={orders} onUpdateOrder={onUpdateOrder} />
+          {orders.length ? <UserOrdersStats orders={orders} /> : ""}
+          <h2 className="order-title">Orders for your stays</h2>
+          {orders.length ? (
+            <Fragment>
+              <div className="user-orders-table-titles-container">
+                {tableTitles.map((title) => (
+                  <h4 className={title.class} key={title.title}>{title.title}</h4>
+                ))}
+              </div>
+              <UserOrdersList orders={orders} onUpdateOrder={onUpdateOrder} />
+            </Fragment>
+          ) : (
+            <p>No orders</p>
           )}
         </section>
       </main>

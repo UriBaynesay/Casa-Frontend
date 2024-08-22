@@ -10,7 +10,7 @@ import { orderService } from "../services/order.service"
 import { AppHeader } from "../cmps/app-header"
 
 export const UserTrips = () => {
-  const [trips, setTrips] = useState(null)
+  const [trips, setTrips] = useState([])
   const { user } = useSelector((storeState) => storeState.userModule)
 
   useEffect(() => {
@@ -39,12 +39,12 @@ export const UserTrips = () => {
   return (
     <Fragment>
       <AppHeader />
-      <main className="main-layout">
+      <main className="user-profile main-layout">
         <section className="user-trips-container">
-          <h1>Your trips</h1>
-          {trips && (
+          <h2>Your trips</h2>
+          {trips.length ? (
             <UserTripsList trips={trips} onUpdateOrder={onUpdateOrder} />
-          )}
+          ):<p>No trips</p>}
         </section>
       </main>
     </Fragment>

@@ -6,11 +6,11 @@ import { stayService } from "../services/stay.service"
 import { StayList } from "../cmps/stay-explore-cmps/stay-list"
 
 export const UserStays = () => {
-  const [stays, setStays] = useState(null)
+  const [stays, setStays] = useState([])
   const { user } = useSelector((storeState) => storeState.userModule)
 
   useEffect(() => {
-    if (user && !stays) loadUserStays()
+    if (user && !stays.length) loadUserStays()
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user])
 
@@ -28,8 +28,8 @@ export const UserStays = () => {
       <AppHeader />
       <main className="user-profile main-layout">
         <section className="user-stays-container">
-          <h1>Your stays</h1>
-          {stays && <StayList stays={stays}></StayList>}
+          <h2>Your stays</h2>
+          {stays.length ? <StayList stays={stays}></StayList>:<p>No stays</p>}
         </section>
       </main>
     </div>

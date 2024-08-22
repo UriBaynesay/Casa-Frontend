@@ -20,7 +20,7 @@ export const UserTripPreview = ({ trip, onUpdateOrder }) => {
           disabled={trip.status === "declined" ? true : false}
           onClick={() => onUpdateOrder(trip, "declined")}
         >
-          <div>Decline</div>
+          <div>Cancel</div>
         </button>
       </div>
     </React.Fragment>
