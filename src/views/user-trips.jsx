@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { Fragment, useEffect, useState } from "react"
 import { useSelector } from "react-redux"
 
 import { UserTripsList } from "../cmps/user-trips-cmps/user-trips-list"
@@ -7,6 +7,7 @@ import {
   SOCKET_EVENT_UPDATED_ORDER,
 } from "../services/socket.service"
 import { orderService } from "../services/order.service"
+import { AppHeader } from "../cmps/app-header"
 
 export const UserTrips = () => {
   const [trips, setTrips] = useState(null)
@@ -36,9 +37,16 @@ export const UserTrips = () => {
   }
 
   return (
-    <section className="user-trips-container">
-      <h1>Your trips</h1>
-      {trips && <UserTripsList trips={trips} onUpdateOrder={onUpdateOrder} />}
-    </section>
+    <Fragment>
+      <AppHeader />
+      <main className="main-layout">
+        <section className="user-trips-container">
+          <h1>Your trips</h1>
+          {trips && (
+            <UserTripsList trips={trips} onUpdateOrder={onUpdateOrder} />
+          )}
+        </section>
+      </main>
+    </Fragment>
   )
 }
