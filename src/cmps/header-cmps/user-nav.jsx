@@ -12,7 +12,7 @@ export const UserNav = ({ user }) => {
     <div className="user" onClick={onOpenModal}>
       {user?.notification && <div className="notification"></div>}
       <img className="user-pic" src={user.imgUrl} alt="" />
-      {isOpen && <UserDetailsNavModal></UserDetailsNavModal>}
+      {isOpen && <UserDetailsNavModal userId={user._id}></UserDetailsNavModal>}
     </div>
   )
 }

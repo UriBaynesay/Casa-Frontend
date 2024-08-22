@@ -26,7 +26,7 @@ export const UserStays = () => {
   return (
     <div>
       <AppHeader />
-      <main className="user-details main-layout">
+      <main className="user-profile main-layout">
         <section className="user-stays-container">
           <h1>Your stays</h1>
           {stays && <UserStaysList stays={stays} />}

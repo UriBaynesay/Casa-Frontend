@@ -32,7 +32,7 @@ async function getUsers() {
 
 async function getById(userId) {
   try {
-    const user = await httpService.get(END_POINT_USER, userId)
+    const user = await httpService.get(`${END_POINT_USER}/${userId}`)
     return user
   } catch (error) {
     throw error.data

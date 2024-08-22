@@ -6,11 +6,11 @@ import { StayDetails } from "./views/stay-details"
 import { StayEdit } from "./views/stay-edit"
 import { Login } from "./views/login"
 import { Signup } from "./views/signup"
-import { UserDetails } from "./views/user-details"
 import { UserTrips } from "./views/user-trips"
 import { UserStays } from "./views/user-stays"
 import { Logout } from "./views/logout"
 import { UserOrders } from "./views/user-orders"
+import { UserProfile } from "./views/user-profile"
 
 const routes = [
   {
@@ -42,8 +42,8 @@ const routes = [
     component: <Signup />,
   },
   {
-    path: "user/details",
-    component: <UserDetails />,
+    path: "user/profile/:userId",
+    component: <UserProfile />,
   },
   { path: "user/trips", component: <UserTrips /> },
   { path: "user/orders", component: <UserOrders /> },
