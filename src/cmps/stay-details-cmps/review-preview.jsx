@@ -5,7 +5,7 @@ export const ReviewPreview = ({ review, isReviewsExpanded }) => {
         <div className="writer-img-container">
           <img src={review.by.imgUrl} alt="" />
         </div>
-        <h3>{review.by.fullname}</h3>
+        <h4>{review.by.fullname}</h4>
       </div>
       <p
         style={

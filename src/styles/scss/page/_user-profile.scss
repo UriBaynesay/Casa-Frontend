@@ -1,0 +1,20 @@
+.user-profile {
+  .user-profile-container {
+    grid-area: content;
+
+  }
+  @media (max-width:949px) {
+    .user-profile-container{
+      > *:not(:first-child){
+        margin-top: 24px;
+      }
+    }
+  }
+  @media (min-width: 950px) {
+    margin-top: 50px;
+    .user-profile-container {
+      display: grid;
+      grid-template-columns: 1fr 4fr;
+    }
+  }
+}

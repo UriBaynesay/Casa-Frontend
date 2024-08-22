@@ -2,6 +2,7 @@ import { stayService } from "../../services/stay.service"
 import { useState } from "react"
 
 import { AmenityIcon } from "./amenity-icon"
+import { Link } from "react-router-dom"
 
 export const StayInfo = ({ stay }) => {
   const [isAmenitiesExpanded, setIsAmenitiesExpanded] = useState(false)
@@ -21,9 +22,12 @@ export const StayInfo = ({ stay }) => {
             · {stay.bathrooms} baths
           </h4>
         </div>
-        <div className="host-img-container">
-          <img src={stay.host.thumbnailUrl} alt="" />
-        </div>
+        <Link to={`/user/profile/${stay.host._id}`}>
+          {" "}
+          <div className="host-img-container">
+            <img src={stay.host.thumbnailUrl} alt="" />
+          </div>
+        </Link>
       </section>
       <section className="summary">
         <p>{stay.summary}</p>
