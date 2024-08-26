@@ -1,17 +1,24 @@
 .user-info-container {
   display: flex;
-  justify-content: space-between;
   .profile-details-container {
-    img {
-      aspect-ratio: 1;
-      max-height: 100px;
-      border-radius: 100%;
+    .profile-image-container {
+      max-width: 200px;
+      img {
+        object-fit: cover;
+        aspect-ratio: 1;
+        width: 100%;
+        border-radius: 100%;
+      }
     }
   }
   span {
     font-weight: bold;
   }
-  @media (min-width: 949px) {
+  @media (max-width: 949px) {
+    justify-content: space-around;
+  }
+  @media (min-width: 950px) {
+    justify-content: space-between;
     .profile-details-container {
       img {
         max-height: 200px;

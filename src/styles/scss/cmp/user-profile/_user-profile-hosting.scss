@@ -13,6 +13,11 @@
   .profile-stays-list-container{
     margin-top: 32px;
   }
+  @media (max-width:949px) {
+    margin-top: 18px;
+    padding-top: 18px;
+    border-top: solid 1px lightgray;
+  }
   @media (min-width:950px) {
     padding-inline: 48px;
   }

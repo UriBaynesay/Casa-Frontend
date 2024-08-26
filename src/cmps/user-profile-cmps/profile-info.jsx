@@ -1,4 +1,8 @@
+import { useSelector } from "react-redux"
+import { Link } from "react-router-dom"
+
 export const ProfileInfo = ({ user, stays }) => {
+  const loggedInUserId = useSelector((store) => store.userModule.user._id)
   const numOfReviews = stays.reduce((acc, stay) => {
     return acc + stay.reviews.length
   }, 0)
@@ -19,6 +23,7 @@ export const ProfileInfo = ({ user, stays }) => {
             <img src={user.imgUrl} alt="" />
           </div>
           <h3>{user.fullname}</h3>
+          {loggedInUserId === user._id && <Link to={`/user/profile/edit/${loggedInUserId}`}>Edit</Link>}
         </div>
       )}
       <div className="profile-hosting-stats-container">

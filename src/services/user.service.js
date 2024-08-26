@@ -47,12 +47,13 @@ async function remove(userId) {
   }
 }
 
-async function update(user) {
+async function update(updatedFields, userId) {
   try {
-    const updatedUser = await httpService.put(
-      `${END_POINT_USER}/${user._id}`,
-      user
+    await httpService.put(
+      `${END_POINT_USER}/${userId}`,
+      updatedFields
     )
+    const updatedUser = {...getLoggedinUser(),...updatedFields}
     sessionStorage.setItem(
       STORAGE_KEY_LOGGEDIN_USER,
       JSON.stringify(updatedUser)
