@@ -68,13 +68,12 @@
       .imgs-carousel-container {
         display: none;
       }
-      height: 520px;
       margin-bottom: 17px;
       .stay-imgs-container {
         height: 100%;
         display: grid;
         grid-template-columns: 2.05fr 1fr 1fr;
-        grid-template-rows: 1fr 1fr;
+        grid-template-rows: 260px 260px;
         grid-gap: 10px;
         border-radius: 12px;
 
