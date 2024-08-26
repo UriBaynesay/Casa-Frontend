@@ -25,6 +25,15 @@ export function onLogout() {
   }
 }
 
+export function onUpdate(user) {
+  return (dispatch) => {
+    dispatch({
+      type: "SET_USER",
+      user,
+    })
+  }
+}
+
 export function onSignup(newUser) {
   return async (dispatch) => {
     try {

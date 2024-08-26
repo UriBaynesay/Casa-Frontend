@@ -11,6 +11,7 @@ import { UserStays } from "./views/user-stays"
 import { Logout } from "./views/logout"
 import { UserOrders } from "./views/user-orders"
 import { UserProfile } from "./views/user-profile"
+import { UserProfileEdit } from "./views/user-profile-edit"
 
 const routes = [
   {
@@ -44,6 +45,10 @@ const routes = [
   {
     path: "user/profile/:userId",
     component: <UserProfile />,
+  },
+  {
+    path: "user/profile/edit/:userId",
+    component: <UserProfileEdit />,
   },
   { path: "user/trips", component: <UserTrips /> },
   { path: "user/orders", component: <UserOrders /> },
