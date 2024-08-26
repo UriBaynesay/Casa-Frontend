@@ -16,11 +16,7 @@ export function AppFooter() {
   return (
     <footer className={footerLayout}>
       <div className="footer-container">
-        <div className="copyright-container">Uri Baynesay © 2022</div>
-        <div className="site-settings-container">
-          <span> English (US)</span>
-          <span> $US</span>
-        </div>
+        <div className="copyright-container">© Uri Baynesay </div>
       </div>
     </footer>
   )
