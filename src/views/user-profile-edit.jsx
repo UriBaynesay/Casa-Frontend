@@ -47,7 +47,7 @@ export const UserProfileEdit = () => {
   }, [userId])
 
   return (
-    <Fragment>
+    <>
       <AppHeader />
       <main className="profile-edit-container">
         {user && (
@@ -80,6 +80,6 @@ export const UserProfileEdit = () => {
           </Fragment>
         )}
       </main>
-    </Fragment>
+    </>
   )
 }

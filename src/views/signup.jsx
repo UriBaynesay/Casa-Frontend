@@ -28,13 +28,13 @@ export const Signup = () => {
   }
 
   return (
-    <>
+    <div className="signup-page">
       <AppHeader />
-      <main className="signup-page main-layout">
+      <main className="main-layout">
         <section className="signup-container">
           <SignupForm handleSubmit={handleSubmit} />
         </section>
       </main>
-    </>
+    </div>
   )
 }

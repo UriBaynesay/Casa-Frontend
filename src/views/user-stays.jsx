@@ -24,7 +24,7 @@ export const UserStays = () => {
   }
 
   return (
-    <div>
+    <>
       <AppHeader />
       <main className="user-profile main-layout">
         <section className="user-stays-container">
@@ -32,6 +32,6 @@ export const UserStays = () => {
           {stays.length ? <StayList stays={stays}></StayList>:<p>No stays</p>}
         </section>
       </main>
-    </div>
+    </>
   )
 }

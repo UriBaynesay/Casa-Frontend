@@ -28,13 +28,13 @@ export const Login = () => {
   }
 
   return (
-    <>
+    <div className="login-page">
       <AppHeader />
-      <main className="login-page main-layout">
+      <main className="main-layout">
         <section className="login-container">
           <LoginForm handleSubmit={handleSubmit} />
         </section>
       </main>
-    </>
+    </div>
   )
 }

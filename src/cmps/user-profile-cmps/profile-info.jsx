@@ -2,7 +2,7 @@ import { useSelector } from "react-redux"
 import { Link } from "react-router-dom"
 
 export const ProfileInfo = ({ user, stays }) => {
-  const loggedInUserId = useSelector((store) => store.userModule.user._id)
+  const loggedInUserId = useSelector((store) => store.userModule.user?._id)
   const numOfReviews = stays.reduce((acc, stay) => {
     return acc + stay.reviews.length
   }, 0)

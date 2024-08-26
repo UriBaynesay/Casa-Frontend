@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 import { useSelector } from "react-redux"
 
 import { UserTripsList } from "../cmps/user-trips-cmps/user-trips-list"
@@ -37,7 +37,7 @@ export const UserTrips = () => {
   }
 
   return (
-    <Fragment>
+    <>
       <AppHeader />
       <main className="user-profile main-layout">
         <section className="user-trips-container">
@@ -47,6 +47,6 @@ export const UserTrips = () => {
           ):<p>No trips</p>}
         </section>
       </main>
-    </Fragment>
+    </>
   )
 }
