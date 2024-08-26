@@ -60,7 +60,7 @@ export const UserOrders = () => {
   }
 
   return (
-    <Fragment>
+    <>
       <AppHeader />
       <main className="user-profile main-layout">
         <section className="user-orders-container">
@@ -80,6 +80,6 @@ export const UserOrders = () => {
           )}
         </section>
       </main>
-    </Fragment>
+    </>
   )
 }

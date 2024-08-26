@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 import { AppHeader } from "../cmps/app-header"
 import { useParams } from "react-router-dom"
 import { userService } from "../services/user.service"
@@ -28,7 +28,7 @@ export const UserProfile = () => {
   }
 
   return (
-    <Fragment>
+    <div className="user-profile-page">
       <AppHeader />
       <main className="user-profile main-layout">
         {user && (
@@ -38,6 +38,6 @@ export const UserProfile = () => {
           </div>
         )}
       </main>
-    </Fragment>
+    </div>
   )
 }
