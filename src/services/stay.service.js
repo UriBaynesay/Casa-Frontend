@@ -113,6 +113,7 @@ export const stayService = {
   addReview,
   deleteStay,
   getTopRated,
+  getImageUrl
 }
 // QUERY you can pass as a filter {hostId,stayLocation,label,guestCount}
 async function query(filterBy) {
@@ -781,4 +782,12 @@ async function addReview(stayId, txt) {
   } catch (err) {
     throw err.data
   }
+}
+
+function getImageUrl(imgUrl) {
+  const BASE =
+    process.env.NODE_ENV === "production"
+      ? "/api/"
+      : "http://localhost:3030/api/"
+  return BASE + `assets/images?imageName=${imgUrl}`
 }

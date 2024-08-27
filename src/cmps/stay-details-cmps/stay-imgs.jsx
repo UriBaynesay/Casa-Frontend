@@ -1,5 +1,6 @@
 import "react-responsive-carousel/lib/styles/carousel.css"
 import { Carousel } from "react-responsive-carousel"
+import { stayService } from "../../services/stay.service"
 
 export const StayImgs = ({ imgUrls }) => {
   return (
@@ -9,11 +10,7 @@ export const StayImgs = ({ imgUrls }) => {
         <Carousel showThumbs={false} showArrows={false} showStatus={false}>
           {imgUrls.map((imgUrl) => {
             return (
-              <img
-                src={require(`../../assets/img/houses/${imgUrl}`)}
-                alt=""
-                key={imgUrl}
-              />
+              <img src={stayService.getImageUrl(imgUrl)} alt="" key={imgUrl} />
             )
           })}
         </Carousel>
@@ -23,7 +20,7 @@ export const StayImgs = ({ imgUrls }) => {
       <div className="stay-imgs-container">
         <img
           className="main-img-container"
-          src={require(`../../assets/img/houses/${imgUrls[0]}`)}
+          src={stayService.getImageUrl(imgUrls[0])}
           alt=""
         />
         {imgUrls.map((imgUrl, idx) => {
@@ -36,7 +33,7 @@ export const StayImgs = ({ imgUrls }) => {
               style={style}
               className="secondary-img-container"
               key={idx}
-              src={require(`../../assets/img/houses/${imgUrl}`)}
+              src={stayService.getImageUrl(imgUrl)}
               alt=""
             />
           )

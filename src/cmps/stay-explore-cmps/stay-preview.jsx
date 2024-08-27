@@ -4,6 +4,7 @@ import React from "react"
 import "react-responsive-carousel/lib/styles/carousel.css"
 import { Carousel } from "react-responsive-carousel"
 import starIcon from "../../assets/img/svgs/star.svg"
+import { stayService } from "../../services/stay.service"
 
 export function StayPreview({ stay }) {
   const calculatedStay = ((stay.reviewScores.rating / 100) * 5).toFixed(2)
@@ -13,22 +14,13 @@ export function StayPreview({ stay }) {
       <div className="stay-img-container">
         <Carousel showThumbs={false} showStatus={false}>
           <div>
-            <img
-              src={require(`../../assets/img/houses/${stay.imgUrls[0]}`)}
-              alt=""
-            />
+            <img src={stayService.getImageUrl(stay.imgUrls[0])} alt="" />
           </div>
           <div>
-            <img
-              src={require(`../../assets/img/houses/${stay.imgUrls[1]}`)}
-              alt=""
-            />
+            <img src={stayService.getImageUrl(stay.imgUrls[1])} alt="" />
           </div>
           <div>
-            <img
-              src={require(`../../assets/img/houses/${stay.imgUrls[2]}`)}
-              alt=""
-            />
+            <img src={stayService.getImageUrl(stay.imgUrls[2])} alt="" />
           </div>
         </Carousel>
       </div>
