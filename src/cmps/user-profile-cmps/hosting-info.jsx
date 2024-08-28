@@ -33,7 +33,7 @@ export const HostingInfo = ({ fullname, stays }) => {
 
       <div className="profile-stays-list-container">
         <h3>{fullname} Stays</h3>
-        {stays.length ? <StayList stays={stays}></StayList> : <p>No Stays</p>}
+        {stays.length ? <StayList stays={stays} isUserStayPage={false}></StayList> : <p>No Stays</p>}
       </div>
     </section>
   )
