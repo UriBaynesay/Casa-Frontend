@@ -113,7 +113,8 @@ export const stayService = {
   addReview,
   deleteStay,
   getTopRated,
-  getImageUrl
+  getImageUrl,
+  updateStay,
 }
 // QUERY you can pass as a filter {hostId,stayLocation,label,guestCount}
 async function query(filterBy) {
@@ -133,7 +134,7 @@ function getLabels() {
 }
 
 async function getTopRated() {
-    try {
+  try {
     const stays = await httpService.get(`${END_POINT}/top-stays`)
     return stays
   } catch (error) {
@@ -193,6 +194,14 @@ async function saveStay(stay) {
     } catch (error) {
       throw error.data
     }
+}
+
+async function updateStay(stayId, fields) {
+  try {
+    await httpService.put(`${END_POINT}/${stayId}`, fields)
+  } catch (error) {
+    throw error.data
+  }
 }
 
 async function addReview(stayId, txt) {

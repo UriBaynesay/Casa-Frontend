@@ -29,7 +29,11 @@ export const UserStays = () => {
       <main className="user-profile main-layout">
         <section className="user-stays-container">
           <h2>Your stays</h2>
-          {stays.length ? <StayList stays={stays}></StayList>:<p>No stays</p>}
+          {stays.length ? (
+            <StayList stays={stays} isUserStayPage={true}></StayList>
+          ) : (
+            <p>No stays</p>
+          )}
         </section>
       </main>
     </>

@@ -39,7 +39,7 @@ export const StayExplore = () => {
             <img src={require("../assets/img/Icons/filters.PNG")} alt="" />
           </div>
           <StayAppFilter onChangeFilter={onChangeFilter} />
-          {stays && <StayList stays={stays} />}
+          {stays && <StayList stays={stays} isUserStayPage={false}/>}
         </div>
       </main>
     </>

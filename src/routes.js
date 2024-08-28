@@ -31,7 +31,7 @@ const routes = [
     component: <StayDetails />,
   },
   {
-    path: "/stay/edit",
+    path: "/stay/edit/:stayId",
     component: <StayEdit />,
   },
   {

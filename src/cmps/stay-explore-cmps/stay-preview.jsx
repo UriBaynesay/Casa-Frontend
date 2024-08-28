@@ -6,7 +6,7 @@ import { Carousel } from "react-responsive-carousel"
 import starIcon from "../../assets/img/svgs/star.svg"
 import { stayService } from "../../services/stay.service"
 
-export function StayPreview({ stay }) {
+export function StayPreview({ stay, isUserStayPage }) {
   const calculatedStay = ((stay.reviewScores.rating / 100) * 5).toFixed(2)
 
   return (
@@ -36,6 +36,14 @@ export function StayPreview({ stay }) {
         <span className="stay-price">${stay.price.toLocaleString()}</span>{" "}
         <span className="stay-night">night</span>
       </div>
+      {isUserStayPage && (
+        <Link
+          to={`/stay/edit/${stay._id}`}
+          onClick={(ev) => ev.stopPropagation()}
+        >
+          Edit
+        </Link>
+      )}
     </Link>
   )
 }
