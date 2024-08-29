@@ -89,6 +89,9 @@
     overflow: hidden;
     .review-card {
       margin-bottom: 30px;
+      a{
+        display: inline-block;
+      }
       p {
         height: 72px;
         overflow: hidden;
