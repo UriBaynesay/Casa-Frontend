@@ -12,6 +12,7 @@ import { Logout } from "./views/logout"
 import { UserOrders } from "./views/user-orders"
 import { UserProfile } from "./views/user-profile"
 import { UserProfileEdit } from "./views/user-profile-edit"
+import { StayDelete } from "./views/stay-delete"
 
 const routes = [
   {
@@ -33,6 +34,10 @@ const routes = [
   {
     path: "/stay/edit/:stayId",
     component: <StayEdit />,
+  },
+  {
+    path: "/stay/delete/:stayId",
+    component: <StayDelete />,
   },
   {
     path: "/login",

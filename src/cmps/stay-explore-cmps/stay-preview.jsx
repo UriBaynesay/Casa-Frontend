@@ -37,12 +37,16 @@ export function StayPreview({ stay, isUserStayPage }) {
         <span className="stay-night">night</span>
       </div>
       {isUserStayPage && (
-        <Link
-          to={`/stay/edit/${stay._id}`}
-          onClick={(ev) => ev.stopPropagation()}
-        >
-          Edit
-        </Link>
+        <>
+          <Link
+          style={{display:'block'}}
+            to={`/stay/edit/${stay._id}`}
+            onClick={(ev) => ev.stopPropagation()}
+          >
+            Edit
+          </Link>
+          <Link style={{color:'darkred'}} to={`/stay/delete/${stay._id}`}>Delete</Link>
+        </>
       )}
     </Link>
   )

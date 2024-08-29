@@ -5,20 +5,15 @@ import routes from "./routes"
 import { UserMsg } from "./cmps/user-msg"
 import { AppFooter } from "./cmps/app-footer.jsx"
 import { useEffect } from "react"
-import { useDispatch } from "react-redux"
-import { onLogout } from "./store/action/user.action.js"
+import { userService } from "./services/user.service.js"
+import { useSelector } from "react-redux"
 
 export default function App() {
-  const dispatch = useDispatch()
-  const onBrowserSessionUnload = () => {
-    dispatch(onLogout())
-  }
-  useEffect(() => {
-    window.addEventListener("beforeunload", onBrowserSessionUnload)
+  const { user } = useSelector((store) => store.userModule)
 
-    return () => {
-      window.removeEventListener("beforeunload", onBrowserSessionUnload)
-    }
+  useEffect(() => {
+    if (!user) userService.logout()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (
