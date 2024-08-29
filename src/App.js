@@ -4,8 +4,23 @@ import "../src/styles/scss/main.scss"
 import routes from "./routes"
 import { UserMsg } from "./cmps/user-msg"
 import { AppFooter } from "./cmps/app-footer.jsx"
+import { useEffect } from "react"
+import { useDispatch } from "react-redux"
+import { onLogout } from "./store/action/user.action.js"
 
 export default function App() {
+  const dispatch = useDispatch()
+  const onBrowserSessionUnload = () => {
+    dispatch(onLogout())
+  }
+  useEffect(() => {
+    window.addEventListener("beforeunload", onBrowserSessionUnload)
+
+    return () => {
+      window.removeEventListener("beforeunload", onBrowserSessionUnload)
+    }
+  }, [])
+
   return (
     <div className="App">
       <Routes>
