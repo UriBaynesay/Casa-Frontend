@@ -117,7 +117,7 @@
         grid-area: nav;
         padding-top: 32px;
         > *:not(:last-child) {
-          padding-right: 35px;
+          margin-right: 35px;
         }
         .user {
           .user-nav-menu-modal {
