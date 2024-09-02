@@ -1,0 +1,27 @@
+.stay-edit-form-container {
+  display: flex;
+  flex-direction: column;
+  .submit-button {
+    margin-top: 24px;
+    width: fit-content;
+    align-self: center;
+  }
+  .form-inputs-container {
+    @media (max-width: 899px) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    @media (min-width: 900px) {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding-inline: 20vw;
+      place-items: center;
+      .amenities-container {
+        grid-column: 1 / -1;
+        display: grid;
+        grid-template-columns: auto auto auto;
+      }
+    }
+  }
+}
