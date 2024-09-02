@@ -2,9 +2,8 @@ import { useEffect, useState } from "react"
 import { AppHeader } from "../cmps/app-header"
 import { stayService } from "../services/stay.service"
 import { useParams } from "react-router-dom"
-import { Box, Button, TextField } from "@mui/material"
 import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service"
-import { StayForm } from "../cmps/stay-edis-cmps/stay-form"
+import { StayForm } from "../cmps/stay-edit-cmps/stay-form"
 
 export const StayEdit = () => {
   const { stayId } = useParams()
@@ -25,7 +24,7 @@ export const StayEdit = () => {
     }
   }
 
-  const onSubmit = async (fields) => {
+  const onSubmit = async (fields,images) => {
     const cleandField = {}
     Object.keys(fields).forEach((key) => (cleandField[key] = fields[key].value))
     try {
@@ -40,7 +39,7 @@ export const StayEdit = () => {
     <>
       <AppHeader />
       <main className="stay-edit-container become-host-layout">
-        {stay && <StayForm stay={stay} onSubmit={onSubmit}></StayForm>}
+        {stay && <StayForm stay={stay} onSubmit={onSubmit} isAdd={false}></StayForm>}
       </main>
     </>
   )

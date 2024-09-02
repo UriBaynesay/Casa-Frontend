@@ -109,7 +109,7 @@ export const stayService = {
   getAmenities,
   getLabels,
   getPopDestinations,
-  saveStay,
+  addStay,
   addReview,
   deleteStay,
   getTopRated,
@@ -163,37 +163,13 @@ async function deleteStay(stayId) {
   }
 }
 
-// name
-// summary
-// houseRules
-// propertyType
-// roomType
-// capacity
-// bedrooms
-// beds
-// amenities
-// address
-// bathrooms
-// price
-// imgUrls
-async function saveStay(stay) {
-  if (!stay._id) {
-    try {
-      const newStay = await httpService.post(END_POINT, stay)
-      return newStay
-    } catch (error) {
-      throw error.data
-    }
-  } else
-    try {
-      const updatedStay = await httpService.put(
-        `${END_POINT}/${stay._id}`,
-        stay
-      )
-      return updatedStay
-    } catch (error) {
-      throw error.data
-    }
+async function addStay(fields,images) {
+  try {
+    const newStay = await httpService.post(END_POINT,fields)
+    return newStay
+  } catch (error) {
+    throw error.data
+  }
 }
 
 async function updateStay(stayId, fields) {

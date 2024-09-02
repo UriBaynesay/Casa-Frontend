@@ -1,24 +1,3 @@
 .stay-edit-container {
   margin-top: 40px;
-  .stay-edit-form-container {
-    display: flex;
-    flex-direction: column;
-    .submit-button{
-        width: fit-content;
-        align-self: center;
-    }
-    .form-inputs-container {
-      @media (max-width: 899px) {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-      @media (min-width: 900px) {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        padding-inline: 20vw;
-        place-items: center;
-      }
-    }
-  }
 }
