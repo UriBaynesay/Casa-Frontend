@@ -13,7 +13,7 @@ export const StayTitleInfo = ({
       <div className="short-desc">
         <div className="stats">
           <span>
-            <img width="14px" src={starIcon} alt="" />{" "}
+            <img width="14px" src={starIcon} alt="" loading="lazy"/>{" "}
             {(reviewScores.rating / 100).toFixed(1) * 5} ·
           </span>
           <span className="reviews"> {reviews.length} reviews</span>

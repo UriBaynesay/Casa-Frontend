@@ -14,13 +14,17 @@ export function StayPreview({ stay, isUserStayPage }) {
       <div className="stay-img-container">
         <Carousel showThumbs={false} showStatus={false}>
           <div>
-            <img src={stayService.getImageUrl(stay.imgUrls[0])} alt="" />
+            <img src={stayService.getImageUrl(stay.imgUrls[0])} alt="" loading="lazy"/>
           </div>
           <div>
-            <img src={stayService.getImageUrl(stay.imgUrls[1])} alt="" />
+            <img
+              src={stayService.getImageUrl(stay.imgUrls[1])}
+              alt=""
+              loading="lazy"
+            />
           </div>
           <div>
-            <img src={stayService.getImageUrl(stay.imgUrls[2])} alt="" />
+            <img src={stayService.getImageUrl(stay.imgUrls[2])} alt="" loading="lazy"/>
           </div>
         </Carousel>
       </div>
@@ -39,13 +43,15 @@ export function StayPreview({ stay, isUserStayPage }) {
       {isUserStayPage && (
         <>
           <Link
-          style={{display:'block'}}
+            style={{ display: "block" }}
             to={`/stay/edit/${stay._id}`}
             onClick={(ev) => ev.stopPropagation()}
           >
             Edit
           </Link>
-          <Link style={{color:'darkred'}} to={`/stay/delete/${stay._id}`}>Delete</Link>
+          <Link style={{ color: "darkred" }} to={`/stay/delete/${stay._id}`}>
+            Delete
+          </Link>
         </>
       )}
     </Link>

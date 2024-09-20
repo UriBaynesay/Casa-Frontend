@@ -6,7 +6,7 @@ import { stayService } from "../services/stay.service"
 import { ProfileInfo } from "../cmps/user-profile-cmps/profile-info"
 import { HostingInfo } from "../cmps/user-profile-cmps/hosting-info"
 
-export const UserProfile = () => {
+const UserProfile = () => {
   const params = useParams()
   const [user, setUser] = useState()
   const [stays, setStays] = useState([])
@@ -41,3 +41,5 @@ export const UserProfile = () => {
     </div>
   )
 }
+
+export default UserProfile

@@ -20,7 +20,7 @@ export const ProfileInfo = ({ user, stays }) => {
       {user && (
         <div className="profile-details-container">
           <div className="profile-image-container">
-            <img src={user.imgUrl} alt="" />
+            <img src={user.imgUrl} alt="" loading="lazy"/>
           </div>
           <h3>{user.fullname}</h3>
           {loggedInUserId === user._id && <Link to={`/user/profile/edit/${loggedInUserId}`}>Edit</Link>}

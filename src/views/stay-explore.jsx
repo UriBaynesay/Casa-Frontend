@@ -6,7 +6,7 @@ import { loadStays, setFilterBy } from "../store/action/stay.action.js"
 import { StayAppFilter } from "../cmps/stay-explore-cmps/stay-app-filter.jsx"
 import { AppHeader } from "../cmps/app-header.jsx"
 
-export const StayExplore = () => {
+const StayExplore = () => {
   const { stays } = useSelector((storeState) => storeState.stayModule)
   const { filterBy } = useSelector((storeState) => storeState.stayModule)
   const [filterIconsOpen, setFilterIconsOpen] = useState(false)
@@ -36,7 +36,7 @@ export const StayExplore = () => {
       <main className="main-layout">
         <div className="stay-app-container">
           <div className="filter-btn-container" onClick={onToggleSideBar}>
-            <img src={require("../assets/img/Icons/filters.PNG")} alt="" />
+            <img src={require("../assets/img/Icons/filters.PNG")} alt="" loading="lazy"/>
           </div>
           <StayAppFilter onChangeFilter={onChangeFilter} />
           {stays && <StayList stays={stays} isUserStayPage={false}/>}
@@ -45,3 +45,5 @@ export const StayExplore = () => {
     </>
   )
 }
+
+export default StayExplore

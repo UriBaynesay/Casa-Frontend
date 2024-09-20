@@ -63,7 +63,7 @@ export const AppHeader = ({ theme }) => {
     <header className={`app-header ${headerLayoutClass}`}>
       <div className={`header-container ${headerClass}`}>
         <div className="logo-container">
-          <img className="img-logo" src={img} alt="" />
+          <img className="img-logo" src={img} alt="" loading="lazy"/>
           <Link to="/">
             <h1 className="text-logo">Casa</h1>
           </Link>

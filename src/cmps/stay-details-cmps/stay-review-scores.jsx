@@ -4,7 +4,7 @@ export const StayReviewScore = ({ reviewScores, reviews }) => {
   return (
     <div className="reviews-score">
       <h1>
-        <img width="14px" src={starIcon} alt="" />{" "}
+        <img width="14px" src={starIcon} alt="" loading="lazy"/>{" "}
         {(reviewScores.rating / 100).toFixed(1) * 5} · {reviews.length} reviews
       </h1>
       <div className="rating-breakdown">

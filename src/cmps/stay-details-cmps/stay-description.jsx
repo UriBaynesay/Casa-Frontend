@@ -17,7 +17,7 @@ export const StayDescription = ({stay})=>{
           <Link to={`/user/profile/${stay.host._id}`}>
             {" "}
             <div className="host-img-container">
-              <img src={stay.host.thumbnailUrl} alt="" />
+              <img src={stay.host.thumbnailUrl} alt="" loading="lazy"/>
             </div>
           </Link>
         </section>

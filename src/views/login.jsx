@@ -6,7 +6,7 @@ import { onLogin } from "../store/action/user.action.js"
 import { LoginForm } from "../cmps/login-cmps/login-form.jsx"
 import { AppHeader } from "../cmps/app-header.jsx"
 
-export const Login = () => {
+const Login = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
@@ -38,3 +38,5 @@ export const Login = () => {
     </div>
   )
 }
+
+export default Login

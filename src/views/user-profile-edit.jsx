@@ -7,7 +7,7 @@ import { userService } from "../services/user.service"
 import { showUserMsg } from "../services/event-bus.service"
 import { onUpdate } from "../store/action/user.action"
 
-export const UserProfileEdit = () => {
+const UserProfileEdit = () => {
   const userId = useSelector((store) => store.userModule.user._id)
   const dispatch = useDispatch()
   const [user, setUser] = useState(null)
@@ -33,7 +33,7 @@ export const UserProfileEdit = () => {
   const onSubmit = async (ev) => {
     ev.preventDefault()
     try {
-      const user = await userService.update(inputFields,userId)
+      const user = await userService.update(inputFields, userId)
       dispatch(onUpdate(user))
       showUserMsg("Profile edited succesfully!", "success")
     } catch (error) {
@@ -43,7 +43,7 @@ export const UserProfileEdit = () => {
 
   useEffect(() => {
     loadUser()
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [userId])
 
   return (
@@ -83,3 +83,5 @@ export const UserProfileEdit = () => {
     </>
   )
 }
+
+export default UserProfileEdit

@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom"
 import { AppHeader } from "../cmps/app-header"
 
-export const HostPage = () => {
+const HostPage = () => {
   const navigator = useNavigate()
   const goToUserDetails = () => {
     navigator("/userdetails/orders")
@@ -23,3 +23,5 @@ export const HostPage = () => {
     </>
   )
 }
+
+export default HostPage

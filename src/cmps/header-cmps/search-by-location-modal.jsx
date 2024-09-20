@@ -23,6 +23,7 @@ export const LocationModal = ({ onSetFilter, onCloseModal }) => {
                 <img
                   src={require(`../../assets/img/countries/${location} search.png`)}
                   alt=""
+                  loading="lazy"
                 />
               </div>
               <h4>{location}</h4>

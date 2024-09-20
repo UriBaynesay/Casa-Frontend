@@ -7,7 +7,7 @@ import { StayDescription } from "../cmps/stay-details-cmps/stay-description"
 import { Button } from "@mui/material"
 import DeleteIcon from "@mui/icons-material/Delete"
 
-export const StayDelete = () => {
+const StayDelete = () => {
   const { stayId } = useParams()
   const navigate = useNavigate()
   const [stay, setStay] = useState()
@@ -63,3 +63,5 @@ export const StayDelete = () => {
     </>
   )
 }
+
+export default StayDelete

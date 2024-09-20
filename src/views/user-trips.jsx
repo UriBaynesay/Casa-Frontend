@@ -9,7 +9,7 @@ import {
 import { orderService } from "../services/order.service"
 import { AppHeader } from "../cmps/app-header"
 
-export const UserTrips = () => {
+const UserTrips = () => {
   const [trips, setTrips] = useState([])
   const { user } = useSelector((storeState) => storeState.userModule)
 
@@ -50,3 +50,5 @@ export const UserTrips = () => {
     </>
   )
 }
+
+export default UserTrips
