@@ -12,7 +12,7 @@ import { UserOrdersStats } from "../cmps/user-orders-cmps/user-orders-stats"
 import { updateUserNotification } from "../store/action/user.action"
 import { AppHeader } from "../cmps/app-header"
 
-export const UserOrders = () => {
+const UserOrders = () => {
   const [orders, setOrders] = useState([])
   const tableTitles = [
     { class: "stay-name-title", title: "Stay name" },
@@ -70,7 +70,9 @@ export const UserOrders = () => {
             <Fragment>
               <div className="user-orders-table-titles-container">
                 {tableTitles.map((title) => (
-                  <h4 className={title.class} key={title.title}>{title.title}</h4>
+                  <h4 className={title.class} key={title.title}>
+                    {title.title}
+                  </h4>
                 ))}
               </div>
               <UserOrdersList orders={orders} onUpdateOrder={onUpdateOrder} />
@@ -83,3 +85,5 @@ export const UserOrders = () => {
     </>
   )
 }
+
+export default UserOrders

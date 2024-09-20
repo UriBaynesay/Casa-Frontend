@@ -1,19 +1,21 @@
-import React from "react"
 import { Homepage } from "./views/Homepage"
-import { StayExplore } from "./views/stay-explore"
-import { HostPage } from "./views/host-page"
-import { StayDetails } from "./views/stay-details"
-import { StayEdit } from "./views/stay-edit"
-import { Login } from "./views/login"
-import { Signup } from "./views/signup"
-import { UserTrips } from "./views/user-trips"
-import { UserStays } from "./views/user-stays"
-import { Logout } from "./views/logout"
-import { UserOrders } from "./views/user-orders"
-import { UserProfile } from "./views/user-profile"
-import { UserProfileEdit } from "./views/user-profile-edit"
-import { StayDelete } from "./views/stay-delete"
-import { StayAdd } from "./views/stay-add"
+import { lazy } from "react"
+import { Suspense } from "react"
+
+const StayExploerPage = lazy(() => import("./views/stay-explore"))
+const HostPage = lazy(() => import("./views/host-page"))
+const StayDetailsPage = lazy(() => import("./views/stay-details"))
+const StayEditPage = lazy(() => import("./views/stay-edit"))
+const LoginPage = lazy(() => import("./views/login"))
+const SignupPage = lazy(() => import("./views/signup"))
+const UserTripsPage = lazy(() => import("./views/user-trips"))
+const UserStaysPage = lazy(() => import("./views/user-stays"))
+const LogoutPage = lazy(() => import("./views/logout"))
+const UserOrdersPage = lazy(() => import("./views/user-orders"))
+const UserProfilePage = lazy(() => import("./views/user-profile"))
+const UserProfileEditPage = lazy(() => import("./views/user-profile-edit"))
+const StayDeletePage = lazy(() => import("./views/stay-delete"))
+const StayAddPage = lazy(() => import("./views/stay-add"))
 
 const routes = [
   {
@@ -22,50 +24,115 @@ const routes = [
   },
   {
     path: "/stays",
-    component: <StayExplore />,
+    component: (
+      <Suspense>
+        <StayExploerPage />
+      </Suspense>
+    ),
   },
   {
     path: "/host",
-    component: <HostPage />,
+    component: (
+      <Suspense>
+        <HostPage />
+      </Suspense>
+    ),
   },
   {
     path: "/stay/details/:stayId",
-    component: <StayDetails />,
+    component: (
+      <Suspense>
+        <StayDetailsPage />
+      </Suspense>
+    ),
   },
   {
     path: "/stay/edit/:stayId",
-    component: <StayEdit />,
+    component: (
+      <Suspense>
+        <StayEditPage />
+      </Suspense>
+    ),
   },
   {
     path: "/stay/add/",
-    component: <StayAdd />,
+    component: (
+      <Suspense>
+        <StayAddPage />
+      </Suspense>
+    ),
   },
   {
     path: "/stay/delete/:stayId",
-    component: <StayDelete />,
+    component: (
+      <Suspense>
+        <StayDeletePage />
+      </Suspense>
+    ),
   },
   {
     path: "/login",
-    component: <Login />,
+    component: (
+      <Suspense>
+        <LoginPage />
+      </Suspense>
+    ),
   },
   {
     path: "/signup",
-    component: <Signup />,
+    component: (
+      <Suspense>
+        <SignupPage />
+      </Suspense>
+    ),
   },
   {
     path: "user/profile/:userId",
-    component: <UserProfile />,
+    component: (
+      <Suspense>
+        <UserProfilePage />
+      </Suspense>
+    ),
   },
   {
     path: "user/profile/edit/:userId",
-    component: <UserProfileEdit />,
+    component: (
+      <Suspense>
+        <UserProfileEditPage />
+      </Suspense>
+    ),
   },
-  { path: "user/trips", component: <UserTrips /> },
-  { path: "user/orders", component: <UserOrders /> },
-  { path: "user/stays", component: <UserStays /> },
+  {
+    path: "user/trips",
+    component: (
+      <Suspense>
+        <UserTripsPage />
+      </Suspense>
+    ),
+  },
+  {
+    path: "user/orders",
+    component: (
+      <Suspense>
+        <UserOrdersPage />
+      </Suspense>
+    ),
+  },
+  {
+    path: "user/stays",
+    component: (
+      <Suspense>
+        <UserStaysPage />
+      </Suspense>
+    ),
+  },
   {
     path: "user/logout",
-    component: <Logout />,
+    component: (
+      <Suspense>
+        <LogoutPage />
+      </Suspense>
+    ),
   },
 ]
 

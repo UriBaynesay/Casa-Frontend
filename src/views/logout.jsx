@@ -4,7 +4,7 @@ import { socketService } from "../services/socket.service"
 import { onLogout } from "../store/action/user.action"
 import { useEffect } from "react"
 
-export const Logout = ()=>{
+const Logout = ()=>{
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
@@ -19,3 +19,4 @@ export const Logout = ()=>{
     navigate("/")
   }
 }
+export default Logout

@@ -11,7 +11,7 @@ export const UserNav = ({ user }) => {
   return (
     <div className="user" onClick={onOpenModal}>
       {user?.notification && <div className="notification"></div>}
-      <img className="user-pic" src={user.imgUrl} alt="" />
+      <img className="user-pic" src={user.imgUrl} alt="" loading="lazy"/>
       {isOpen && <UserDetailsNavModal userId={user._id}></UserDetailsNavModal>}
     </div>
   )

@@ -5,7 +5,7 @@ import { AppHeader } from "../cmps/app-header"
 import { stayService } from "../services/stay.service"
 import { StayList } from "../cmps/stay-explore-cmps/stay-list"
 
-export const UserStays = () => {
+const UserStays = () => {
   const [stays, setStays] = useState([])
   const { user } = useSelector((storeState) => storeState.userModule)
 
@@ -39,3 +39,5 @@ export const UserStays = () => {
     </>
   )
 }
+
+export default UserStays

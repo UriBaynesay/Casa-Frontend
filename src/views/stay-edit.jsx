@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom"
 import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service"
 import { StayForm } from "../cmps/stay-edit-cmps/stay-form"
 
-export const StayEdit = () => {
+const StayEdit = () => {
   const { stayId } = useParams()
   const [stay, setStay] = useState()
 
@@ -44,3 +44,5 @@ export const StayEdit = () => {
     </>
   )
 }
+
+export default StayEdit

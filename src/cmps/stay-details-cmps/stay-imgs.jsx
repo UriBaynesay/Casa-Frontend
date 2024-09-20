@@ -10,7 +10,7 @@ export const StayImgs = ({ imgUrls }) => {
         <Carousel showThumbs={false} showArrows={false} showStatus={false}>
           {imgUrls.map((imgUrl) => {
             return (
-              <img src={stayService.getImageUrl(imgUrl)} alt="" key={imgUrl} />
+              <img src={stayService.getImageUrl(imgUrl)} alt="" key={imgUrl} loading="lazy"/>
             )
           })}
         </Carousel>
@@ -22,6 +22,7 @@ export const StayImgs = ({ imgUrls }) => {
           className="main-img-container"
           src={stayService.getImageUrl(imgUrls[0])}
           alt=""
+          loading="lazy"
         />
         {imgUrls.map((imgUrl, idx) => {
           if (idx === 0) return null
@@ -35,6 +36,7 @@ export const StayImgs = ({ imgUrls }) => {
               key={idx}
               src={stayService.getImageUrl(imgUrl)}
               alt=""
+              loading="lazy"
             />
           )
         })}

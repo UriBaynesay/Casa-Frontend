@@ -6,7 +6,7 @@ import { onSignup } from "../store/action/user.action.js"
 import { SignupForm } from "../cmps/signup-cmps/signup-form.jsx"
 import { AppHeader } from "../cmps/app-header.jsx"
 
-export const Signup = () => {
+const Signup = () => {
   const dispatch = useDispatch()
   const loggedInUser = useSelector((storeState) => storeState.userModule.user)
   const navigate = useNavigate()
@@ -38,3 +38,5 @@ export const Signup = () => {
     </div>
   )
 }
+
+export default Signup

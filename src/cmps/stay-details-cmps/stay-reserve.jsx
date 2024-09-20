@@ -73,7 +73,7 @@ export const Reserve = ({
           </h1>
           <div className="stats">
             <span>
-              <img width="14px" src={starIcon} alt="" />{" "}
+              <img width="14px" src={starIcon} alt="" loading="lazy"/>{" "}
               {(rating / 100).toFixed(1) * 5} ·
             </span>
             <span className="reviews"> {reviewsLength} reviews</span>

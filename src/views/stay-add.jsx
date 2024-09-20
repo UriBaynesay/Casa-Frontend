@@ -3,7 +3,7 @@ import { StayForm } from "../cmps/stay-edit-cmps/stay-form"
 import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service"
 import { stayService } from "../services/stay.service"
 
-export const StayAdd = () => {
+const StayAdd = () => {
   const mockStay = {
     name: "",
     summary: "",
@@ -19,15 +19,15 @@ export const StayAdd = () => {
     bathrooms: 0,
     price: 0,
     securityDeposit: 0,
-    amenities:[],
-    imgUrls:[]
+    amenities: [],
+    imgUrls: [],
   }
 
-  const onSubmit = async (fields,images) => {
+  const onSubmit = async (fields, images) => {
     const cleandField = {}
     Object.keys(fields).forEach((key) => (cleandField[key] = fields[key].value))
     try {
-      await stayService.addStay(fields,images)
+      await stayService.addStay(fields, images)
       showSuccessMsg("Added stay succesfully")
     } catch (error) {
       showErrorMsg(error)
@@ -42,3 +42,5 @@ export const StayAdd = () => {
     </>
   )
 }
+
+export default StayAdd

@@ -5,7 +5,11 @@ export const TopRatedPreview = ({ stay }) => {
   return (
     <div className="card">
       <Link to={`/stay/details/${stay._id}`}>
-        <img src={stayService.getImageUrl(stay.imgUrls[0])} alt="" />
+        <img
+          src={stayService.getImageUrl(stay.imgUrls[0])}
+          alt=""
+          loading="lazy"
+        />
         <div className="city-details">
           <span className="title">{stay.name} </span>
           <span className="street">{stay.address.street}</span>

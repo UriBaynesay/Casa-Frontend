@@ -13,7 +13,7 @@ import { AddReview } from "../cmps/stay-details-cmps/add-review"
 import { showUserMsg } from "../services/event-bus.service"
 import { AppHeader } from "../cmps/app-header"
 
-export const StayDetails = () => {
+const StayDetails = () => {
   const params = useParams()
   const navigate = useNavigate()
   const { user } = useSelector((storeState) => storeState.userModule)
@@ -93,3 +93,5 @@ export const StayDetails = () => {
     </>
   )
 }
+
+export default StayDetails
