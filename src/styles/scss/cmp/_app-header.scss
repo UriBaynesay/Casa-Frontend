@@ -7,8 +7,18 @@
     border: none;
     z-index: 20;
   }
+  &.stay-list {
+    position: sticky;
+    top: 0px;
+    z-index: 30;
+  }
   .header-container {
     grid-area: content;
+    display: flex;
+    justify-content: center;
+    .logo-container {
+      display: none;
+    }
     nav {
       .user {
         cursor: pointer;
@@ -46,11 +56,6 @@
       }
     }
     @media (max-width: 1149px) {
-      display: flex;
-      justify-content: center;
-      .logo-container {
-        display: none;
-      }
       nav {
         position: fixed;
         bottom: 0px;
@@ -77,12 +82,6 @@
 
   @media (min-width: 1150px) {
     border-bottom: 1px solid $light-grey;
-
-    &.stay-list {
-      position: sticky;
-      top: 0px;
-      z-index: 30;
-    }
 
     .header-container {
       display: grid;
