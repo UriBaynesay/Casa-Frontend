@@ -63,7 +63,7 @@ export const AppHeader = ({ theme }) => {
     <header className={`app-header ${headerLayoutClass}`}>
       <div className={`header-container ${headerClass}`}>
         <div className="logo-container">
-          <img className="img-logo" src={img} alt="" loading="lazy"/>
+          <img className="img-logo" src={img} alt="" loading="lazy" />
           <Link to="/">
             <h1 className="text-logo">Casa</h1>
           </Link>
@@ -86,7 +86,7 @@ export const AppHeader = ({ theme }) => {
             Explore
           </Link>
 
-          <Link className="host" to="/host">
+          <Link className="host" to="/stay/add/">
             Become a host
           </Link>
 

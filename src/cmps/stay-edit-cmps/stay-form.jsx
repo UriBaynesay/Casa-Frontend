@@ -6,6 +6,7 @@ export const StayForm = ({ stay, onSubmit, isAdd }) => {
   const {
     name,
     summary,
+    address,
     interaction,
     amenities,
     houseRules,
@@ -25,7 +26,6 @@ export const StayForm = ({ stay, onSubmit, isAdd }) => {
     name: { value: name, inputLabel: "Name" },
     summary: { value: summary, inputLabel: "Summary" },
     interaction: { value: interaction, inputLabel: "Interaction" },
-
     houseRules: { value: houseRules, inputLabel: "House rules" },
     propertyType: { value: propertyType, inputLabel: "Property type" },
     roomType: { value: roomType, inputLabel: "Room type" },
@@ -76,17 +76,17 @@ export const StayForm = ({ stay, onSubmit, isAdd }) => {
         ev.preventDefault()
         console.log(ev)
 
-        onSubmit(fields, images)
+        onSubmit(ev.target)
       }}
       encType="multipart/form-data"
     >
+      <h2>{isAdd ? "Add" : "Edit"} your stay</h2>
       <div className="form-inputs-container">
-        {Object.keys(fields).map((key) => {
-          return (
-            <Box>
-              {key === "amenities" ? (
-                <></>
-              ) : (
+        {Object.keys(fields)
+          .filter((key) => key !== "amenities")
+          .map((key) => {
+            return (
+              <Box>
                 <TextField
                   label={fields[key].inputLabel}
                   margin="dense"
@@ -97,29 +97,30 @@ export const StayForm = ({ stay, onSubmit, isAdd }) => {
                   required={isAdd}
                   onChange={handleChange}
                 />
-              )}
+              </Box>
+            )
+          })}
+        {Object.keys(address).map((key) => {
+          return (
+            <Box>
+              <TextField
+                label={key}
+                margin="dense"
+                name={key}
+                defaultValue={address[key]}
+                type="text"
+                placeholder={key}
+                required={isAdd}
+              />
             </Box>
           )
         })}
-        <div className="amenities-container">
-          {stayService.getAmenities().map((amenity) => (
-            <label>
-              <input
-                onChange={handleChange}
-                name="amenities"
-                id={amenity}
-                type="checkbox"
-                checked={fields.amenities.value.includes(amenity)}
-              />
-              {amenity}
-            </label>
-          ))}
-        </div>
         {isAdd && (
-          <>
+          <div className="images-input-container">
             {images.map((img, idx) => {
               return (
                 <input
+                  name="images"
                   id={idx}
                   key={idx}
                   type="file"
@@ -134,8 +135,22 @@ export const StayForm = ({ stay, onSubmit, isAdd }) => {
                 />
               )
             })}
-          </>
+          </div>
         )}
+        <div className="amenities-container">
+          {stayService.getAmenities().map((amenity) => (
+            <label>
+              <input
+                onChange={handleChange}
+                name="amenities"
+                id={amenity}
+                type="checkbox"
+                checked={fields.amenities.value.includes(amenity)}
+              />
+              {amenity}
+            </label>
+          ))}
+        </div>
       </div>
 
       <Button className="submit-button" variant="outlined" type="submit">

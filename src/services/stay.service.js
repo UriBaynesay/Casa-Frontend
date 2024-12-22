@@ -64,16 +64,11 @@ const amenities = [
   "Long term stays allowed",
   "Ground floor access",
   "Wide hallway clearance",
-  "Step-free access",
   "Wide doorway",
   "Flat path to front door",
   "Well-lit path to entrance",
   "Disabled parking spot",
-  "Step-free access",
-  "Wide doorway",
   "Wide clearance to bed",
-  "Step-free access",
-  "Wide doorway",
   "Step-free access",
   "Wide entryway",
   "Waterfront",
@@ -163,9 +158,9 @@ async function deleteStay(stayId) {
   }
 }
 
-async function addStay(fields,images) {
+async function addStay(data) {
   try {
-    const newStay = await httpService.post(END_POINT,fields)
+    const newStay = await httpService.post(END_POINT,data)
     return newStay
   } catch (error) {
     throw error.data

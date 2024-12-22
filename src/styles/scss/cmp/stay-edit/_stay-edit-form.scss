@@ -1,25 +1,30 @@
 .stay-edit-form-container {
-  display: flex;
-  flex-direction: column;
+  margin-inline-start: 24px;
+  h2{
+    text-align: center;
+  }
   .submit-button {
     margin-top: 24px;
-    width: fit-content;
-    align-self: center;
+    display: block;
+    margin-inline: auto;
   }
   .form-inputs-container {
-    @media (max-width: 899px) {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+    &>*{
+      margin-top: 8px;
+    }
+    .amenities-container {
+      display: grid;
+      grid-template-columns: auto auto;
+      grid-column: 1 / -1;
+    }
+    .images-input-container{
+      grid-column: 1 / -1;
     }
     @media (min-width: 900px) {
       display: grid;
       grid-template-columns: 1fr 1fr;
       padding-inline: 20vw;
-      place-items: center;
       .amenities-container {
-        grid-column: 1 / -1;
-        display: grid;
         grid-template-columns: auto auto auto;
       }
     }

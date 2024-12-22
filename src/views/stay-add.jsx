@@ -8,6 +8,11 @@ const StayAdd = () => {
     name: "",
     summary: "",
     interaction: "",
+    address:{
+      street:"",
+      city:"",
+      country:""
+    },
     houseRules: "",
     propertyType: "",
     roomType: "",
@@ -23,11 +28,10 @@ const StayAdd = () => {
     imgUrls: [],
   }
 
-  const onSubmit = async (fields, images) => {
-    const cleandField = {}
-    Object.keys(fields).forEach((key) => (cleandField[key] = fields[key].value))
+  const onSubmit = async (form) => {
+    const cleandField = new FormData(form)
     try {
-      await stayService.addStay(fields, images)
+      await stayService.addStay(cleandField)
       showSuccessMsg("Added stay succesfully")
     } catch (error) {
       showErrorMsg(error)
