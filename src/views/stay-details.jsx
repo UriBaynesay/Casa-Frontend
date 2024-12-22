@@ -79,12 +79,14 @@ const StayDetails = () => {
 
             <AddReview loggedInUser={user} addReview={addReview} />
 
-            <Map
-              center={{
-                lng: stay.address.location.lat,
-                lat: stay.address.location.lan,
-              }}
-            />
+            {stay.address.location && (
+              <Map
+                center={{
+                  lng: stay.address.location.lat,
+                  lat: stay.address.location.lan,
+                }}
+              />
+            )}
           </section>
         ) : (
           <div></div>

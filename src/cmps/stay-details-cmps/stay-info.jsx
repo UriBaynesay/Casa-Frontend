@@ -2,7 +2,6 @@ import { stayService } from "../../services/stay.service"
 import { useState } from "react"
 
 import { AmenityIcon } from "./amenity-icon"
-import { Link } from "react-router-dom"
 import { StayDescription } from "./stay-description"
 
 export const StayInfo = ({ stay }) => {
