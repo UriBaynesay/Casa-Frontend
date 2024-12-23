@@ -3,7 +3,6 @@ import { NavLink as Link } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
 
 import { StaySearch } from "./header-cmps/stay-search.jsx"
-import { setFilterBy } from "../store/action/stay.action"
 import { updateUserNotification } from "../store/action/user.action"
 import logoImg from "../assets/img/logo/new-logo.svg"
 import logoImg2 from "../assets/img/logo/whitelogo.png"
@@ -79,9 +78,6 @@ export const AppHeader = ({ theme }) => {
           <Link
             className="explore"
             to="/stays"
-            onClick={() => {
-              dispatch(setFilterBy(null))
-            }}
           >
             Explore
           </Link>

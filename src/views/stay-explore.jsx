@@ -2,25 +2,25 @@ import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 
 import { StayList } from "../cmps/stay-explore-cmps/stay-list.jsx"
-import { loadStays, setFilterBy } from "../store/action/stay.action.js"
+import { loadStays } from "../store/action/stay.action.js"
 import { StayAppFilter } from "../cmps/stay-explore-cmps/stay-app-filter.jsx"
 import { AppHeader } from "../cmps/app-header.jsx"
+import { useSearchParams } from "react-router-dom"
 
 const StayExplore = () => {
   const { stays } = useSelector((storeState) => storeState.stayModule)
-  const { filterBy } = useSelector((storeState) => storeState.stayModule)
+  const [searchParams] = useSearchParams()
   const [filterIconsOpen, setFilterIconsOpen] = useState(false)
 
   const dispatch = useDispatch()
   useEffect(() => {
     window.scrollTo(0, 0)
-    dispatch(loadStays())
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [filterBy])
 
-  const onChangeFilter = (filterStaysBy) => {
-    dispatch(setFilterBy(filterStaysBy))
-    dispatch(loadStays())
+    dispatch(loadStays(searchParams))
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchParams])
+
+  const onChangeFilter = () => {
     if (filterIconsOpen) onToggleSideBar()
   }
 
@@ -36,10 +36,14 @@ const StayExplore = () => {
       <main className="main-layout">
         <div className="stay-app-container">
           <div className="filter-btn-container" onClick={onToggleSideBar}>
-            <img src={require("../assets/img/Icons/filters.PNG")} alt="" loading="lazy"/>
+            <img
+              src={require("../assets/img/Icons/filters.PNG")}
+              alt=""
+              loading="lazy"
+            />
           </div>
           <StayAppFilter onChangeFilter={onChangeFilter} />
-          {stays && <StayList stays={stays} isUserStayPage={false}/>}
+          {stays && <StayList stays={stays} isUserStayPage={false} />}
         </div>
       </main>
     </>

@@ -9,15 +9,6 @@ export function stayReducer(state = initialState, action) {
     case "SET_STAYS":
       newState = { ...state, stays: action.stays }
       break
-    case "SET_FILTER_BY":
-      if (action.filterBy === null)
-        newState = { ...state, filterBy: action.filterBy }
-      else
-        newState = {
-          ...state,
-          filterBy: { ...state.filterBy, ...action.filterBy },
-        }
-      break
     default:
   }
   return newState
