@@ -10,7 +10,7 @@ export const UserMsg = () => {
       setMsg(msg)
       setTimeout(() => {
         setMsg(null)
-      }, 2500)
+      }, 2000)
     })
 
     return () => {
