@@ -3,7 +3,7 @@ import { useNavigate, useLocation } from "react-router-dom"
 import { useDispatch } from "react-redux"
 
 import { SearchModal } from "./search-modal.jsx"
-import { setFilterBy, setStays } from "../../store/action/stay.action.js"
+import { setStays } from "../../store/action/stay.action.js"
 
 import SearchIcon from "@mui/icons-material/Search"
 
@@ -30,15 +30,18 @@ export const StaySearch = () => {
 
   const onSearch = (ev = null) => {
     if (ev) ev.preventDefault()
-    dispatch(setFilterBy(searchBy))
-    setSearchBy({})
+    // dispatch(setFilterBy(searchBy))
+    // setSearchBy({})
+    const urlSearchParams = new URLSearchParams()
+    for(const key in searchBy){
+      urlSearchParams.append(key,searchBy[key])
+    }
     setOpenModal(null)
-    navigate("/stays")
+    navigate("/stays?"+urlSearchParams.toString())
   }
 
   useEffect(() => {
     if (location.pathname !== "/stays") {
-      dispatch(setFilterBy(null))
       dispatch(setStays(null))
     }
 
